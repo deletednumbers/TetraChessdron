@@ -20,10 +20,31 @@ namespace TetraChessdron
         }
         private static List<List<List<string>>> WriteTetrahedronBoardOntoCube() 
         {
-            List<List<List<string>>> tetrahedronInACube = new List<List<List<string>>>();
+            List<List<List<string>>> tetrahedronInACube = xYZCube;
+
+            TetrahedronCell newCell = new TetrahedronCell();
+
+            for (var x = 1; x < 9; x++)
+            {
+                for (var y = 1; y < 9; y++)
+                {
+                    for (var z = 1; z < 9; z++)
+                    {
+                        if (x > 8 | y > 8 | z > 8)
+                        {
+                            break;
+                        }
+                        if (x + y + z > 17)
+                        {
+                            break;
+                        }
+                        xYZCube[x][y][z] = "-0-";
+                    }
+                }
+            }
+
             return tetrahedronInACube;
         }
-
         private static List<List<List<string>>> MakeCube()
         {
             List<List<List<string>>> cube = new List<List<List<string>>>();
@@ -108,7 +129,7 @@ namespace TetraChessdron
             Console.WriteLine($"    |"+xYZCube[2][4][3]+"|"+xYZCube[3][4][4]+"|"+xYZCube[4][4][5]+"|"+xYZCube[5][4][6]+"|"+xYZCube[6][4][7]+"|");
             Console.WriteLine($"|---|---|---|---|---|---|");
             Console.WriteLine($"|"+xYZCube[1][4][4]+"|"+xYZCube[2][4][5]+"|"+xYZCube[3][4][6]+"|"+xYZCube[4][4][7]+"|"+xYZCube[5][4][8]+"|");
-            Console.WriteLine($"|---|---|---|---|---|---|");
+            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
             Console.WriteLine($"        |"+xYZCube[3][3][1]+"|"+xYZCube[4][3][2]+"|"+xYZCube[5][3][3]+"|"+xYZCube[6][3][4]+"|"+xYZCube[7][3][5]+"|"+xYZCube[8][3][6]+"|");
             Console.WriteLine($"        |---|---|---|---|---|---|");
             Console.WriteLine($"    |"+xYZCube[2][3][2]+"|"+xYZCube[3][3][3]+"|"+xYZCube[4][3][4]+"|"+xYZCube[5][3][5]+"|"+xYZCube[6][3][6]+"|"+xYZCube[7][3][7]+"|");
