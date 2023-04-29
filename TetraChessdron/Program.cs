@@ -22,7 +22,7 @@ namespace TetraChessdron
         {
             List<List<List<string>>> tetrahedronInACube = xYZCube;
 
-            TetrahedronCell newCell = new TetrahedronCell();
+            TetrahedronCell emptyCell = new TetrahedronCell();
 
             for (var x = 1; x < 9; x++)
             {
@@ -38,7 +38,7 @@ namespace TetraChessdron
                         {
                             break;
                         }
-                        xYZCube[x][y][z] = "-0-";
+                        xYZCube[x][y][z] = emptyCell.EmptyTetrahedronCell();
                     }
                 }
             }
