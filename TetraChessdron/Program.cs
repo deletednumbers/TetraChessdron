@@ -1,18 +1,114 @@
 ﻿// See https://aka.ms/new-console-template for more information
+using System.Collections.Generic;
 using System.Diagnostics;
+using System.Numerics;
 
 namespace TetraChessdron
 {
     class TetraChessdron
     {
-        static void Main()
+        static void Main(string[] args)
         {
+            List<List<List<string>>> cube = MakeCube();
+
             Console.WriteLine("Hello, World!");
             PrintPrototypeBoardToConsole();
+            Console.WriteLine(cube[8][8][8]);
         }
 
-        static void PrintPrototypeBoardToConsole()
+        private static List<List<List<string>>> MakeCube()
         {
+            List<List<List<string>>> board = new List<List<List<string>>>();
+
+            for (var index = 0; index < 9; index++)
+            {
+                board.Add(MakePlaneOfCube());
+            }
+
+            return board;
+        }
+        private static List<List<string>> MakePlaneOfCube()
+        {
+            List<List<string>> plane = new List<List<string>>();
+
+            for (var index = 0; index < 9; index++)
+            {
+                plane.Add(MakeRowOfCube());
+            }
+
+            return plane;
+        }
+        private static List<string> MakeRowOfCube()
+        {
+            List<string> row = new List<string>();
+
+            for (var index = 0; index < 9; index++)
+            {
+                CubeCell newCell = new CubeCell();
+                row.Add(newCell.EmptyCubeCell());
+            }
+
+            return row;
+        }
+        class CubeCell 
+        {
+            private static string anEmptyCell = "";
+            public string EmptyCubeCell()
+            {
+                return anEmptyCell;
+            }
+
+        }
+        /*
+        private static void PrintBoardToConsole()
+        {
+            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|{G188}|{G287}|{G386}|{G485}|{G584}|{G683}|{G782}|{G881}|");
+            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"    |{G276}|{G375}|{G474}|{G573}|{G672}|{G771}|{G872}|");
+            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|{G177}|{G278}|{G377}|{G476}|{G575}|{G675}|{G773}|");
+            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"        |{G364}|{G463}|{G562}|{G661}|{G761}|{G863}|");
+            Console.WriteLine($"    |---|---|---|---|---|---|---|");
+            Console.WriteLine($"    |{G265}|{G366}|{G465}|{G564}|{G663}|{G764}|");
+            Console.WriteLine($"|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|{G166}|{G267}|{G368}|{G467}|{G566}|{G665}|");
+            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"            |{G452}|{G551}|{G652}|{G753}|{G854}|");
+            Console.WriteLine($"        |---|---|---|---|---|---|");
+            Console.WriteLine($"        |{G353}|{G454}|{G553}|{G654}|{G755}|");
+            Console.WriteLine($"    |---|---|---|---|---|---|");
+            Console.WriteLine($"    |{G254}|{G355}|{G456}|{G555}|{G656}|");
+            Console.WriteLine($"|---|---|---|---|---|---|");
+            Console.WriteLine($"|{G155}|{G256}|{G357}|{G458}|{G557}|");
+            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"            |{G441}|{G542}|{G643}|{G744}|{G845}|");
+            Console.WriteLine($"        |---|---|---|---|---|---|");
+            Console.WriteLine($"        |{G342}|{G443}|{G544}|{G645}|{G746}|");
+            Console.WriteLine($"        |---|---|---|---|---|");
+            Console.WriteLine($"    |{G243}|{G344}|{G445}|{G546}|{G647}|");
+            Console.WriteLine($"|---|---|---|---|---|---|");
+            Console.WriteLine($"|{G144}|{G245}|{G346}|{G447}|{G548}|");
+            Console.WriteLine($"|---|---|---|---|---|---|");
+            Console.WriteLine($"        |{G331}|{G432}|{G533}|{G634}|{G735}|{G836}|");
+            Console.WriteLine($"        |---|---|---|---|---|---|");
+            Console.WriteLine($"    |{G232}|{G333}|{G434}|{G535}|{G636}|{G737}|");
+            Console.WriteLine($"|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|{G133}|{G234}|{G335}|{G436}|{G537}|{G638}|");
+            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"    |{G221}|{G322}|{G423}|{G524}|{G625}|{G726}|{G827}|");
+            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|{G122}|{G223}|{G324}|{G425}|{G526}|{G627}|{G728}|");
+            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|{G111}|{G212}|{G313}|{G414}|{G515}|{G616}|{G717}|{G818}|");
+            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine("");
+        }
+        */
+        private static void PrintPrototypeBoardToConsole()
+        {
+
             string G188 = "-0-";
             string G287 = "-0-";
             string G386 = "-0-";
