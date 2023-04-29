@@ -14,8 +14,13 @@ namespace TetraChessdron
 
             Console.WriteLine("Hello, World!");
             WriteTetrahedronBoardOntoCube();
+            SetupTeams();
             PrintBoardToConsole();
 
+
+        }
+        private static void SetupTeams()
+        {
 
         }
         private static List<List<List<string>>> WriteTetrahedronBoardOntoCube() 
