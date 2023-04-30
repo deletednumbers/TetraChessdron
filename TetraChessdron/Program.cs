@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Numerics;
+using System.Reflection.Metadata.Ecma335;
 
 namespace TetraChessdron
 {
@@ -19,9 +20,57 @@ namespace TetraChessdron
 
 
         }
-        private static void SetupTeams()
+        private static List<List<List<string>>> SetupTeams()
         {
+            List<List<List<string>>> teamPlacement = xYZCube;
+            //team 1
+            xYZCube[1][1][1] = "-R-";
+            xYZCube[1][2][2] = "-KN";
+            xYZCube[1][3][3] = "-B-";
+            xYZCube[1][4][4] = "-Q-";
+            xYZCube[1][5][5] = "-K-";
+            xYZCube[1][6][6] = "-B-";
+            xYZCube[1][7][7] = "-KN";
+            xYZCube[1][8][8] = "-R-";
+            xYZCube[2][1][2] = "-P-";
+            xYZCube[2][2][1] = "-P-";
+            xYZCube[2][2][3] = "-P-";
+            xYZCube[2][3][2] = "-P-";
+            xYZCube[2][3][4] = "-P-";
+            xYZCube[2][4][3] = "-P-";
+            xYZCube[2][4][5] = "-P-";
+            xYZCube[2][5][4] = "-P-";
+            xYZCube[2][5][6] = "-P-";
+            xYZCube[2][6][5] = "-P-";
+            xYZCube[2][6][7] = "-P-";
+            xYZCube[2][7][6] = "-P-";
+            xYZCube[2][7][8] = "-P-";
+            xYZCube[2][8][7] = "-P-";
+            //team 2
+            xYZCube[8][1][8] = "-r-";
+            xYZCube[8][2][7] = "-kn";
+            xYZCube[8][3][6] = "-b-";
+            xYZCube[8][4][5] = "-q-";
+            xYZCube[8][5][4] = "-k-";
+            xYZCube[8][6][3] = "-b-";
+            xYZCube[8][7][2] = "-kn";
+            xYZCube[8][8][1] = "-r-";
+            xYZCube[7][1][7] = "-p-";
+            xYZCube[7][2][6] = "-p-";
+            xYZCube[7][2][8] = "-p-";
+            xYZCube[7][3][5] = "-p-";
+            xYZCube[7][3][7] = "-p-";
+            xYZCube[7][4][4] = "-p-";
+            xYZCube[7][4][6] = "-p-";
+            xYZCube[7][5][3] = "-p-";
+            xYZCube[7][5][5] = "-p-";
+            xYZCube[7][6][2] = "-p-";
+            xYZCube[7][6][4] = "-p-";
+            xYZCube[7][7][1] = "-p-";
+            xYZCube[7][7][3] = "-p-";
+            xYZCube[7][8][2] = "-p-";
 
+            return teamPlacement;
         }
         private static List<List<List<string>>> WriteTetrahedronBoardOntoCube() 
         {
@@ -111,7 +160,7 @@ namespace TetraChessdron
             Console.WriteLine($"|---|---|---|---|---|---|---|---|");
             Console.WriteLine($"    |"+xYZCube[2][7][6]+"|"+xYZCube[3][7][5]+"|"+xYZCube[4][7][4]+"|"+xYZCube[5][7][3]+"|"+xYZCube[6][7][2]+"|"+xYZCube[7][7][1]+"|"+xYZCube[8][7][2]+"|");
             Console.WriteLine($"|---|---|---|---|---|---|---|---|");
-            Console.WriteLine($"|"+xYZCube[1][7][7]+"|"+xYZCube[2][7][8]+"|"+xYZCube[3][7][7]+"|"+xYZCube[4][7][6]+"|"+xYZCube[5][7][5]+"|"+xYZCube[6][7][5]+"|"+xYZCube[7][7][3]+"|");
+            Console.WriteLine($"|"+xYZCube[1][7][7]+"|"+xYZCube[2][7][8]+"|"+xYZCube[3][7][7]+"|"+xYZCube[4][7][6]+"|"+xYZCube[5][7][5]+"|"+xYZCube[6][7][4]+"|"+xYZCube[7][7][3]+"|");
             Console.WriteLine($"|---|---|---|---|---|---|---|---|");
             Console.WriteLine($"        |"+xYZCube[3][6][4]+"|"+xYZCube[4][6][3]+"|"+xYZCube[5][6][2]+"|"+xYZCube[6][6][1]+"|"+xYZCube[7][6][1]+"|"+xYZCube[8][6][3]+"|");
             Console.WriteLine($"    |---|---|---|---|---|---|---|");
