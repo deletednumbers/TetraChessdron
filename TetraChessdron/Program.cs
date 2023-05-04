@@ -74,51 +74,51 @@ namespace TetraChessdron
         private static void SetupTeams()
         {
             //team 1
-            xYZCube[1][1][1].SetCellContents("-R-");
-            xYZCube[1][2][2].SetCellContents("-KN");
-            xYZCube[1][3][3].SetCellContents("-B-");
-            xYZCube[1][4][4].SetCellContents("-Q-");
-            xYZCube[1][5][5].SetCellContents("-K-");
-            xYZCube[1][6][6].SetCellContents("-B-");
-            xYZCube[1][7][7].SetCellContents("-KN");
-            xYZCube[1][8][8].SetCellContents("-R-");
-            xYZCube[2][1][2].SetCellContents("-P-");
-            xYZCube[2][2][1].SetCellContents("-P-");
-            xYZCube[2][2][3].SetCellContents("-P-");
-            xYZCube[2][3][2].SetCellContents("-P-");
-            xYZCube[2][3][4].SetCellContents("-P-");
-            xYZCube[2][4][3].SetCellContents("-P-");
-            xYZCube[2][4][5].SetCellContents("-P-");
-            xYZCube[2][5][4].SetCellContents("-P-");
-            xYZCube[2][5][6].SetCellContents("-P-");
-            xYZCube[2][6][5].SetCellContents("-P-");
-            xYZCube[2][6][7].SetCellContents("-P-");
-            xYZCube[2][7][6].SetCellContents("-P-");
-            xYZCube[2][7][8].SetCellContents("-P-");
-            xYZCube[2][8][7].SetCellContents("-P-");
+            xYZCube[1][1][1].SetCellContents(" R ");
+            xYZCube[1][2][2].SetCellContents(" KN");
+            xYZCube[1][3][3].SetCellContents(" B ");
+            xYZCube[1][4][4].SetCellContents(" Q ");
+            xYZCube[1][5][5].SetCellContents(" K ");
+            xYZCube[1][6][6].SetCellContents(" B ");
+            xYZCube[1][7][7].SetCellContents(" KN");
+            xYZCube[1][8][8].SetCellContents(" R ");
+            xYZCube[2][1][2].SetCellContents(" P ");
+            xYZCube[2][2][1].SetCellContents(" P ");
+            xYZCube[2][2][3].SetCellContents(" P ");
+            xYZCube[2][3][2].SetCellContents(" P ");
+            xYZCube[2][3][4].SetCellContents(" P ");
+            xYZCube[2][4][3].SetCellContents(" P ");
+            xYZCube[2][4][5].SetCellContents(" P ");
+            xYZCube[2][5][4].SetCellContents(" P ");
+            xYZCube[2][5][6].SetCellContents(" P ");
+            xYZCube[2][6][5].SetCellContents(" P ");
+            xYZCube[2][6][7].SetCellContents(" P ");
+            xYZCube[2][7][6].SetCellContents(" P ");
+            xYZCube[2][7][8].SetCellContents(" P ");
+            xYZCube[2][8][7].SetCellContents(" P ");
             //team 2
-            xYZCube[8][1][8].SetCellContents("-r-");
-            xYZCube[8][2][7].SetCellContents("-kn");
-            xYZCube[8][3][6].SetCellContents("-b-");
-            xYZCube[8][4][5].SetCellContents("-q-");
-            xYZCube[8][5][4].SetCellContents("-k-");
-            xYZCube[8][6][3].SetCellContents("-b-");
-            xYZCube[8][7][2].SetCellContents("-kn");
-            xYZCube[8][8][1].SetCellContents("-r-");
-            xYZCube[7][1][7].SetCellContents("-p-");
-            xYZCube[7][2][6].SetCellContents("-p-");
-            xYZCube[7][2][8].SetCellContents("-p-");
-            xYZCube[7][3][5].SetCellContents("-p-");
-            xYZCube[7][3][7].SetCellContents("-p-");
-            xYZCube[7][4][4].SetCellContents("-p-");
-            xYZCube[7][4][6].SetCellContents("-p-");
-            xYZCube[7][5][3].SetCellContents("-p-");
-            xYZCube[7][5][5].SetCellContents("-p-");
-            xYZCube[7][6][2].SetCellContents("-p-");
-            xYZCube[7][6][4].SetCellContents("-p-");
-            xYZCube[7][7][1].SetCellContents("-p-");
-            xYZCube[7][7][3].SetCellContents("-p-");
-            xYZCube[7][8][2].SetCellContents("-p-");
+            xYZCube[8][1][8].SetCellContents(" r ");
+            xYZCube[8][2][7].SetCellContents(" kn");
+            xYZCube[8][3][6].SetCellContents(" b ");
+            xYZCube[8][4][5].SetCellContents(" q ");
+            xYZCube[8][5][4].SetCellContents(" k ");
+            xYZCube[8][6][3].SetCellContents(" b ");
+            xYZCube[8][7][2].SetCellContents(" kn");
+            xYZCube[8][8][1].SetCellContents(" r ");
+            xYZCube[7][1][7].SetCellContents(" p ");
+            xYZCube[7][2][6].SetCellContents(" p ");
+            xYZCube[7][2][8].SetCellContents(" p ");
+            xYZCube[7][3][5].SetCellContents(" p ");
+            xYZCube[7][3][7].SetCellContents(" p ");
+            xYZCube[7][4][4].SetCellContents(" p ");
+            xYZCube[7][4][6].SetCellContents(" p ");
+            xYZCube[7][5][3].SetCellContents(" p ");
+            xYZCube[7][5][5].SetCellContents(" p ");
+            xYZCube[7][6][2].SetCellContents(" p ");
+            xYZCube[7][6][4].SetCellContents(" p ");
+            xYZCube[7][7][1].SetCellContents(" p ");
+            xYZCube[7][7][3].SetCellContents(" p ");
+            xYZCube[7][8][2].SetCellContents(" p ");
         }
         
         private static List<List<List<CubeCell>>> WriteTetrahedronBoardOntoCube() 
@@ -210,7 +210,7 @@ namespace TetraChessdron
             }
             public string SetCellContentsToEmpty()
             {
-                cellContents = "-+-";
+                cellContents = " + ";
                 return cellContents;
             }
             public string GetCellContents()
@@ -221,7 +221,7 @@ namespace TetraChessdron
         }
         class TetrahedronCell
         {
-            private static string anEmptyCell = "-+-";
+            private static string anEmptyCell = " + ";
             public string EmptyTetrahedronCell()
             {
                 return anEmptyCell;
