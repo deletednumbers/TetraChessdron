@@ -19,7 +19,7 @@ namespace TetraChessdron
             WriteTetrahedronBoardOntoCube();
             SetupTeams();
             PrintBoardToConsole();
-            //MoveAPiece();
+            MoveAPiece();
         }
  
         private static void CheckPiece(string copySelectedPieceString, int xSelectionInt, int ySelectionInt, int zSelectionInt)
@@ -31,8 +31,8 @@ namespace TetraChessdron
 
             }
         }
-        /*
-        private static List<List<List<CubeCell>>> MoveAPiece()
+        
+        private static void MoveAPiece()
         {
             List<List<List<CubeCell>>> pieceMovement = new List<List<List<CubeCell>>>();
             TetrahedronCell emptyCell = new TetrahedronCell();
@@ -47,8 +47,10 @@ namespace TetraChessdron
             string zSelectionString = Console.ReadLine();
             int zSelectionInt = int.Parse(zSelectionString);
 
-            string copySelectedPieceString = xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].CellContents();
-            CheckPiece(copySelectedPieceString, xSelectionInt, ySelectionInt, zSelectionInt);
+            string copySelectedPieceString = xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents();
+
+            xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkBlue);
+            PrintBoardToConsole();
 
             Console.WriteLine("select a destination:");
             string xDestinationString = Console.ReadLine();
@@ -58,17 +60,16 @@ namespace TetraChessdron
             string zDestinationString = Console.ReadLine();
             int zDestinationInt = int.Parse(zDestinationString);
 
-            string xYZCubeCell = xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].CellContents();
-            xYZCubeCell = emptyCell.EmptyTetrahedronCell();
-            xYZCubeCell = copySelectedPieceString;
-            
-            
+            xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(copySelectedPieceString);
+
+            xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellContentsToEmpty();
 
 
+
+            xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.Black);
             PrintBoardToConsole();
-            return pieceMovement;
         }
-        */
+        
         
         private static void SetupTeams()
         {
@@ -186,7 +187,7 @@ namespace TetraChessdron
         {
             string? cellContents;
             ConsoleColor colorDarkYellow = ConsoleColor.DarkYellow;
-            ConsoleColor colorGray = ConsoleColor.Gray;
+            ConsoleColor colorBlack = ConsoleColor.Black;
             ConsoleColor colorDarkRed = ConsoleColor.DarkRed;
             ConsoleColor colorDarkBlue = ConsoleColor.DarkBlue;
             ConsoleColor currentColor;
@@ -195,9 +196,13 @@ namespace TetraChessdron
             {
                 currentColor = setCellColor;
             }
-            public ConsoleColor GetCellColor() 
+            public ConsoleColor GetCellColor()
             {
                 return currentColor;
+            }
+            public ConsoleColor GetDefaultCellColor()
+            {
+                return colorBlack;
             }
             public void SetCellContents(string cellContentUpdate)
             {
@@ -208,7 +213,7 @@ namespace TetraChessdron
                 cellContents = "-+-";
                 return cellContents;
             }
-            public string getCellContents()
+            public string GetCellContents()
             {
                 return cellContents;
             }
@@ -226,48 +231,54 @@ namespace TetraChessdron
         
         private static void PrintBoardToConsole()
         {
+            List<List<List<CubeCell>>> displayBoard = new List<List<List<CubeCell>>>();
+
             Console.Clear();
             Console.WriteLine("");
             Console.WriteLine($"|---|---|---|---|---|---|---|---|");
-            Console.WriteLine($"|" + xYZCube[1][8][8].getCellContents() + "|" + xYZCube[2][8][7].getCellContents() + "|" + xYZCube[3][8][6].getCellContents() + "|" + xYZCube[4][8][5].getCellContents() + "|" + xYZCube[5][8][4].getCellContents() + "|" + xYZCube[6][8][3].getCellContents() + "|" + xYZCube[7][8][2].getCellContents() + "|" + xYZCube[8][8][1].getCellContents() + "|") ;
+            Console.Write("|");
+            Console.BackgroundColor = xYZCube[1][8][8].GetCellColor();
+            Console.Write(xYZCube[1][8][8].GetCellContents());
+            Console.BackgroundColor = xYZCube[1][8][8].GetDefaultCellColor();
+            Console.WriteLine("|" + xYZCube[2][8][7].GetCellContents() + "|" + xYZCube[3][8][6].GetCellContents() + "|" + xYZCube[4][8][5].GetCellContents() + "|" + xYZCube[5][8][4].GetCellContents() + "|" + xYZCube[6][8][3].GetCellContents() + "|" + xYZCube[7][8][2].GetCellContents() + "|" + xYZCube[8][8][1].GetCellContents() + "|") ;
             Console.WriteLine($"|188|287|386|485|584|683|782|881|");
-            Console.WriteLine($"    |"+xYZCube[2][7][6].getCellContents()+"|"+xYZCube[3][7][5].getCellContents()+"|"+xYZCube[4][7][4].getCellContents()+"|"+xYZCube[5][7][3].getCellContents()+"|"+xYZCube[6][7][2].getCellContents()+"|"+xYZCube[7][7][1].getCellContents()+"|"+xYZCube[8][7][2].getCellContents()+"|");
+            Console.WriteLine($"    |"+xYZCube[2][7][6].GetCellContents()+"|"+xYZCube[3][7][5].GetCellContents()+"|"+xYZCube[4][7][4].GetCellContents()+"|"+xYZCube[5][7][3].GetCellContents()+"|"+xYZCube[6][7][2].GetCellContents()+"|"+xYZCube[7][7][1].GetCellContents()+"|"+xYZCube[8][7][2].GetCellContents()+"|");
             Console.WriteLine($"|---|276|375|474|573|672|771|872|");
-            Console.WriteLine($"|"+xYZCube[1][7][7].getCellContents()+"|"+xYZCube[2][7][8].getCellContents()+"|"+xYZCube[3][7][7].getCellContents()+"|"+xYZCube[4][7][6].getCellContents()+"|"+xYZCube[5][7][5].getCellContents()+"|"+xYZCube[6][7][4].getCellContents()+"|"+xYZCube[7][7][3].getCellContents()+"|");
+            Console.WriteLine($"|"+xYZCube[1][7][7].GetCellContents()+"|"+xYZCube[2][7][8].GetCellContents()+"|"+xYZCube[3][7][7].GetCellContents()+"|"+xYZCube[4][7][6].GetCellContents()+"|"+xYZCube[5][7][5].GetCellContents()+"|"+xYZCube[6][7][4].GetCellContents()+"|"+xYZCube[7][7][3].GetCellContents()+"|");
             Console.WriteLine($"|177|278|377|476|575|674|773|---|");
-            Console.WriteLine($"        |"+xYZCube[3][6][4].getCellContents()+"|"+xYZCube[4][6][3].getCellContents()+"|"+xYZCube[5][6][2].getCellContents()+"|"+xYZCube[6][6][1].getCellContents()+"|"+xYZCube[7][6][1].getCellContents()+"|"+xYZCube[8][6][3].getCellContents()+"|");
+            Console.WriteLine($"        |"+xYZCube[3][6][4].GetCellContents()+"|"+xYZCube[4][6][3].GetCellContents()+"|"+xYZCube[5][6][2].GetCellContents()+"|"+xYZCube[6][6][1].GetCellContents()+"|"+xYZCube[7][6][2].GetCellContents()+"|"+xYZCube[8][6][3].GetCellContents()+"|");
             Console.WriteLine($"    |364|463|562|661|761|863|---|");
-            Console.WriteLine($"    |"+xYZCube[2][6][5].getCellContents()+"|"+xYZCube[3][6][6].getCellContents()+"|"+xYZCube[4][6][5].getCellContents()+"|"+xYZCube[5][6][4].getCellContents()+"|"+xYZCube[6][6][3].getCellContents()+"|"+xYZCube[7][6][4].getCellContents()+"|");
+            Console.WriteLine($"    |"+xYZCube[2][6][5].GetCellContents()+"|"+xYZCube[3][6][6].GetCellContents()+"|"+xYZCube[4][6][5].GetCellContents()+"|"+xYZCube[5][6][4].GetCellContents()+"|"+xYZCube[6][6][3].GetCellContents()+"|"+xYZCube[7][6][4].GetCellContents()+"|");
             Console.WriteLine($"|---|265|366|465|564|663|764|");
-            Console.WriteLine($"|"+xYZCube[1][6][6].getCellContents()+"|"+xYZCube[2][6][7].getCellContents()+"|"+xYZCube[3][6][8].getCellContents()+"|"+xYZCube[4][6][7].getCellContents()+"|"+xYZCube[5][6][6].getCellContents()+"|"+xYZCube[6][6][5].getCellContents()+"|");
+            Console.WriteLine($"|"+xYZCube[1][6][6].GetCellContents()+"|"+xYZCube[2][6][7].GetCellContents()+"|"+xYZCube[3][6][8].GetCellContents()+"|"+xYZCube[4][6][7].GetCellContents()+"|"+xYZCube[5][6][6].GetCellContents()+"|"+xYZCube[6][6][5].GetCellContents()+"|");
             Console.WriteLine($"|166|267|368|467|566|665|---|---|");
-            Console.WriteLine($"            |"+xYZCube[4][5][2].getCellContents()+"|"+xYZCube[5][5][1].getCellContents()+"|"+xYZCube[6][5][2].getCellContents()+"|"+xYZCube[7][5][3].getCellContents()+"|"+xYZCube[8][5][4].getCellContents()+"|");
+            Console.WriteLine($"            |"+xYZCube[4][5][2].GetCellContents()+"|"+xYZCube[5][5][1].GetCellContents()+"|"+xYZCube[6][5][2].GetCellContents()+"|"+xYZCube[7][5][3].GetCellContents()+"|"+xYZCube[8][5][4].GetCellContents()+"|");
             Console.WriteLine($"        |---|452|551|652|753|854|");
-            Console.WriteLine($"        |"+xYZCube[3][5][3].getCellContents()+"|"+xYZCube[4][5][4].getCellContents()+"|"+xYZCube[5][5][3].getCellContents()+"|"+xYZCube[6][5][4].getCellContents()+"|"+xYZCube[7][5][5].getCellContents()+"|");
+            Console.WriteLine($"        |"+xYZCube[3][5][3].GetCellContents()+"|"+xYZCube[4][5][4].GetCellContents()+"|"+xYZCube[5][5][3].GetCellContents()+"|"+xYZCube[6][5][4].GetCellContents()+"|"+xYZCube[7][5][5].GetCellContents()+"|");
             Console.WriteLine($"    |---|353|454|553|654|755|");
-            Console.WriteLine($"    |"+xYZCube[2][5][4].getCellContents()+"|"+xYZCube[3][5][5].getCellContents()+"|"+xYZCube[4][5][6].getCellContents()+"|"+xYZCube[5][5][5].getCellContents()+"|"+xYZCube[6][5][6].getCellContents()+"|");
+            Console.WriteLine($"    |"+xYZCube[2][5][4].GetCellContents()+"|"+xYZCube[3][5][5].GetCellContents()+"|"+xYZCube[4][5][6].GetCellContents()+"|"+xYZCube[5][5][5].GetCellContents()+"|"+xYZCube[6][5][6].GetCellContents()+"|");
             Console.WriteLine($"|---|254|355|456|555|656|");
-            Console.WriteLine($"|"+xYZCube[1][5][5].getCellContents()+"|"+xYZCube[2][5][6].getCellContents()+"|"+xYZCube[3][5][7].getCellContents()+"|"+xYZCube[4][5][8].getCellContents()+"|"+xYZCube[5][5][7].getCellContents()+"|");
+            Console.WriteLine($"|"+xYZCube[1][5][5].GetCellContents()+"|"+xYZCube[2][5][6].GetCellContents()+"|"+xYZCube[3][5][7].GetCellContents()+"|"+xYZCube[4][5][8].GetCellContents()+"|"+xYZCube[5][5][7].GetCellContents()+"|");
             Console.WriteLine($"|155|256|357|458|557|---|---|---|");
-            Console.WriteLine($"            |"+xYZCube[4][4][1].getCellContents()+"|"+xYZCube[5][4][2].getCellContents()+"|"+xYZCube[6][4][3].getCellContents()+"|"+xYZCube[7][4][4].getCellContents()+"|"+xYZCube[8][4][5].getCellContents()+"|");
+            Console.WriteLine($"            |"+xYZCube[4][4][1].GetCellContents()+"|"+xYZCube[5][4][2].GetCellContents()+"|"+xYZCube[6][4][3].GetCellContents()+"|"+xYZCube[7][4][4].GetCellContents()+"|"+xYZCube[8][4][5].GetCellContents()+"|");
             Console.WriteLine($"        |441|542|643|744|845|---|");
-            Console.WriteLine($"        |"+xYZCube[3][4][2].getCellContents()+"|"+xYZCube[4][4][3].getCellContents()+"|"+xYZCube[5][4][4].getCellContents()+"|"+xYZCube[6][4][5].getCellContents()+"|"+xYZCube[7][4][6].getCellContents()+"|");
+            Console.WriteLine($"        |"+xYZCube[3][4][2].GetCellContents()+"|"+xYZCube[4][4][3].GetCellContents()+"|"+xYZCube[5][4][4].GetCellContents()+"|"+xYZCube[6][4][5].GetCellContents()+"|"+xYZCube[7][4][6].GetCellContents()+"|");
             Console.WriteLine($"        |342|443|544|645|746|");
-            Console.WriteLine($"    |"+xYZCube[2][4][3].getCellContents()+"|"+xYZCube[3][4][4].getCellContents()+"|"+xYZCube[4][4][5].getCellContents()+"|"+xYZCube[5][4][6].getCellContents()+"|"+xYZCube[6][4][7].getCellContents()+"|");
+            Console.WriteLine($"    |"+xYZCube[2][4][3].GetCellContents()+"|"+xYZCube[3][4][4].GetCellContents()+"|"+xYZCube[4][4][5].GetCellContents()+"|"+xYZCube[5][4][6].GetCellContents()+"|"+xYZCube[6][4][7].GetCellContents()+"|");
             Console.WriteLine($"|---|243|344|445|546|647|");
-            Console.WriteLine($"|"+xYZCube[1][4][4].getCellContents()+"|"+xYZCube[2][4][5].getCellContents()+"|"+xYZCube[3][4][6].getCellContents()+"|"+xYZCube[4][4][7].getCellContents()+"|"+xYZCube[5][4][8].getCellContents()+"|");
+            Console.WriteLine($"|"+xYZCube[1][4][4].GetCellContents()+"|"+xYZCube[2][4][5].GetCellContents()+"|"+xYZCube[3][4][6].GetCellContents()+"|"+xYZCube[4][4][7].GetCellContents()+"|"+xYZCube[5][4][8].GetCellContents()+"|");
             Console.WriteLine($"|144|245|346|447|548|---|---|---|");
-            Console.WriteLine($"        |"+xYZCube[3][3][1].getCellContents()+"|"+xYZCube[4][3][2].getCellContents()+"|"+xYZCube[5][3][3].getCellContents()+"|"+xYZCube[6][3][4].getCellContents()+"|"+xYZCube[7][3][5].getCellContents()+"|"+xYZCube[8][3][6].getCellContents()+"|");
+            Console.WriteLine($"        |"+xYZCube[3][3][1].GetCellContents()+"|"+xYZCube[4][3][2].GetCellContents()+"|"+xYZCube[5][3][3].GetCellContents()+"|"+xYZCube[6][3][4].GetCellContents()+"|"+xYZCube[7][3][5].GetCellContents()+"|"+xYZCube[8][3][6].GetCellContents()+"|");
             Console.WriteLine($"        |331|432|533|634|735|836|");
-            Console.WriteLine($"    |"+xYZCube[2][3][2].getCellContents()+"|"+xYZCube[3][3][3].getCellContents()+"|"+xYZCube[4][3][4].getCellContents()+"|"+xYZCube[5][3][5].getCellContents()+"|"+xYZCube[6][3][6].getCellContents()+"|"+xYZCube[7][3][7].getCellContents()+"|");
+            Console.WriteLine($"    |"+xYZCube[2][3][2].GetCellContents()+"|"+xYZCube[3][3][3].GetCellContents()+"|"+xYZCube[4][3][4].GetCellContents()+"|"+xYZCube[5][3][5].GetCellContents()+"|"+xYZCube[6][3][6].GetCellContents()+"|"+xYZCube[7][3][7].GetCellContents()+"|");
             Console.WriteLine($"|---|232|333|434|535|636|737|");
-            Console.WriteLine($"|"+xYZCube[1][3][3].getCellContents()+"|"+xYZCube[2][3][4].getCellContents()+"|"+xYZCube[3][3][5].getCellContents()+"|"+xYZCube[4][3][6].getCellContents()+"|"+xYZCube[5][3][7].getCellContents()+"|"+xYZCube[6][3][8].getCellContents()+"|");
+            Console.WriteLine($"|"+xYZCube[1][3][3].GetCellContents()+"|"+xYZCube[2][3][4].GetCellContents()+"|"+xYZCube[3][3][5].GetCellContents()+"|"+xYZCube[4][3][6].GetCellContents()+"|"+xYZCube[5][3][7].GetCellContents()+"|"+xYZCube[6][3][8].GetCellContents()+"|");
             Console.WriteLine($"|133|234|335|436|537|638|---|---|");
-            Console.WriteLine($"    |"+xYZCube[2][2][1].getCellContents()+"|"+xYZCube[3][2][2].getCellContents()+"|"+xYZCube[4][2][3].getCellContents()+"|"+xYZCube[5][2][4].getCellContents()+"|"+xYZCube[6][2][5].getCellContents()+"|"+xYZCube[7][2][6].getCellContents()+"|"+xYZCube[8][2][7].getCellContents()+"|");
+            Console.WriteLine($"    |"+xYZCube[2][2][1].GetCellContents()+"|"+xYZCube[3][2][2].GetCellContents()+"|"+xYZCube[4][2][3].GetCellContents()+"|"+xYZCube[5][2][4].GetCellContents()+"|"+xYZCube[6][2][5].GetCellContents()+"|"+xYZCube[7][2][6].GetCellContents()+"|"+xYZCube[8][2][7].GetCellContents()+"|");
             Console.WriteLine($"|---|221|322|423|524|625|726|827|");
-            Console.WriteLine($"|"+xYZCube[1][2][2].getCellContents()+"|"+xYZCube[2][2][3].getCellContents()+"|"+xYZCube[3][2][4].getCellContents()+"|"+xYZCube[4][2][5].getCellContents()+"|"+xYZCube[5][2][6].getCellContents()+"|"+xYZCube[6][2][7].getCellContents()+"|"+xYZCube[7][2][8].getCellContents()+"|");
+            Console.WriteLine($"|"+xYZCube[1][2][2].GetCellContents()+"|"+xYZCube[2][2][3].GetCellContents()+"|"+xYZCube[3][2][4].GetCellContents()+"|"+xYZCube[4][2][5].GetCellContents()+"|"+xYZCube[5][2][6].GetCellContents()+"|"+xYZCube[6][2][7].GetCellContents()+"|"+xYZCube[7][2][8].GetCellContents()+"|");
             Console.WriteLine($"|122|223|324|425|526|627|728|---|");
-            Console.WriteLine($"|"+xYZCube[1][1][1].getCellContents()+"|"+xYZCube[2][1][2].getCellContents()+"|"+xYZCube[3][1][3].getCellContents()+"|"+xYZCube[4][1][4].getCellContents()+"|"+xYZCube[5][1][5].getCellContents()+"|"+xYZCube[6][1][6].getCellContents()+"|"+xYZCube[7][1][7].getCellContents()+"|"+xYZCube[8][1][8].getCellContents()+"|");
+            Console.WriteLine($"|"+xYZCube[1][1][1].GetCellContents()+"|"+xYZCube[2][1][2].GetCellContents()+"|"+xYZCube[3][1][3].GetCellContents()+"|"+xYZCube[4][1][4].GetCellContents()+"|"+xYZCube[5][1][5].GetCellContents()+"|"+xYZCube[6][1][6].GetCellContents()+"|"+xYZCube[7][1][7].GetCellContents()+"|"+xYZCube[8][1][8].GetCellContents()+"|");
             Console.WriteLine($"|111|212|313|414|515|616|717|818|");
             Console.WriteLine("");
         }
