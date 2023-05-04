@@ -6,9 +6,15 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace TetraChessdron
 {
+    //
     class TetraChessdron
     {
         private static List<List<List<string>>> xYZCube = MakeCube();
+
+        ConsoleColor colorDarkYellow = ConsoleColor.DarkYellow;
+        ConsoleColor colorGray = ConsoleColor.Gray;
+        ConsoleColor colorDarkRed = ConsoleColor.DarkRed;
+        ConsoleColor colorDarkBlue = ConsoleColor.DarkBlue;
 
         static void Main(string[] args)
         {
@@ -17,8 +23,52 @@ namespace TetraChessdron
             WriteTetrahedronBoardOntoCube();
             SetupTeams();
             PrintBoardToConsole();
+            MoveAPiece();
+        }
+ 
+        private static void CheckPiece(string copySelectedPieceString, int xSelectionInt, int ySelectionInt, int zSelectionInt)
+        {
+
+            Console.WriteLine(copySelectedPieceString);
+            if (copySelectedPieceString == "-R-")
+            {
+
+            }
+        }
+        private static List<List<List<string>>> MoveAPiece()
+        {
+            List<List<List<string>>> pieceMovement = new List<List<List<string>>>();
+            TetrahedronCell emptyCell = new TetrahedronCell();
+            ConsoleColor colorDarkYellow = ConsoleColor.DarkYellow;
+            ConsoleColor colorGray = ConsoleColor.Gray;
+
+            Console.WriteLine("select a location to move from:");
+            string xSelectionString = Console.ReadLine();
+            int xSelectionInt = int.Parse(xSelectionString);
+            string ySelectionString = Console.ReadLine();
+            int ySelectionInt = int.Parse(ySelectionString);
+            string zSelectionString = Console.ReadLine();
+            int zSelectionInt = int.Parse(zSelectionString);
+
+            string copySelectedPieceString = xYZCube[xSelectionInt][ySelectionInt][zSelectionInt];
+            CheckPiece(copySelectedPieceString, xSelectionInt, ySelectionInt, zSelectionInt);
+
+            Console.WriteLine("select a destination:");
+            string xDestinationString = Console.ReadLine();
+            int xDestinationInt = int.Parse(xDestinationString);
+            string yDestinationString = Console.ReadLine();
+            int yDestinationInt = int.Parse(yDestinationString);
+            string zDestinationString = Console.ReadLine();
+            int zDestinationInt = int.Parse(zDestinationString);
+
+            xYZCube[xSelectionInt][ySelectionInt][zSelectionInt] = emptyCell.EmptyTetrahedronCell();
+            xYZCube[xDestinationInt][yDestinationInt][zDestinationInt] = copySelectedPieceString;
+            
+            
 
 
+            PrintBoardToConsole();
+            return pieceMovement;
         }
         private static List<List<List<string>>> SetupTeams()
         {
@@ -144,7 +194,7 @@ namespace TetraChessdron
         }
         class TetrahedronCell
         {
-            private static string anEmptyCell = "-0-";
+            private static string anEmptyCell = "-+-";
             public string EmptyTetrahedronCell()
             {
                 return anEmptyCell;
@@ -154,48 +204,49 @@ namespace TetraChessdron
         
         private static void PrintBoardToConsole()
         {
-
+            Console.Clear();
+            Console.WriteLine("");
             Console.WriteLine($"|---|---|---|---|---|---|---|---|");
             Console.WriteLine($"|"+xYZCube[1][8][8]+"|"+xYZCube[2][8][7]+"|"+xYZCube[3][8][6]+"|"+xYZCube[4][8][5]+"|"+xYZCube[5][8][4]+"|"+xYZCube[6][8][3]+"|"+xYZCube[7][8][2]+"|"+xYZCube[8][8][1]+"|");
-            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|188|287|386|485|584|683|782|881|");
             Console.WriteLine($"    |"+xYZCube[2][7][6]+"|"+xYZCube[3][7][5]+"|"+xYZCube[4][7][4]+"|"+xYZCube[5][7][3]+"|"+xYZCube[6][7][2]+"|"+xYZCube[7][7][1]+"|"+xYZCube[8][7][2]+"|");
-            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|---|276|375|474|573|672|771|872|");
             Console.WriteLine($"|"+xYZCube[1][7][7]+"|"+xYZCube[2][7][8]+"|"+xYZCube[3][7][7]+"|"+xYZCube[4][7][6]+"|"+xYZCube[5][7][5]+"|"+xYZCube[6][7][4]+"|"+xYZCube[7][7][3]+"|");
-            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|177|278|377|476|575|674|773|---|");
             Console.WriteLine($"        |"+xYZCube[3][6][4]+"|"+xYZCube[4][6][3]+"|"+xYZCube[5][6][2]+"|"+xYZCube[6][6][1]+"|"+xYZCube[7][6][1]+"|"+xYZCube[8][6][3]+"|");
-            Console.WriteLine($"    |---|---|---|---|---|---|---|");
+            Console.WriteLine($"    |364|463|562|661|761|863|---|");
             Console.WriteLine($"    |"+xYZCube[2][6][5]+"|"+xYZCube[3][6][6]+"|"+xYZCube[4][6][5]+"|"+xYZCube[5][6][4]+"|"+xYZCube[6][6][3]+"|"+xYZCube[7][6][4]+"|");
-            Console.WriteLine($"|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|---|265|366|465|564|663|764|");
             Console.WriteLine($"|"+xYZCube[1][6][6]+"|"+xYZCube[2][6][7]+"|"+xYZCube[3][6][8]+"|"+xYZCube[4][6][7]+"|"+xYZCube[5][6][6]+"|"+xYZCube[6][6][5]+"|");
-            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|166|267|368|467|566|665|---|---|");
             Console.WriteLine($"            |"+xYZCube[4][5][2]+"|"+xYZCube[5][5][1]+"|"+xYZCube[6][5][2]+"|"+xYZCube[7][5][3]+"|"+xYZCube[8][5][4]+"|");
-            Console.WriteLine($"        |---|---|---|---|---|---|");
+            Console.WriteLine($"        |---|452|551|652|753|854|");
             Console.WriteLine($"        |"+xYZCube[3][5][3]+"|"+xYZCube[4][5][4]+"|"+xYZCube[5][5][3]+"|"+xYZCube[6][5][4]+"|"+xYZCube[7][5][5]+"|");
-            Console.WriteLine($"    |---|---|---|---|---|---|");
+            Console.WriteLine($"    |---|353|454|553|654|755|");
             Console.WriteLine($"    |"+xYZCube[2][5][4]+"|"+xYZCube[3][5][5]+"|"+xYZCube[4][5][6]+"|"+xYZCube[5][5][5]+"|"+xYZCube[6][5][6]+"|");
-            Console.WriteLine($"|---|---|---|---|---|---|");
+            Console.WriteLine($"|---|254|355|456|555|656|");
             Console.WriteLine($"|"+xYZCube[1][5][5]+"|"+xYZCube[2][5][6]+"|"+xYZCube[3][5][7]+"|"+xYZCube[4][5][8]+"|"+xYZCube[5][5][7]+"|");
-            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|155|256|357|458|557|---|---|---|");
             Console.WriteLine($"            |"+xYZCube[4][4][1]+"|"+xYZCube[5][4][2]+"|"+xYZCube[6][4][3]+"|"+xYZCube[7][4][4]+"|"+xYZCube[8][4][5]+"|");
-            Console.WriteLine($"        |---|---|---|---|---|---|");
+            Console.WriteLine($"        |441|542|643|744|845|---|");
             Console.WriteLine($"        |"+xYZCube[3][4][2]+"|"+xYZCube[4][4][3]+"|"+xYZCube[5][4][4]+"|"+xYZCube[6][4][5]+"|"+xYZCube[7][4][6]+"|");
-            Console.WriteLine($"        |---|---|---|---|---|");
+            Console.WriteLine($"        |342|443|544|645|746|");
             Console.WriteLine($"    |"+xYZCube[2][4][3]+"|"+xYZCube[3][4][4]+"|"+xYZCube[4][4][5]+"|"+xYZCube[5][4][6]+"|"+xYZCube[6][4][7]+"|");
-            Console.WriteLine($"|---|---|---|---|---|---|");
+            Console.WriteLine($"|---|243|344|445|546|647|");
             Console.WriteLine($"|"+xYZCube[1][4][4]+"|"+xYZCube[2][4][5]+"|"+xYZCube[3][4][6]+"|"+xYZCube[4][4][7]+"|"+xYZCube[5][4][8]+"|");
-            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|144|245|346|447|548|---|---|---|");
             Console.WriteLine($"        |"+xYZCube[3][3][1]+"|"+xYZCube[4][3][2]+"|"+xYZCube[5][3][3]+"|"+xYZCube[6][3][4]+"|"+xYZCube[7][3][5]+"|"+xYZCube[8][3][6]+"|");
-            Console.WriteLine($"        |---|---|---|---|---|---|");
+            Console.WriteLine($"        |331|432|533|634|735|836|");
             Console.WriteLine($"    |"+xYZCube[2][3][2]+"|"+xYZCube[3][3][3]+"|"+xYZCube[4][3][4]+"|"+xYZCube[5][3][5]+"|"+xYZCube[6][3][6]+"|"+xYZCube[7][3][7]+"|");
-            Console.WriteLine($"|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|---|232|333|434|535|636|737|");
             Console.WriteLine($"|"+xYZCube[1][3][3]+"|"+xYZCube[2][3][4]+"|"+xYZCube[3][3][5]+"|"+xYZCube[4][3][6]+"|"+xYZCube[5][3][7]+"|"+xYZCube[6][3][8]+"|");
-            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|133|234|335|436|537|638|---|---|");
             Console.WriteLine($"    |"+xYZCube[2][2][1]+"|"+xYZCube[3][2][2]+"|"+xYZCube[4][2][3]+"|"+xYZCube[5][2][4]+"|"+xYZCube[6][2][5]+"|"+xYZCube[7][2][6]+"|"+xYZCube[8][2][7]+"|");
-            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|---|221|322|423|524|625|726|827|");
             Console.WriteLine($"|"+xYZCube[1][2][2]+"|"+xYZCube[2][2][3]+"|"+xYZCube[3][2][4]+"|"+xYZCube[4][2][5]+"|"+xYZCube[5][2][6]+"|"+xYZCube[6][2][7]+"|"+xYZCube[7][2][8]+"|");
-            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|122|223|324|425|526|627|728|---|");
             Console.WriteLine($"|"+xYZCube[1][1][1]+"|"+xYZCube[2][1][2]+"|"+xYZCube[3][1][3]+"|"+xYZCube[4][1][4]+"|"+xYZCube[5][1][5]+"|"+xYZCube[6][1][6]+"|"+xYZCube[7][1][7]+"|"+xYZCube[8][1][8]+"|");
-            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine($"|111|212|313|414|515|616|717|818|");
             Console.WriteLine("");
         }
         
