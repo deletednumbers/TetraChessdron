@@ -9,7 +9,7 @@ namespace TetraChessdron
     class TetraChessdron
     {
         private static List<List<List<CubeCell>>> xYZCube = MakeCube();
-        private static bool theFirstPlayersTurn = true;
+        private static bool thePlayersTurnBool = true;
 
         static void Main(string[] args)
         {
@@ -21,7 +21,7 @@ namespace TetraChessdron
             PrintBoardToConsole();
             while (theGameIsOngoing == true)
             {
-                if (theFirstPlayersTurn == true)
+                if (thePlayersTurnBool == true)
                 {
                     Console.WriteLine("Player one's turn");
                 }
@@ -30,7 +30,7 @@ namespace TetraChessdron
                     Console.WriteLine("Player two's turn");
                 }
                 MoveAPiece();
-                theFirstPlayersTurn = !theFirstPlayersTurn;
+                thePlayersTurnBool = !thePlayersTurnBool;
             }
         }
         private static void MoveAPiece()
@@ -51,14 +51,14 @@ namespace TetraChessdron
             {
                 PrintBoardToConsole();
                 Console.WriteLine("there is no piece here");
-                theFirstPlayersTurn = !theFirstPlayersTurn;
+                thePlayersTurnBool = !thePlayersTurnBool;
                 return;
             }
             if (copySelectedPieceString == null)
             {
                 PrintBoardToConsole();
                 Console.WriteLine("there is no board here");
-                theFirstPlayersTurn = !theFirstPlayersTurn;
+                thePlayersTurnBool = !thePlayersTurnBool;
                 return;
             }
 
@@ -110,62 +110,220 @@ namespace TetraChessdron
                                 else if (xYZCube[x][y][z].GetCellContents() == " R")
                                 {
                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    return;
+                                    break;
                                 }
                                 else if(xYZCube[x][y][z].GetCellContents() == " KN")
                                 {
                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    return;
+                                    break;
                                 }
                                 else if (xYZCube[x][y][z].GetCellContents() == " B")
                                 {
                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    return;
+                                    break;
                                 }
                                 else if (xYZCube[x][y][z].GetCellContents() == " Q ")
                                 {
                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    return;
+                                    break;
                                 }
                                 else if (xYZCube[x][y][z].GetCellContents() == " K ")
                                 {
                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    return;
+                                    break;
                                 }
                                 else if (xYZCube[x][y][z].GetCellContents() == " P ")
                                 {
                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    return;
+                                    break;
                                 }
                                 else if (xYZCube[x][y][z].GetCellContents() == " r ")
                                 {
                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    return;
+                                    break;
                                 }
                                 else if (xYZCube[x][y][z].GetCellContents() == " kn")
                                 {
                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    return;
+                                    break;
                                 }
                                 else if (xYZCube[x][y][z].GetCellContents() == " b")
                                 {
                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    return;
+                                    break;
                                 }
                                 else if (xYZCube[x][y][z].GetCellContents() == " q")
                                 {
                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    return;
+                                    break;
                                 }
                                 else if (xYZCube[x][y][z].GetCellContents() == " k")
                                 {
                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    return;
+                                    break;
                                 }
                                 else if (xYZCube[x][y][z].GetCellContents() == " p")
                                 {
                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    return;
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                for (int index = 1; index < 8; index++)
+                {
+                    int x = (1 * index) + xSelectionInt;
+                    int y = (0 * index) + ySelectionInt;
+                    int z = (1 * index) + zSelectionInt;
+                    if (x < 9)
+                    {
+                        if (y < 9)
+                        {
+                            if (z < 9)
+                            {
+                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " R")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " KN")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " B")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " Q ")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " K ")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " P ")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " r ")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " kn")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " b")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " q")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " k")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " p")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                            }
+                        }
+                    }
+                }
+                for (int index = 1; index < 8; index++)
+                {
+                    int x = (1 * index) + xSelectionInt;
+                    int y = (1 * index) + ySelectionInt;
+                    int z = (0 * index) + zSelectionInt;
+                    if (x < 9)
+                    {
+                        if (y < 9)
+                        {
+                            if (z < 9)
+                            {
+                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " R")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " KN")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " B")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " Q ")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " K ")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " P ")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " r ")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " kn")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " b")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " q")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " k")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " p")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    break;
                                 }
                             }
                         }
@@ -226,7 +384,6 @@ namespace TetraChessdron
         {
             List<List<List<CubeCell>>> tetrahedronInACube = new List<List<List<CubeCell>>>();
             CubeCell cellContent = new CubeCell();
-            TetrahedronCell emptyCell = new TetrahedronCell();
 
             for (var x = 1; x < 9; x++)
             {
@@ -242,8 +399,7 @@ namespace TetraChessdron
                         {
                             break;
                         }
-                        string cellContents = emptyCell.EmptyTetrahedronCell();
-                        xYZCube[x][y][z].SetCellContents(cellContents);
+                        xYZCube[x][y][z].SetCellContentsToEmpty();
                     }
                 }
             }
@@ -318,176 +474,207 @@ namespace TetraChessdron
                 return cellContents;
             }
         }
-        class TetrahedronCell
-        {
-            private static string anEmptyCell = " + ";
-            public string EmptyTetrahedronCell()
-            {
-                return anEmptyCell;
-            }
-        }
         private static void PrintBoardToConsole()
         {
-            List<List<List<CubeCell>>> displayBoard = new List<List<List<CubeCell>>>();
-            List<List<int>> row1 = new List<List<int>>();
-            row1.Add(new List<int> { 1, 8, 8 });
-            row1.Add(new List<int> { 2, 8, 7 });
-            row1.Add(new List<int> { 3, 8, 6 });
-            row1.Add(new List<int> {4, 8, 5 });
-            row1.Add(new List<int> {5, 8, 4 });
-            row1.Add(new List<int> {6, 8, 3 });
-            row1.Add(new List<int> {7, 8, 2 });
-            row1.Add(new List<int> { 8, 8, 1 });
+            List<List<int>> row1 = new List<List<int>> 
+            {
+            new List<int> { 1, 8, 8 },
+            new List<int> { 2, 8, 7 },
+            new List<int> { 3, 8, 6 },
+            new List<int> { 4, 8, 5 },
+            new List<int> { 5, 8, 4 },
+            new List<int> { 6, 8, 3 },
+            new List<int> { 7, 8, 2 },
+            new List<int> { 8, 8, 1 }
+            };
 
-            List<List<int>> row2 = new List<List<int>>();
-            row2.Add(new List<int> { 2, 7, 6 });
-            row2.Add(new List<int> { 3, 7, 5 });
-            row2.Add(new List<int> { 4, 7, 4 });
-            row2.Add(new List<int> { 5, 7, 3 });
-            row2.Add(new List<int> { 6, 7, 2 });
-            row2.Add(new List<int> { 7, 7, 1 });
-            row2.Add(new List<int> { 8, 7, 2 });
+            List<List<int>> row2 = new List<List<int>> 
+            {
+            new List<int> { 2, 7, 6 },
+            new List<int> { 3, 7, 5 },
+            new List<int> { 4, 7, 4 },
+            new List<int> { 5, 7, 3 },
+            new List<int> { 6, 7, 2 },
+            new List<int> { 7, 7, 1 },
+            new List<int> { 8, 7, 2 }
+            };
 
-            List<List<int>> row3 = new List<List<int>>();
-            row3.Add(new List<int> { 1, 7, 7 });
-            row3.Add(new List<int> { 2, 7, 8 });
-            row3.Add(new List<int> { 3, 7, 7 });
-            row3.Add(new List<int> { 4, 7, 6 });
-            row3.Add(new List<int> { 5, 7, 5 });
-            row3.Add(new List<int> { 6, 7, 4 });
-            row3.Add(new List<int> { 7, 7, 3 });
+            List<List<int>> row3 = new List<List<int>> 
+            {
+            new List<int> { 1, 7, 7 },
+            new List<int> { 2, 7, 8 },
+            new List<int> { 3, 7, 7 },
+            new List<int> { 4, 7, 6 },
+            new List<int> { 5, 7, 5 },
+            new List<int> { 6, 7, 4 },
+            new List<int> { 7, 7, 3 }
+            };
 
-            List<List<int>> row4 = new List<List<int>>();
-            row4.Add(new List<int> { 3, 6, 4 });
-            row4.Add(new List<int> { 4, 6, 3 });
-            row4.Add(new List<int> { 5, 6, 2 });
-            row4.Add(new List<int> { 6, 6, 1 });
-            row4.Add(new List<int> { 7, 6, 2 });
-            row4.Add(new List<int> { 8, 6, 3 });
+            List<List<int>> row4 = new List<List<int>> 
+            {
+            new List<int> { 3, 6, 4 },
+            new List<int> { 4, 6, 3 },
+            new List<int> { 5, 6, 2 },
+            new List<int> { 6, 6, 1 },
+            new List<int> { 7, 6, 2 },
+            new List<int> { 8, 6, 3 }
+            };
 
-            List<List<int>> row5 = new List<List<int>>();
-            row5.Add(new List<int> { 2,6,5 });
-            row5.Add(new List<int> { 3,6,6 });
-            row5.Add(new List<int> { 4,6,5 });
-            row5.Add(new List<int> { 5,6,4 });
-            row5.Add(new List<int> { 6,6,3 });
-            row5.Add(new List<int> { 7, 6, 4 });
+            List<List<int>> row5 = new List<List<int>>
+            {
+           new List<int> { 2, 6, 5 },
+           new List<int> { 3, 6, 6 },
+           new List<int> { 4, 6, 5 },
+           new List<int> { 5, 6, 4 },
+           new List<int> { 6, 6, 3 },
+           new List<int> { 7, 6, 4 } 
+            };
 
-            List<List<int>> row6 = new List<List<int>>();
-            row6.Add(new List<int> { 1, 6, 6 });
-            row6.Add(new List<int> { 2, 6, 7 });
-            row6.Add(new List<int> { 3, 6, 8 });
-            row6.Add(new List<int> { 4, 6, 7 });
-            row6.Add(new List<int> { 5, 6, 6 });
-            row6.Add(new List<int> { 6, 6, 5 });
+            List<List<int>> row6 = new List<List<int>>
+            {
+            new List<int> { 1, 6, 6 },
+            new List<int> { 2, 6, 7 },
+            new List<int> { 3, 6, 8 },
+            new List<int> { 4, 6, 7 },
+            new List<int> { 5, 6, 6 },
+            new List<int> { 6, 6, 5 }
+            };
 
-            List<List<int>> row7 = new List<List<int>>();
-            row7.Add(new List<int> {4 , 5, 2 });
-            row7.Add(new List<int> {5 , 5, 1 });
-            row7.Add(new List<int> {6 , 5, 2 });
-            row7.Add(new List<int> {7 , 5, 3 });
-            row7.Add(new List<int> {8 , 5, 4 });
+            List<List<int>> row7 = new List<List<int>>
+            {
+            new List<int> {4 , 5, 2 },
+            new List<int> {5 , 5, 1 },
+            new List<int> {6 , 5, 2 },
+            new List<int> {7 , 5, 3 },
+            new List<int> {8 , 5, 4 } 
+            };
 
-            List<List<int>> row8 = new List<List<int>>();
-            row8.Add(new List<int> {3 , 5, 3 });
-            row8.Add(new List<int> {4 , 5, 4 });
-            row8.Add(new List<int> {5 , 5, 3 });
-            row8.Add(new List<int> {6 , 5, 4 });
-            row8.Add(new List<int> {7 , 5, 5 });
+            List<List<int>> row8 = new List<List<int>>
+            {
+            new List<int> {3 , 5, 3 },
+            new List<int> {4 , 5, 4 },
+            new List<int> {5 , 5, 3 },
+            new List<int> {6 , 5, 4 },
+            new List<int> {7 , 5, 5 } 
+            };
 
-            List<List<int>> row9 = new List<List<int>>();
-            row9.Add(new List<int> { 2,5,4 });
-            row9.Add(new List<int> { 3,5,5 });
-            row9.Add(new List<int> { 4,5,6 });
-            row9.Add(new List<int> { 5,5,5 });
-            row9.Add(new List<int> { 6,5,6 });
+            List<List<int>> row9 = new List<List<int>>
+            {
+            new List<int> { 2,5,4 },
+            new List<int> { 3,5,5 },
+            new List<int> { 4,5,6 },
+            new List<int> { 5,5,5 },
+            new List<int> { 6,5,6 } 
+            };
 
-            List<List<int>> row10 = new List<List<int>>();
-            row10.Add(new List<int> {1 ,5, 5});
-            row10.Add(new List<int> {2 ,5, 6});
-            row10.Add(new List<int> {3 ,5, 7});
-            row10.Add(new List<int> {4 ,5, 8});
-            row10.Add(new List<int> {5 ,5, 7});
+            List<List<int>> row10 = new List<List<int>>
+            {
+            new List<int> {1 ,5, 5},
+            new List<int> {2 ,5, 6},
+            new List<int> {3 ,5, 7},
+            new List<int> {4 ,5, 8},
+            new List<int> {5 ,5, 7} 
+            };
 
-            List<List<int>> row11 = new List<List<int>>();
-            row11.Add(new List<int> { 4,4,1 });
-            row11.Add(new List<int> { 5,4,2 });
-            row11.Add(new List<int> { 6,4,3 });
-            row11.Add(new List<int> { 7,4,4 });
-            row11.Add(new List<int> { 8,4,5 });
+            List<List<int>> row11 = new List<List<int>>
+            {
+            new List<int> { 4,4,1 },
+            new List<int> { 5,4,2 },
+            new List<int> { 6,4,3 },
+            new List<int> { 7,4,4 },
+            new List<int> { 8,4,5 } 
+            };
 
-            List<List<int>> row12 = new List<List<int>>();
-            row12.Add(new List<int> { 3,4,2 });
-            row12.Add(new List<int> { 4,4,3 });
-            row12.Add(new List<int> { 5,4,4 });
-            row12.Add(new List<int> { 6,4,5 });
-            row12.Add(new List<int> { 7,4,6 });
+            List<List<int>> row12 = new List<List<int>>
+            {
+            new List<int> { 3,4,2 },
+            new List<int> { 4,4,3 },
+            new List<int> { 5,4,4 },
+            new List<int> { 6,4,5 },
+            new List<int> { 7,4,6 } 
+            };
 
-            List<List<int>> row13 = new List<List<int>>();
-            row13.Add(new List<int> { 2,4,3 });
-            row13.Add(new List<int> { 3,4,4 });
-            row13.Add(new List<int> { 4,4,5 });
-            row13.Add(new List<int> { 5,4,6 });
-            row13.Add(new List<int> { 6,4,7 });
+            List<List<int>> row13 = new List<List<int>>
+            {
+            new List<int> { 2,4,3 },
+            new List<int> { 3,4,4 },
+            new List<int> { 4,4,5 },
+            new List<int> { 5,4,6 },
+            new List<int> { 6,4,7 } 
+            };
 
-            List<List<int>> row14 = new List<List<int>>();
-            row14.Add(new List<int> { 1,4, 4});
-            row14.Add(new List<int> { 2,4, 5});
-            row14.Add(new List<int> { 3,4, 6});
-            row14.Add(new List<int> { 4,4, 7});
-            row14.Add(new List<int> { 5,4, 8});
+            List<List<int>> row14 = new List<List<int>>
+            {
+            new List<int> { 1,4, 4},
+            new List<int> { 2,4, 5},
+            new List<int> { 3,4, 6},
+            new List<int> { 4,4, 7},
+            new List<int> { 5,4, 8} 
+            };
 
-            List<List<int>> row15 = new List<List<int>>();
-            row15.Add(new List<int> { 3,3,1 });
-            row15.Add(new List<int> { 4,3,2 });
-            row15.Add(new List<int> { 5,3,3 });
-            row15.Add(new List<int> { 6,3,4 });
-            row15.Add(new List<int> { 7,3,5 });
-            row15.Add(new List<int> { 8,3,6 });
+            List<List<int>> row15 = new List<List<int>>
+            {
+            new List<int> { 3,3,1 },
+            new List<int> { 4,3,2 },
+            new List<int> { 5,3,3 },
+            new List<int> { 6,3,4 },
+            new List<int> { 7,3,5 },
+            new List<int> { 8,3,6 } 
+            };
 
-            List<List<int>> row16 = new List<List<int>>();
-            row16.Add(new List<int> { 2,3,2 });
-            row16.Add(new List<int> { 3,3,3 });
-            row16.Add(new List<int> { 4,3,4 });
-            row16.Add(new List<int> { 5,3,5 });
-            row16.Add(new List<int> { 6,3,6 });
-            row16.Add(new List<int> { 7,3,7 });
+            List<List<int>> row16 = new List<List<int>>
+            {
+            new List<int> { 2,3,2 },
+            new List<int> { 3,3,3 },
+            new List<int> { 4,3,4 },
+            new List<int> { 5,3,5 },
+            new List<int> { 6,3,6 },
+            new List<int> { 7,3,7 } 
+            };
 
-            List<List<int>> row17 = new List<List<int>>();
-            row17.Add(new List<int> { 1,3,3 });
-            row17.Add(new List<int> { 2,3,4 });
-            row17.Add(new List<int> { 3,3,5 });
-            row17.Add(new List<int> { 4,3,6 });
-            row17.Add(new List<int> { 5,3,7 });
-            row17.Add(new List<int> { 6,3,8 });
+            List<List<int>> row17 = new List<List<int>>
+            {
+            new List<int> { 1,3,3 },
+            new List<int> { 2,3,4 },
+            new List<int> { 3,3,5 },
+            new List<int> { 4,3,6 },
+            new List<int> { 5,3,7 },
+            new List<int> { 6,3,8 } 
+            };
 
-            List<List<int>> row18 = new List<List<int>>();
-            row18.Add(new List<int> { 2,2,1 });
-            row18.Add(new List<int> { 3,2,2 });
-            row18.Add(new List<int> { 4,2,3 });
-            row18.Add(new List<int> { 5,2,4 });
-            row18.Add(new List<int> { 6,2,5 });
-            row18.Add(new List<int> { 7,2,6 });
-            row18.Add(new List<int> { 8,2,7 });
+            List<List<int>> row18 = new List<List<int>>
+            {
+            new List<int> { 2,2,1 },
+            new List<int> { 3,2,2 },
+            new List<int> { 4,2,3 },
+            new List<int> { 5,2,4 },
+            new List<int> { 6,2,5 },
+            new List<int> { 7,2,6 },
+            new List<int> { 8,2,7 } 
+            };
 
-            List<List<int>> row19 = new List<List<int>>();
-            row19.Add(new List<int> { 1,2,2 });
-            row19.Add(new List<int> { 2,2,3 });
-            row19.Add(new List<int> { 3,2,4 });
-            row19.Add(new List<int> { 4,2,5 });
-            row19.Add(new List<int> { 5,2,6 });
-            row19.Add(new List<int> { 6,2,7 });
-            row19.Add(new List<int> { 7,2,8 });
+            List<List<int>> row19 = new List<List<int>>
+            {
+            new List<int> { 1,2,2 },
+            new List<int> { 2,2,3 },
+            new List<int> { 3,2,4 },
+            new List<int> { 4,2,5 },
+            new List<int> { 5,2,6 },
+            new List<int> { 6,2,7 },
+            new List<int> { 7,2,8 } 
+            };
 
-            List<List<int>> row20 = new List<List<int>>();
-            row20.Add(new List<int> { 1,1,1 });
-            row20.Add(new List<int> { 2,1,2 });
-            row20.Add(new List<int> { 3,1,3 });
-            row20.Add(new List<int> { 4,1,4 });
-            row20.Add(new List<int> { 5,1,5 });
-            row20.Add(new List<int> { 6,1,6 });
-            row20.Add(new List<int> { 7,1,7 });
-            row20.Add(new List<int> { 8,1,8 });
+            List<List<int>> row20 = new List<List<int>>
+            {
+            new List<int> { 1,1,1 },
+            new List<int> { 2,1,2 },
+            new List<int> { 3,1,3 },
+            new List<int> { 4,1,4 },
+            new List<int> { 5,1,5 },
+            new List<int> { 6,1,6 },
+            new List<int> { 7,1,7 },
+            new List<int> { 8,1,8 } 
+            };
 
 
             Console.Clear();
