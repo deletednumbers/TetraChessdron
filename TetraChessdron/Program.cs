@@ -99,7 +99,7 @@ namespace TetraChessdron
                     int z = (1 * index) + zSelectionInt;
                     if (x < 9)
                     {
-                        if(y < 9)
+                        if (y < 9)
                         {
                             if (z < 9)
                             {
@@ -112,7 +112,7 @@ namespace TetraChessdron
                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
                                     break;
                                 }
-                                else if(xYZCube[x][y][z].GetCellContents() == " KN")
+                                else if (xYZCube[x][y][z].GetCellContents() == " KN")
                                 {
                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
                                     break;
@@ -380,7 +380,7 @@ namespace TetraChessdron
             xYZCube[7][7][3].SetCellContents(" p ");
             xYZCube[7][8][2].SetCellContents(" p ");
         }
-        private static List<List<List<CubeCell>>> WriteTetrahedronBoardOntoCube() 
+        private static List<List<List<CubeCell>>> WriteTetrahedronBoardOntoCube()
         {
             List<List<List<CubeCell>>> tetrahedronInACube = new List<List<List<CubeCell>>>();
             CubeCell cellContent = new CubeCell();
@@ -476,7 +476,7 @@ namespace TetraChessdron
         }
         private static void PrintBoardToConsole()
         {
-            List<List<int>> row1 = new List<List<int>> 
+            List<List<int>> row1 = new List<List<int>>
             {
             new List<int> { 1, 8, 8 },
             new List<int> { 2, 8, 7 },
@@ -488,7 +488,7 @@ namespace TetraChessdron
             new List<int> { 8, 8, 1 }
             };
 
-            List<List<int>> row2 = new List<List<int>> 
+            List<List<int>> row2 = new List<List<int>>
             {
             new List<int> { 2, 7, 6 },
             new List<int> { 3, 7, 5 },
@@ -499,7 +499,7 @@ namespace TetraChessdron
             new List<int> { 8, 7, 2 }
             };
 
-            List<List<int>> row3 = new List<List<int>> 
+            List<List<int>> row3 = new List<List<int>>
             {
             new List<int> { 1, 7, 7 },
             new List<int> { 2, 7, 8 },
@@ -510,7 +510,7 @@ namespace TetraChessdron
             new List<int> { 7, 7, 3 }
             };
 
-            List<List<int>> row4 = new List<List<int>> 
+            List<List<int>> row4 = new List<List<int>>
             {
             new List<int> { 3, 6, 4 },
             new List<int> { 4, 6, 3 },
@@ -527,7 +527,7 @@ namespace TetraChessdron
            new List<int> { 4, 6, 5 },
            new List<int> { 5, 6, 4 },
            new List<int> { 6, 6, 3 },
-           new List<int> { 7, 6, 4 } 
+           new List<int> { 7, 6, 4 }
             };
 
             List<List<int>> row6 = new List<List<int>>
@@ -546,7 +546,7 @@ namespace TetraChessdron
             new List<int> {5 , 5, 1 },
             new List<int> {6 , 5, 2 },
             new List<int> {7 , 5, 3 },
-            new List<int> {8 , 5, 4 } 
+            new List<int> {8 , 5, 4 }
             };
 
             List<List<int>> row8 = new List<List<int>>
@@ -555,7 +555,7 @@ namespace TetraChessdron
             new List<int> {4 , 5, 4 },
             new List<int> {5 , 5, 3 },
             new List<int> {6 , 5, 4 },
-            new List<int> {7 , 5, 5 } 
+            new List<int> {7 , 5, 5 }
             };
 
             List<List<int>> row9 = new List<List<int>>
@@ -564,7 +564,7 @@ namespace TetraChessdron
             new List<int> { 3,5,5 },
             new List<int> { 4,5,6 },
             new List<int> { 5,5,5 },
-            new List<int> { 6,5,6 } 
+            new List<int> { 6,5,6 }
             };
 
             List<List<int>> row10 = new List<List<int>>
@@ -573,7 +573,7 @@ namespace TetraChessdron
             new List<int> {2 ,5, 6},
             new List<int> {3 ,5, 7},
             new List<int> {4 ,5, 8},
-            new List<int> {5 ,5, 7} 
+            new List<int> {5 ,5, 7}
             };
 
             List<List<int>> row11 = new List<List<int>>
@@ -582,7 +582,7 @@ namespace TetraChessdron
             new List<int> { 5,4,2 },
             new List<int> { 6,4,3 },
             new List<int> { 7,4,4 },
-            new List<int> { 8,4,5 } 
+            new List<int> { 8,4,5 }
             };
 
             List<List<int>> row12 = new List<List<int>>
@@ -591,7 +591,7 @@ namespace TetraChessdron
             new List<int> { 4,4,3 },
             new List<int> { 5,4,4 },
             new List<int> { 6,4,5 },
-            new List<int> { 7,4,6 } 
+            new List<int> { 7,4,6 }
             };
 
             List<List<int>> row13 = new List<List<int>>
@@ -600,7 +600,7 @@ namespace TetraChessdron
             new List<int> { 3,4,4 },
             new List<int> { 4,4,5 },
             new List<int> { 5,4,6 },
-            new List<int> { 6,4,7 } 
+            new List<int> { 6,4,7 }
             };
 
             List<List<int>> row14 = new List<List<int>>
@@ -609,7 +609,7 @@ namespace TetraChessdron
             new List<int> { 2,4, 5},
             new List<int> { 3,4, 6},
             new List<int> { 4,4, 7},
-            new List<int> { 5,4, 8} 
+            new List<int> { 5,4, 8}
             };
 
             List<List<int>> row15 = new List<List<int>>
@@ -619,7 +619,7 @@ namespace TetraChessdron
             new List<int> { 5,3,3 },
             new List<int> { 6,3,4 },
             new List<int> { 7,3,5 },
-            new List<int> { 8,3,6 } 
+            new List<int> { 8,3,6 }
             };
 
             List<List<int>> row16 = new List<List<int>>
@@ -629,7 +629,7 @@ namespace TetraChessdron
             new List<int> { 4,3,4 },
             new List<int> { 5,3,5 },
             new List<int> { 6,3,6 },
-            new List<int> { 7,3,7 } 
+            new List<int> { 7,3,7 }
             };
 
             List<List<int>> row17 = new List<List<int>>
@@ -639,7 +639,7 @@ namespace TetraChessdron
             new List<int> { 3,3,5 },
             new List<int> { 4,3,6 },
             new List<int> { 5,3,7 },
-            new List<int> { 6,3,8 } 
+            new List<int> { 6,3,8 }
             };
 
             List<List<int>> row18 = new List<List<int>>
@@ -650,7 +650,7 @@ namespace TetraChessdron
             new List<int> { 5,2,4 },
             new List<int> { 6,2,5 },
             new List<int> { 7,2,6 },
-            new List<int> { 8,2,7 } 
+            new List<int> { 8,2,7 }
             };
 
             List<List<int>> row19 = new List<List<int>>
@@ -661,7 +661,7 @@ namespace TetraChessdron
             new List<int> { 4,2,5 },
             new List<int> { 5,2,6 },
             new List<int> { 6,2,7 },
-            new List<int> { 7,2,8 } 
+            new List<int> { 7,2,8 }
             };
 
             List<List<int>> row20 = new List<List<int>>
@@ -673,7 +673,7 @@ namespace TetraChessdron
             new List<int> { 5,1,5 },
             new List<int> { 6,1,6 },
             new List<int> { 7,1,7 },
-            new List<int> { 8,1,8 } 
+            new List<int> { 8,1,8 }
             };
 
 
@@ -694,7 +694,7 @@ namespace TetraChessdron
             Console.WriteLine("|");
             Console.WriteLine("|188|287|386|485|584|683|782|881|");
 
-            Console.Write("    "); 
+            Console.Write("    ");
             foreach (List<int> xyz in row2)
             {
                 int x = xyz[0];
@@ -965,4 +965,5 @@ namespace TetraChessdron
             Console.WriteLine("|111|212|313|414|515|616|717|818|");
             Console.WriteLine("");
         }
+    }
 }
