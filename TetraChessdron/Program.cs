@@ -35,8 +35,6 @@ namespace TetraChessdron
         }
         private static void MoveAPiece()
         {
-            List<List<List<CubeCell>>> pieceMovement = new List<List<List<CubeCell>>>();
-
             Console.WriteLine("select a location to move from:");
             string xSelectionString = Console.ReadLine();
             int xSelectionInt = int.Parse(xSelectionString);
@@ -107,7 +105,7 @@ namespace TetraChessdron
                 {
                     PrintBoardToConsole();
                     Console.WriteLine("Choose a promotion for this pawn:");
-                    Console.WriteLine(" R , KN , B , Q ");
+                    Console.WriteLine(" r , kn , b , q ");
                     string promotionChoice = Console.ReadLine();
                     if (promotionChoice == "r")
                     {
@@ -138,7 +136,7 @@ namespace TetraChessdron
                 {
                     PrintBoardToConsole();
                     Console.WriteLine("Choose a promotion for this pawn:");
-                    Console.WriteLine(" R , KN , B , Q ");
+                    Console.WriteLine(" r , kn , b , q ");
                     string promotionChoice = Console.ReadLine();
                     if (promotionChoice == "r")
                     {
@@ -1202,7 +1200,6 @@ namespace TetraChessdron
         private static List<List<List<CubeCell>>> WriteTetrahedronBoardOntoCube()
         {
             List<List<List<CubeCell>>> tetrahedronInACube = new List<List<List<CubeCell>>>();
-            CubeCell cellContent = new CubeCell();
 
             for (var x = 1; x < 9; x++)
             {
