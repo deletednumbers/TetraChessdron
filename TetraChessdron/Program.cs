@@ -280,54 +280,141 @@ namespace TetraChessdron
             row3.Add(new List<int> { 7, 7, 3 });
 
             List<List<int>> row4 = new List<List<int>>();
-            row4.Add(new List<int> { 2, 7, 6 });
-            row4.Add(new List<int> { 3, 7, 5 });
-            row4.Add(new List<int> { 4, 7, 4 });
-            row4.Add(new List<int> { 5, 7, 3 });
-            row4.Add(new List<int> { 6, 7, 2 });
-            row4.Add(new List<int> { 7, 7, 1 });
-            row4.Add(new List<int> { 8, 7, 2 });
+            row4.Add(new List<int> { 3, 6, 4 });
+            row4.Add(new List<int> { 4, 6, 3 });
+            row4.Add(new List<int> { 5, 6, 2 });
+            row4.Add(new List<int> { 6, 6, 1 });
+            row4.Add(new List<int> { 7, 6, 2 });
+            row4.Add(new List<int> { 8, 6, 3 });
 
             List<List<int>> row5 = new List<List<int>>();
-            row5.Add(new List<int> { 2, 7, 6 });
-            row5.Add(new List<int> { 3, 7, 5 });
-            row5.Add(new List<int> { 4, 7, 4 });
-            row5.Add(new List<int> { 5, 7, 3 });
-            row5.Add(new List<int> { 6, 7, 2 });
-            row5.Add(new List<int> { 7, 7, 1 });
-            row5.Add(new List<int> { 8, 7, 2 });
+            row5.Add(new List<int> { 2,6,5 });
+            row5.Add(new List<int> { 3,6,6 });
+            row5.Add(new List<int> { 4,6,5 });
+            row5.Add(new List<int> { 5,6,4 });
+            row5.Add(new List<int> { 6,6,3 });
+            row5.Add(new List<int> { 7, 6, 4 });
 
             List<List<int>> row6 = new List<List<int>>();
-            row6.Add(new List<int> { 2, 7, 6 });
-            row6.Add(new List<int> { 3, 7, 5 });
-            row6.Add(new List<int> { 4, 7, 4 });
-            row6.Add(new List<int> { 5, 7, 3 });
-            row6.Add(new List<int> { 6, 7, 2 });
-            row6.Add(new List<int> { 7, 7, 1 });
-            row6.Add(new List<int> { 8, 7, 2 });
+            row6.Add(new List<int> { 1, 6, 6 });
+            row6.Add(new List<int> { 2, 6, 7 });
+            row6.Add(new List<int> { 3, 6, 8 });
+            row6.Add(new List<int> { 4, 6, 7 });
+            row6.Add(new List<int> { 5, 6, 6 });
+            row6.Add(new List<int> { 6, 6, 5 });
 
             List<List<int>> row7 = new List<List<int>>();
-            row7.Add(new List<int> { 2, 7, 6 });
-            row7.Add(new List<int> { 3, 7, 5 });
-            row7.Add(new List<int> { 4, 7, 4 });
-            row7.Add(new List<int> { 5, 7, 3 });
-            row7.Add(new List<int> { 6, 7, 2 });
-            row7.Add(new List<int> { 7, 7, 1 });
-            row7.Add(new List<int> { 8, 7, 2 });
+            row7.Add(new List<int> {4 , 5, 2 });
+            row7.Add(new List<int> {5 , 5, 1 });
+            row7.Add(new List<int> {6 , 5, 2 });
+            row7.Add(new List<int> {7 , 5, 3 });
+            row7.Add(new List<int> {8 , 5, 4 });
 
             List<List<int>> row8 = new List<List<int>>();
-            row8.Add(new List<int> { 2, 7, 6 });
-            row8.Add(new List<int> { 3, 7, 5 });
-            row8.Add(new List<int> { 4, 7, 4 });
-            row8.Add(new List<int> { 5, 7, 3 });
-            row8.Add(new List<int> { 6, 7, 2 });
-            row8.Add(new List<int> { 7, 7, 1 });
-            row8.Add(new List<int> { 8, 7, 2 });
+            row8.Add(new List<int> {3 , 5, 3 });
+            row8.Add(new List<int> {4 , 5, 4 });
+            row8.Add(new List<int> {5 , 5, 3 });
+            row8.Add(new List<int> {6 , 5, 4 });
+            row8.Add(new List<int> {7 , 5, 5 });
+
+            List<List<int>> row9 = new List<List<int>>();
+            row9.Add(new List<int> { 2,5,4 });
+            row9.Add(new List<int> { 3,5,5 });
+            row9.Add(new List<int> { 4,5,6 });
+            row9.Add(new List<int> { 5,5,5 });
+            row9.Add(new List<int> { 6,5,6 });
+
+            List<List<int>> row10 = new List<List<int>>();
+            row10.Add(new List<int> {1 ,5, 5});
+            row10.Add(new List<int> {2 ,5, 6});
+            row10.Add(new List<int> {3 ,5, 7});
+            row10.Add(new List<int> {4 ,5, 8});
+            row10.Add(new List<int> {5 ,5, 7});
+
+            List<List<int>> row11 = new List<List<int>>();
+            row11.Add(new List<int> { 4,4,1 });
+            row11.Add(new List<int> { 5,4,2 });
+            row11.Add(new List<int> { 6,4,3 });
+            row11.Add(new List<int> { 7,4,4 });
+            row11.Add(new List<int> { 8,4,5 });
+
+            List<List<int>> row12 = new List<List<int>>();
+            row12.Add(new List<int> { 3,4,2 });
+            row12.Add(new List<int> { 4,4,3 });
+            row12.Add(new List<int> { 5,4,4 });
+            row12.Add(new List<int> { 6,4,5 });
+            row12.Add(new List<int> { 7,4,6 });
+
+            List<List<int>> row13 = new List<List<int>>();
+            row13.Add(new List<int> { 2,4,3 });
+            row13.Add(new List<int> { 3,4,4 });
+            row13.Add(new List<int> { 4,4,5 });
+            row13.Add(new List<int> { 5,4,6 });
+            row13.Add(new List<int> { 6,4,7 });
+
+            List<List<int>> row14 = new List<List<int>>();
+            row14.Add(new List<int> { 1,4, 4});
+            row14.Add(new List<int> { 2,4, 5});
+            row14.Add(new List<int> { 3,4, 6});
+            row14.Add(new List<int> { 4,4, 7});
+            row14.Add(new List<int> { 5,4, 8});
+
+            List<List<int>> row15 = new List<List<int>>();
+            row15.Add(new List<int> { 3,3,1 });
+            row15.Add(new List<int> { 4,3,2 });
+            row15.Add(new List<int> { 5,3,3 });
+            row15.Add(new List<int> { 6,3,4 });
+            row15.Add(new List<int> { 7,3,5 });
+            row15.Add(new List<int> { 8,3,6 });
+
+            List<List<int>> row16 = new List<List<int>>();
+            row16.Add(new List<int> { 2,3,2 });
+            row16.Add(new List<int> { 3,3,3 });
+            row16.Add(new List<int> { 4,3,4 });
+            row16.Add(new List<int> { 5,3,5 });
+            row16.Add(new List<int> { 6,3,6 });
+            row16.Add(new List<int> { 7,3,7 });
+
+            List<List<int>> row17 = new List<List<int>>();
+            row17.Add(new List<int> { 1,3,3 });
+            row17.Add(new List<int> { 2,3,4 });
+            row17.Add(new List<int> { 3,3,5 });
+            row17.Add(new List<int> { 4,3,6 });
+            row17.Add(new List<int> { 5,3,7 });
+            row17.Add(new List<int> { 6,3,8 });
+
+            List<List<int>> row18 = new List<List<int>>();
+            row18.Add(new List<int> { 2,2,1 });
+            row18.Add(new List<int> { 3,2,2 });
+            row18.Add(new List<int> { 4,2,3 });
+            row18.Add(new List<int> { 5,2,4 });
+            row18.Add(new List<int> { 6,2,5 });
+            row18.Add(new List<int> { 7,2,6 });
+            row18.Add(new List<int> { 8,2,7 });
+
+            List<List<int>> row19 = new List<List<int>>();
+            row19.Add(new List<int> { 1,2,2 });
+            row19.Add(new List<int> { 2,2,3 });
+            row19.Add(new List<int> { 3,2,4 });
+            row19.Add(new List<int> { 4,2,5 });
+            row19.Add(new List<int> { 5,2,6 });
+            row19.Add(new List<int> { 6,2,7 });
+            row19.Add(new List<int> { 7,2,8 });
+
+            List<List<int>> row20 = new List<List<int>>();
+            row20.Add(new List<int> { 1,1,1 });
+            row20.Add(new List<int> { 2,1,2 });
+            row20.Add(new List<int> { 3,1,3 });
+            row20.Add(new List<int> { 4,1,4 });
+            row20.Add(new List<int> { 5,1,5 });
+            row20.Add(new List<int> { 6,1,6 });
+            row20.Add(new List<int> { 7,1,7 });
+            row20.Add(new List<int> { 8,1,8 });
 
 
             Console.Clear();
             Console.WriteLine("");
-            Console.WriteLine($"|---|---|---|---|---|---|---|---|");
+            Console.WriteLine("|---|---|---|---|---|---|---|---|");
 
             foreach (List<int> xyz in row1)
             {
@@ -340,7 +427,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine($"|188|287|386|485|584|683|782|881|");
+            Console.WriteLine("|188|287|386|485|584|683|782|881|");
 
             Console.Write("    "); 
             foreach (List<int> xyz in row2)
@@ -354,7 +441,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine($"|---|276|375|474|573|672|771|872|");
+            Console.WriteLine("|---|276|375|474|573|672|771|872|");
 
             foreach (List<int> xyz in row3)
             {
@@ -367,75 +454,250 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine($"|177|278|377|476|575|674|773|---|");
+            Console.WriteLine("|177|278|377|476|575|674|773|---|");
 
-            Console.WriteLine($"        |"+xYZCube[3][6][4].GetCellContents()+"|"+xYZCube[4][6][3].GetCellContents()+"|"+xYZCube[5][6][2].GetCellContents()+"|"+xYZCube[6][6][1].GetCellContents()+"|"+xYZCube[7][6][2].GetCellContents()+"|"+xYZCube[8][6][3].GetCellContents()+"|");
-            
-            Console.WriteLine($"    |364|463|562|661|761|863|---|");
 
-            Console.WriteLine($"    |"+xYZCube[2][6][5].GetCellContents()+"|"+xYZCube[3][6][6].GetCellContents()+"|"+xYZCube[4][6][5].GetCellContents()+"|"+xYZCube[5][6][4].GetCellContents()+"|"+xYZCube[6][6][3].GetCellContents()+"|"+xYZCube[7][6][4].GetCellContents()+"|");
-            
-            Console.WriteLine($"|---|265|366|465|564|663|764|");
+            Console.Write("        ");
+            foreach (List<int> xyz in row4)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("    |---|364|463|562|661|761|863|");
 
-            Console.WriteLine($"|"+xYZCube[1][6][6].GetCellContents()+"|"+xYZCube[2][6][7].GetCellContents()+"|"+xYZCube[3][6][8].GetCellContents()+"|"+xYZCube[4][6][7].GetCellContents()+"|"+xYZCube[5][6][6].GetCellContents()+"|"+xYZCube[6][6][5].GetCellContents()+"|");
-            
-            Console.WriteLine($"|166|267|368|467|566|665|---|---|");
 
-            Console.WriteLine($"            |"+xYZCube[4][5][2].GetCellContents()+"|"+xYZCube[5][5][1].GetCellContents()+"|"+xYZCube[6][5][2].GetCellContents()+"|"+xYZCube[7][5][3].GetCellContents()+"|"+xYZCube[8][5][4].GetCellContents()+"|");
-            
-            Console.WriteLine($"        |---|452|551|652|753|854|");
+            Console.Write("    ");
+            foreach (List<int> xyz in row5)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("|---|265|366|465|564|663|764|");
 
-            Console.WriteLine($"        |"+xYZCube[3][5][3].GetCellContents()+"|"+xYZCube[4][5][4].GetCellContents()+"|"+xYZCube[5][5][3].GetCellContents()+"|"+xYZCube[6][5][4].GetCellContents()+"|"+xYZCube[7][5][5].GetCellContents()+"|");
-            
-            Console.WriteLine($"    |---|353|454|553|654|755|");
+            foreach (List<int> xyz in row6)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("|166|267|368|467|566|665|---|---|");
 
-            Console.WriteLine($"    |"+xYZCube[2][5][4].GetCellContents()+"|"+xYZCube[3][5][5].GetCellContents()+"|"+xYZCube[4][5][6].GetCellContents()+"|"+xYZCube[5][5][5].GetCellContents()+"|"+xYZCube[6][5][6].GetCellContents()+"|");
-            
-            Console.WriteLine($"|---|254|355|456|555|656|");
 
-            Console.WriteLine($"|"+xYZCube[1][5][5].GetCellContents()+"|"+xYZCube[2][5][6].GetCellContents()+"|"+xYZCube[3][5][7].GetCellContents()+"|"+xYZCube[4][5][8].GetCellContents()+"|"+xYZCube[5][5][7].GetCellContents()+"|");
-            
-            Console.WriteLine($"|155|256|357|458|557|---|---|---|");
+            Console.Write("            ");
+            foreach (List<int> xyz in row7)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("        |---|452|551|652|753|854|");
 
-            Console.WriteLine($"            |"+xYZCube[4][4][1].GetCellContents()+"|"+xYZCube[5][4][2].GetCellContents()+"|"+xYZCube[6][4][3].GetCellContents()+"|"+xYZCube[7][4][4].GetCellContents()+"|"+xYZCube[8][4][5].GetCellContents()+"|");
-            
-            Console.WriteLine($"        |441|542|643|744|845|---|");
 
-            Console.WriteLine($"        |"+xYZCube[3][4][2].GetCellContents()+"|"+xYZCube[4][4][3].GetCellContents()+"|"+xYZCube[5][4][4].GetCellContents()+"|"+xYZCube[6][4][5].GetCellContents()+"|"+xYZCube[7][4][6].GetCellContents()+"|");
-            
-            Console.WriteLine($"    |---|342|443|544|645|746|");
+            Console.Write("        ");
+            foreach (List<int> xyz in row8)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("    |---|353|454|553|654|755|");
 
-            Console.WriteLine($"    |"+xYZCube[2][4][3].GetCellContents()+"|"+xYZCube[3][4][4].GetCellContents()+"|"+xYZCube[4][4][5].GetCellContents()+"|"+xYZCube[5][4][6].GetCellContents()+"|"+xYZCube[6][4][7].GetCellContents()+"|");
-            
-            Console.WriteLine($"|---|243|344|445|546|647|");
 
-            Console.WriteLine($"|"+xYZCube[1][4][4].GetCellContents()+"|"+xYZCube[2][4][5].GetCellContents()+"|"+xYZCube[3][4][6].GetCellContents()+"|"+xYZCube[4][4][7].GetCellContents()+"|"+xYZCube[5][4][8].GetCellContents()+"|");
-            
-            Console.WriteLine($"|144|245|346|447|548|---|---|---|");
+            Console.Write("    ");
+            foreach (List<int> xyz in row9)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("|---|254|355|456|555|656|");
 
-            Console.WriteLine($"        |"+xYZCube[3][3][1].GetCellContents()+"|"+xYZCube[4][3][2].GetCellContents()+"|"+xYZCube[5][3][3].GetCellContents()+"|"+xYZCube[6][3][4].GetCellContents()+"|"+xYZCube[7][3][5].GetCellContents()+"|"+xYZCube[8][3][6].GetCellContents()+"|");
-            
-            Console.WriteLine($"        |331|432|533|634|735|836|");
+            foreach (List<int> xyz in row10)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("|155|256|357|458|557|---|---|---|");
 
-            Console.WriteLine($"    |"+xYZCube[2][3][2].GetCellContents()+"|"+xYZCube[3][3][3].GetCellContents()+"|"+xYZCube[4][3][4].GetCellContents()+"|"+xYZCube[5][3][5].GetCellContents()+"|"+xYZCube[6][3][6].GetCellContents()+"|"+xYZCube[7][3][7].GetCellContents()+"|");
-            
-            Console.WriteLine($"|---|232|333|434|535|636|737|");
 
-            Console.WriteLine($"|"+xYZCube[1][3][3].GetCellContents()+"|"+xYZCube[2][3][4].GetCellContents()+"|"+xYZCube[3][3][5].GetCellContents()+"|"+xYZCube[4][3][6].GetCellContents()+"|"+xYZCube[5][3][7].GetCellContents()+"|"+xYZCube[6][3][8].GetCellContents()+"|");
-            
-            Console.WriteLine($"|133|234|335|436|537|638|---|---|");
+            Console.Write("            ");
+            foreach (List<int> xyz in row11)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("        |---|441|542|643|744|845|");
 
-            Console.WriteLine($"    |"+xYZCube[2][2][1].GetCellContents()+"|"+xYZCube[3][2][2].GetCellContents()+"|"+xYZCube[4][2][3].GetCellContents()+"|"+xYZCube[5][2][4].GetCellContents()+"|"+xYZCube[6][2][5].GetCellContents()+"|"+xYZCube[7][2][6].GetCellContents()+"|"+xYZCube[8][2][7].GetCellContents()+"|");
-            
-            Console.WriteLine($"|---|221|322|423|524|625|726|827|");
-            
-            Console.WriteLine($"|"+xYZCube[1][2][2].GetCellContents()+"|"+xYZCube[2][2][3].GetCellContents()+"|"+xYZCube[3][2][4].GetCellContents()+"|"+xYZCube[4][2][5].GetCellContents()+"|"+xYZCube[5][2][6].GetCellContents()+"|"+xYZCube[6][2][7].GetCellContents()+"|"+xYZCube[7][2][8].GetCellContents()+"|");
-            
-            Console.WriteLine($"|122|223|324|425|526|627|728|---|");
-            
-            Console.WriteLine($"|"+xYZCube[1][1][1].GetCellContents()+"|"+xYZCube[2][1][2].GetCellContents()+"|"+xYZCube[3][1][3].GetCellContents()+"|"+xYZCube[4][1][4].GetCellContents()+"|"+xYZCube[5][1][5].GetCellContents()+"|"+xYZCube[6][1][6].GetCellContents()+"|"+xYZCube[7][1][7].GetCellContents()+"|"+xYZCube[8][1][8].GetCellContents()+"|");
-            
-            Console.WriteLine($"|111|212|313|414|515|616|717|818|");
+
+            Console.Write("        ");
+            foreach (List<int> xyz in row12)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("    |---|342|443|544|645|746|");
+
+
+            Console.Write("    ");
+            foreach (List<int> xyz in row13)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("|---|243|344|445|546|647|");
+
+            foreach (List<int> xyz in row14)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("|144|245|346|447|548|---|---|---|");
+
+
+            Console.Write("        ");
+            foreach (List<int> xyz in row15)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("    |---|331|432|533|634|735|836|");
+
+
+            Console.Write("    ");
+            foreach (List<int> xyz in row16)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("|---|232|333|434|535|636|737|");
+
+            foreach (List<int> xyz in row17)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("|133|234|335|436|537|638|---|---|");
+
+
+            Console.Write("    ");
+            foreach (List<int> xyz in row18)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("|---|221|322|423|524|625|726|827|");
+
+            foreach (List<int> xyz in row19)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("|122|223|324|425|526|627|728|---|");
+
+            foreach (List<int> xyz in row20)
+            {
+                int x = xyz[0];
+                int y = xyz[1];
+                int z = xyz[2];
+                Console.Write("|");
+                Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                Console.Write(xYZCube[x][y][z].GetCellContents());
+                Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+            }
+            Console.WriteLine("|");
+            Console.WriteLine("|111|212|313|414|515|616|717|818|");
             Console.WriteLine("");
         }
 
