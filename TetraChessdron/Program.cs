@@ -90,240 +90,121 @@ namespace TetraChessdron
         }
         private static void HighlightLegalMoves(string copySelectedPieceString, int xSelectionInt, int ySelectionInt, int zSelectionInt)
         {
+            List<string> pieceList = new List<string>
+            {
+               " R "," KN"," B "," Q "," K "," P "," r "," kn"," b "," p "," k "
+            };
+
             if (copySelectedPieceString == " R ")
             {
-                for (int index = 1; index < 8; index++)
+                List<List<int>> rookMoveset = new List<List<int>>
                 {
-                    int x = (0 * index) + xSelectionInt;
-                    int y = (1 * index) + ySelectionInt;
-                    int z = (1 * index) + zSelectionInt;
-                    if (x < 9)
+                    new List<int> {1,1,0},
+                    new List<int> {1,0,1},
+                    new List<int> {0,1,1},
+                    new List<int> {-1,1,0},
+                    new List<int> {-1,0,1},
+                    new List<int> {0,-1,1},
+                    new List<int> {1,-1,0},
+                    new List<int> {1,0,-1},
+                    new List<int> {0,1,-1},
+                    new List<int> {-1,-1,0},
+                    new List<int> {-1,0,-1},
+                    new List<int> {0,-1,-1}
+                };
+                foreach (List<int> moveVector in rookMoveset)
+                {
+                    for (int index = 1; index < 8; index++)
                     {
-                        if (y < 9)
+                        int x = (moveVector[0] * index) + xSelectionInt;
+                        int y = (moveVector[1] * index) + ySelectionInt;
+                        int z = (moveVector[2] * index) + zSelectionInt;
+                        if (x < 9)
                         {
-                            if (z < 9)
+                            if (x > 0)
                             {
-                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                if (y < 9)
                                 {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " R")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " KN")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " B")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " Q ")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " K ")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " P ")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " r ")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " kn")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " b")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " q")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " k")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " p")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
+                                    if (y > 0)
+                                    {
+                                        if (z < 9)
+                                        {
+                                            if (z > 0)
+                                            {
+                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                                }
+                                                else if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                    break;
+                                                }
+                                                else if (xYZCube[x][y][z].GetCellContents() == null)
+                                                {
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
                     }
                 }
-                for (int index = 1; index < 8; index++)
+            }
+            if (copySelectedPieceString == " r ")
+            {
+                List<List<int>> rookMoveset = new List<List<int>>
                 {
-                    int x = (1 * index) + xSelectionInt;
-                    int y = (0 * index) + ySelectionInt;
-                    int z = (1 * index) + zSelectionInt;
-                    if (x < 9)
-                    {
-                        if (y < 9)
-                        {
-                            if (z < 9)
-                            {
-                                if (xYZCube[x][y][z].GetCellContents() == " + ")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " R")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " KN")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " B")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " Q ")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " K ")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " P ")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " r ")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " kn")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " b")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " q")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " k")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " p")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                            }
-                        }
-                    }
-                }
-                for (int index = 1; index < 8; index++)
+                    new List<int> {1,1,0},
+                    new List<int> {1,0,1},
+                    new List<int> {0,1,1},
+                    new List<int> {-1,1,0},
+                    new List<int> {-1,0,1},
+                    new List<int> {0,-1,1},
+                    new List<int> {1,-1,0},
+                    new List<int> {1,0,-1},
+                    new List<int> {0,1,-1},
+                    new List<int> {-1,-1,0},
+                    new List<int> {-1,0,-1},
+                    new List<int> {0,-1,-1}
+                };
+                foreach (List<int> moveVector in rookMoveset)
                 {
-                    int x = (1 * index) + xSelectionInt;
-                    int y = (1 * index) + ySelectionInt;
-                    int z = (0 * index) + zSelectionInt;
-                    if (x < 9)
+                    for (int index = 1; index < 8; index++)
                     {
-                        if (y < 9)
+                        int x = (moveVector[0] * index) + xSelectionInt;
+                        int y = (moveVector[1] * index) + ySelectionInt;
+                        int z = (moveVector[2] * index) + zSelectionInt;
+                        if (x < 9)
                         {
-                            if (z < 9)
+                            if (x > 0)
                             {
-                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                if (y < 9)
                                 {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " R")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " KN")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " B")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " Q ")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " K ")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " P ")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " r ")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " kn")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " b")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " q")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " k")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
-                                }
-                                else if (xYZCube[x][y][z].GetCellContents() == " p")
-                                {
-                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                    break;
+                                    if (y > 0)
+                                    {
+                                        if (z < 9)
+                                        {
+                                            if (z > 0)
+                                            {
+                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                                }
+                                                else if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                    break;
+                                                }
+                                                else if (xYZCube[x][y][z].GetCellContents() == null)
+                                                {
+                                                    break;
+                                                }
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -443,10 +324,7 @@ namespace TetraChessdron
         class CubeCell
         {
             string? cellContents;
-            ConsoleColor colorDarkYellow = ConsoleColor.DarkYellow;
             ConsoleColor colorBlack = ConsoleColor.Black;
-            ConsoleColor colorDarkRed = ConsoleColor.DarkRed;
-            ConsoleColor colorDarkBlue = ConsoleColor.DarkBlue;
             ConsoleColor currentColor;
             public void SetCellColor(ConsoleColor setCellColor)
             {
