@@ -96,7 +96,69 @@ namespace TetraChessdron
                     }
                 }
             }
+            CheckForPawnPromotion(copySelectedPieceString,xDestinationInt, yDestinationInt, zDestinationInt);
             PrintBoardToConsole();
+        }
+        private static void CheckForPawnPromotion(string copySelectedPieceString, int xDestinationInt, int yDestinationInt, int zDestinationInt)
+        {
+            if (copySelectedPieceString == " P ")
+            {
+                if (xDestinationInt == 8)
+                {
+                    PrintBoardToConsole();
+                    Console.WriteLine("Choose a promotion for this pawn:");
+                    Console.WriteLine(" R , KN , B , Q ");
+                    string promotionChoice = Console.ReadLine();
+                    if (promotionChoice == "r")
+                    {
+
+                        xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" R ");
+                    }
+                    if (promotionChoice == "kn")
+                    {
+
+                        xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" KN");
+                    }
+                    if (promotionChoice == "b")
+                    {
+
+                        xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" B ");
+                    }
+                    if (promotionChoice == "q")
+                    {
+
+                        xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" Q ");
+                    }
+
+                }
+            }
+            if (copySelectedPieceString == " p ")
+            {
+                if (xDestinationInt == 1)
+                {
+                    PrintBoardToConsole();
+                    Console.WriteLine("Choose a promotion for this pawn:");
+                    Console.WriteLine(" R , KN , B , Q ");
+                    string promotionChoice = Console.ReadLine();
+                    if (promotionChoice == "r")
+                    {
+                        xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" r ");
+                    }
+                    if (promotionChoice == "kn")
+                    {
+                        xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" kn");
+                    }
+                    if (promotionChoice == "b")
+                    {
+                        xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" b ");
+                    }
+                    if (promotionChoice == "q")
+                    {
+                        xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" q ");
+                    }
+
+                }
+            }
         }
         private static void HighlightLegalMoves(string copySelectedPieceString, int xSelectionInt, int ySelectionInt, int zSelectionInt)
         {
