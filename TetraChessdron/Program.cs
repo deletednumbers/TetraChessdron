@@ -6,7 +6,6 @@ using System.Reflection.Metadata.Ecma335;
 
 namespace TetraChessdron
 {
-    //
     class TetraChessdron
     {
         private static List<List<List<CubeCell>>> xYZCube = MakeCube();
@@ -32,7 +31,6 @@ namespace TetraChessdron
                 }
                 MoveAPiece();
                 theFirstPlayersTurn = !theFirstPlayersTurn;
-
             }
         }
         private static void MoveAPiece()
@@ -76,20 +74,105 @@ namespace TetraChessdron
             string zDestinationString = Console.ReadLine();
             int zDestinationInt = int.Parse(zDestinationString);
 
-            xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(copySelectedPieceString);
             xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellContentsToEmpty();
-            xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.Black);
+            xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(copySelectedPieceString);
+            for (int x = 1; x < 9; x++)
+            {
+                for (int y = 1; y < 9; y++)
+                {
+                    for (int z = 1; z < 9; z++)
+                    {
+                        xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                    }
+                }
+            }
             PrintBoardToConsole();
         }
-        
         private static void HighlightLegalMoves(string copySelectedPieceString, int xSelectionInt, int ySelectionInt, int zSelectionInt)
         {
             if (copySelectedPieceString == " R ")
             {
-
+                for (int index = 1; index < 8; index++)
+                {
+                    int x = (0 * index) + xSelectionInt;
+                    int y = (1 * index) + ySelectionInt;
+                    int z = (1 * index) + zSelectionInt;
+                    if (x < 9)
+                    {
+                        if(y < 9)
+                        {
+                            if (z < 9)
+                            {
+                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " R")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    return;
+                                }
+                                else if(xYZCube[x][y][z].GetCellContents() == " KN")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    return;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " B")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    return;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " Q ")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    return;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " K ")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    return;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " P ")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    return;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " r ")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    return;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " kn")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    return;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " b")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    return;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " q")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    return;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " k")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    return;
+                                }
+                                else if (xYZCube[x][y][z].GetCellContents() == " p")
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                    return;
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
-        
         private static void SetupTeams()
         {
             //team 1
@@ -139,7 +222,6 @@ namespace TetraChessdron
             xYZCube[7][7][3].SetCellContents(" p ");
             xYZCube[7][8][2].SetCellContents(" p ");
         }
-        
         private static List<List<List<CubeCell>>> WriteTetrahedronBoardOntoCube() 
         {
             List<List<List<CubeCell>>> tetrahedronInACube = new List<List<List<CubeCell>>>();
@@ -210,7 +292,6 @@ namespace TetraChessdron
             ConsoleColor colorDarkRed = ConsoleColor.DarkRed;
             ConsoleColor colorDarkBlue = ConsoleColor.DarkBlue;
             ConsoleColor currentColor;
-
             public void SetCellColor(ConsoleColor setCellColor)
             {
                 currentColor = setCellColor;
@@ -236,7 +317,6 @@ namespace TetraChessdron
             {
                 return cellContents;
             }
-
         }
         class TetrahedronCell
         {
@@ -245,9 +325,7 @@ namespace TetraChessdron
             {
                 return anEmptyCell;
             }
-
         }
-        
         private static void PrintBoardToConsole()
         {
             List<List<List<CubeCell>>> displayBoard = new List<List<List<CubeCell>>>();
@@ -700,8 +778,6 @@ namespace TetraChessdron
             Console.WriteLine("|111|212|313|414|515|616|717|818|");
             Console.WriteLine("");
         }
-
-        
         private static void PrintPrototypeBoardToConsole()
         {
 
