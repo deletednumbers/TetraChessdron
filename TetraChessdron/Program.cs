@@ -92,12 +92,12 @@ namespace TetraChessdron
         {
             List<string> pieceList = new List<string>
             {
-               " R "," KN"," B "," Q "," K "," P "," r "," kn"," b "," p "," k "
+               " R "," KN"," B "," Q "," K "," P "," r "," kn"," b "," q "," k "," p "
             };
 
             if (copySelectedPieceString == " R ")
             {
-                List<List<int>> rookMoveset = new List<List<int>>
+                List<List<int>> Moveset = new List<List<int>>
                 {
                     new List<int> {1,1,0},
                     new List<int> {1,0,1},
@@ -112,7 +112,7 @@ namespace TetraChessdron
                     new List<int> {-1,0,-1},
                     new List<int> {0,-1,-1}
                 };
-                foreach (List<int> moveVector in rookMoveset)
+                foreach (List<int> moveVector in Moveset)
                 {
                     for (int index = 1; index < 8; index++)
                     {
@@ -142,7 +142,7 @@ namespace TetraChessdron
                                                 }
                                                 else if (xYZCube[x][y][z].GetCellContents() == null)
                                                 {
-                                                    break;
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
                                                 }
                                             }
                                         }
@@ -155,7 +155,7 @@ namespace TetraChessdron
             }
             if (copySelectedPieceString == " r ")
             {
-                List<List<int>> rookMoveset = new List<List<int>>
+                List<List<int>> Moveset = new List<List<int>>
                 {
                     new List<int> {1,1,0},
                     new List<int> {1,0,1},
@@ -170,7 +170,7 @@ namespace TetraChessdron
                     new List<int> {-1,0,-1},
                     new List<int> {0,-1,-1}
                 };
-                foreach (List<int> moveVector in rookMoveset)
+                foreach (List<int> moveVector in Moveset)
                 {
                     for (int index = 1; index < 8; index++)
                     {
@@ -200,7 +200,7 @@ namespace TetraChessdron
                                                 }
                                                 else if (xYZCube[x][y][z].GetCellContents() == null)
                                                 {
-                                                    break;
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
                                                 }
                                             }
                                         }
@@ -209,6 +209,872 @@ namespace TetraChessdron
                             }
                         }
                     }
+                }
+            }
+            if (copySelectedPieceString == " B ")
+            {
+                List<List<int>> Moveset = new List<List<int>>
+                {
+                    new List<int> {2,1,1},
+                    new List<int> {1,2,1},
+                    new List<int> {1,1,2},
+                    new List<int> {2,1,-1},
+                    new List<int> {1,2,-1},
+                    new List<int> {1,1,-2},
+                    new List<int> {2,-1,1},
+                    new List<int> {1,-2,1},
+                    new List<int> {1,-1,2},
+                    new List<int> {-2,1,1},
+                    new List<int> {-1,2,1},
+                    new List<int> {-1,1,2},
+                    new List<int> {2,-1,-1},
+                    new List<int> {1,-2,-1},
+                    new List<int> {1,-1,-2},
+                    new List<int> {-2,1,-1},
+                    new List<int> {-1,2,-1},
+                    new List<int> {-1,1,-2},
+                    new List<int> {-2,-1,1},
+                    new List<int> {-1,-2,1},
+                    new List<int> {-1,-1,2},
+                    new List<int> {-2,-1,-1},
+                    new List<int> {-1,-2,-1},
+                    new List<int> {-1,-1,-2}
+                };
+                foreach (List<int> moveVector in Moveset)
+                {
+                    for (int index = 1; index < 8; index++)
+                    {
+                        int x = (moveVector[0] * index) + xSelectionInt;
+                        int y = (moveVector[1] * index) + ySelectionInt;
+                        int z = (moveVector[2] * index) + zSelectionInt;
+                        if (x < 9)
+                        {
+                            if (x > 0)
+                            {
+                                if (y < 9)
+                                {
+                                    if (y > 0)
+                                    {
+                                        if (z < 9)
+                                        {
+                                            if (z > 0)
+                                            {
+                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                                }
+                                                else if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                    break;
+                                                }
+                                                else if (xYZCube[x][y][z].GetCellContents() == null)
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (copySelectedPieceString == " b ")
+            {
+                List<List<int>> Moveset = new List<List<int>>
+                {
+                    new List<int> {2,1,1},
+                    new List<int> {1,2,1},
+                    new List<int> {1,1,2},
+                    new List<int> {2,1,-1},
+                    new List<int> {1,2,-1},
+                    new List<int> {1,1,-2},
+                    new List<int> {2,-1,1},
+                    new List<int> {1,-2,1},
+                    new List<int> {1,-1,2},
+                    new List<int> {-2,1,1},
+                    new List<int> {-1,2,1},
+                    new List<int> {-1,1,2},
+                    new List<int> {2,-1,-1},
+                    new List<int> {1,-2,-1},
+                    new List<int> {1,-1,-2},
+                    new List<int> {-2,1,-1},
+                    new List<int> {-1,2,-1},
+                    new List<int> {-1,1,-2},
+                    new List<int> {-2,-1,1},
+                    new List<int> {-1,-2,1},
+                    new List<int> {-1,-1,2},
+                    new List<int> {-2,-1,-1},
+                    new List<int> {-1,-2,-1},
+                    new List<int> {-1,-1,-2}
+                };
+                foreach (List<int> moveVector in Moveset)
+                {
+                    for (int index = 1; index < 8; index++)
+                    {
+                        int x = (moveVector[0] * index) + xSelectionInt;
+                        int y = (moveVector[1] * index) + ySelectionInt;
+                        int z = (moveVector[2] * index) + zSelectionInt;
+                        if (x < 9)
+                        {
+                            if (x > 0)
+                            {
+                                if (y < 9)
+                                {
+                                    if (y > 0)
+                                    {
+                                        if (z < 9)
+                                        {
+                                            if (z > 0)
+                                            {
+                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                                }
+                                                else if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                    break;
+                                                }
+                                                else if (xYZCube[x][y][z].GetCellContents() == null)
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (copySelectedPieceString == " Q ")
+            {
+                List<List<int>> Moveset = new List<List<int>>
+                {
+                    new List<int> {1,1,0},
+                    new List<int> {1,0,1},
+                    new List<int> {0,1,1},
+                    new List<int> {-1,1,0},
+                    new List<int> {-1,0,1},
+                    new List<int> {0,-1,1},
+                    new List<int> {1,-1,0},
+                    new List<int> {1,0,-1},
+                    new List<int> {0,1,-1},
+                    new List<int> {-1,-1,0},
+                    new List<int> {-1,0,-1},
+                    new List<int> {0,-1,-1},
+                    new List<int> {2,1,1},
+                    new List<int> {1,2,1},
+                    new List<int> {1,1,2},
+                    new List<int> {2,1,-1},
+                    new List<int> {1,2,-1},
+                    new List<int> {1,1,-2},
+                    new List<int> {2,-1,1},
+                    new List<int> {1,-2,1},
+                    new List<int> {1,-1,2},
+                    new List<int> {-2,1,1},
+                    new List<int> {-1,2,1},
+                    new List<int> {-1,1,2},
+                    new List<int> {2,-1,-1},
+                    new List<int> {1,-2,-1},
+                    new List<int> {1,-1,-2},
+                    new List<int> {-2,1,-1},
+                    new List<int> {-1,2,-1},
+                    new List<int> {-1,1,-2},
+                    new List<int> {-2,-1,1},
+                    new List<int> {-1,-2,1},
+                    new List<int> {-1,-1,2},
+                    new List<int> {-2,-1,-1},
+                    new List<int> {-1,-2,-1},
+                    new List<int> {-1,-1,-2}
+                };
+                foreach (List<int> moveVector in Moveset)
+                {
+                    for (int index = 1; index < 8; index++)
+                    {
+                        int x = (moveVector[0] * index) + xSelectionInt;
+                        int y = (moveVector[1] * index) + ySelectionInt;
+                        int z = (moveVector[2] * index) + zSelectionInt;
+                        if (x < 9)
+                        {
+                            if (x > 0)
+                            {
+                                if (y < 9)
+                                {
+                                    if (y > 0)
+                                    {
+                                        if (z < 9)
+                                        {
+                                            if (z > 0)
+                                            {
+                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                                }
+                                                else if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                    break;
+                                                }
+                                                else if (xYZCube[x][y][z].GetCellContents() == null)
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (copySelectedPieceString == " q ")
+            {
+                List<List<int>> Moveset = new List<List<int>>
+                {
+                    new List<int> {1,1,0},
+                    new List<int> {1,0,1},
+                    new List<int> {0,1,1},
+                    new List<int> {-1,1,0},
+                    new List<int> {-1,0,1},
+                    new List<int> {0,-1,1},
+                    new List<int> {1,-1,0},
+                    new List<int> {1,0,-1},
+                    new List<int> {0,1,-1},
+                    new List<int> {-1,-1,0},
+                    new List<int> {-1,0,-1},
+                    new List<int> {0,-1,-1},
+                    new List<int> {2,1,1},
+                    new List<int> {1,2,1},
+                    new List<int> {1,1,2},
+                    new List<int> {2,1,-1},
+                    new List<int> {1,2,-1},
+                    new List<int> {1,1,-2},
+                    new List<int> {2,-1,1},
+                    new List<int> {1,-2,1},
+                    new List<int> {1,-1,2},
+                    new List<int> {-2,1,1},
+                    new List<int> {-1,2,1},
+                    new List<int> {-1,1,2},
+                    new List<int> {2,-1,-1},
+                    new List<int> {1,-2,-1},
+                    new List<int> {1,-1,-2},
+                    new List<int> {-2,1,-1},
+                    new List<int> {-1,2,-1},
+                    new List<int> {-1,1,-2},
+                    new List<int> {-2,-1,1},
+                    new List<int> {-1,-2,1},
+                    new List<int> {-1,-1,2},
+                    new List<int> {-2,-1,-1},
+                    new List<int> {-1,-2,-1},
+                    new List<int> {-1,-1,-2}
+                };
+                foreach (List<int> moveVector in Moveset)
+                {
+                    for (int index = 1; index < 8; index++)
+                    {
+                        int x = (moveVector[0] * index) + xSelectionInt;
+                        int y = (moveVector[1] * index) + ySelectionInt;
+                        int z = (moveVector[2] * index) + zSelectionInt;
+                        if (x < 9)
+                        {
+                            if (x > 0)
+                            {
+                                if (y < 9)
+                                {
+                                    if (y > 0)
+                                    {
+                                        if (z < 9)
+                                        {
+                                            if (z > 0)
+                                            {
+                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                                }
+                                                else if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                    break;
+                                                }
+                                                else if (xYZCube[x][y][z].GetCellContents() == null)
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (copySelectedPieceString == " K ")
+            {
+                List<List<int>> Moveset = new List<List<int>>
+                {
+                    new List<int> {1,1,0},
+                    new List<int> {1,0,1},
+                    new List<int> {0,1,1},
+                    new List<int> {-1,1,0},
+                    new List<int> {-1,0,1},
+                    new List<int> {0,-1,1},
+                    new List<int> {1,-1,0},
+                    new List<int> {1,0,-1},
+                    new List<int> {0,1,-1},
+                    new List<int> {-1,-1,0},
+                    new List<int> {-1,0,-1},
+                    new List<int> {0,-1,-1},
+                    new List<int> {2,1,1},
+                    new List<int> {1,2,1},
+                    new List<int> {1,1,2},
+                    new List<int> {2,1,-1},
+                    new List<int> {1,2,-1},
+                    new List<int> {1,1,-2},
+                    new List<int> {2,-1,1},
+                    new List<int> {1,-2,1},
+                    new List<int> {1,-1,2},
+                    new List<int> {-2,1,1},
+                    new List<int> {-1,2,1},
+                    new List<int> {-1,1,2},
+                    new List<int> {2,-1,-1},
+                    new List<int> {1,-2,-1},
+                    new List<int> {1,-1,-2},
+                    new List<int> {-2,1,-1},
+                    new List<int> {-1,2,-1},
+                    new List<int> {-1,1,-2},
+                    new List<int> {-2,-1,1},
+                    new List<int> {-1,-2,1},
+                    new List<int> {-1,-1,2},
+                    new List<int> {-2,-1,-1},
+                    new List<int> {-1,-2,-1},
+                    new List<int> {-1,-1,-2}
+                };
+                foreach (List<int> moveVector in Moveset)
+                {
+                        int x = moveVector[0] + xSelectionInt;
+                        int y = moveVector[1] + ySelectionInt;
+                        int z = moveVector[2] + zSelectionInt;
+                        if (x < 9)
+                        {
+                            if (x > 0)
+                            {
+                                if (y < 9)
+                                {
+                                    if (y > 0)
+                                    {
+                                        if (z < 9)
+                                        {
+                                            if (z > 0)
+                                            {
+                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                                }
+                                                else if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                }
+                                                else if (xYZCube[x][y][z].GetCellContents() == null)
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    
+                }
+            }
+            if (copySelectedPieceString == " k ")
+            {
+                List<List<int>> Moveset = new List<List<int>>
+                {
+                    new List<int> {1,1,0},
+                    new List<int> {1,0,1},
+                    new List<int> {0,1,1},
+                    new List<int> {-1,1,0},
+                    new List<int> {-1,0,1},
+                    new List<int> {0,-1,1},
+                    new List<int> {1,-1,0},
+                    new List<int> {1,0,-1},
+                    new List<int> {0,1,-1},
+                    new List<int> {-1,-1,0},
+                    new List<int> {-1,0,-1},
+                    new List<int> {0,-1,-1},
+                    new List<int> {2,1,1},
+                    new List<int> {1,2,1},
+                    new List<int> {1,1,2},
+                    new List<int> {2,1,-1},
+                    new List<int> {1,2,-1},
+                    new List<int> {1,1,-2},
+                    new List<int> {2,-1,1},
+                    new List<int> {1,-2,1},
+                    new List<int> {1,-1,2},
+                    new List<int> {-2,1,1},
+                    new List<int> {-1,2,1},
+                    new List<int> {-1,1,2},
+                    new List<int> {2,-1,-1},
+                    new List<int> {1,-2,-1},
+                    new List<int> {1,-1,-2},
+                    new List<int> {-2,1,-1},
+                    new List<int> {-1,2,-1},
+                    new List<int> {-1,1,-2},
+                    new List<int> {-2,-1,1},
+                    new List<int> {-1,-2,1},
+                    new List<int> {-1,-1,2},
+                    new List<int> {-2,-1,-1},
+                    new List<int> {-1,-2,-1},
+                    new List<int> {-1,-1,-2}
+                };
+                foreach (List<int> moveVector in Moveset)
+                {
+                    int x = moveVector[0] + xSelectionInt;
+                    int y = moveVector[1] + ySelectionInt;
+                    int z = moveVector[2] + zSelectionInt;
+                    if (x < 9)
+                    {
+                        if (x > 0)
+                        {
+                            if (y < 9)
+                            {
+                                if (y > 0)
+                                {
+                                    if (z < 9)
+                                    {
+                                        if (z > 0)
+                                        {
+                                            if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                            }
+                                            else if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                            }
+                                            else if (xYZCube[x][y][z].GetCellContents() == null)
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+            if (copySelectedPieceString == " KN")
+            {
+                List<List<int>> Moveset = new List<List<int>>
+                {
+                    new List<int> {1,2,3},
+                    new List<int> {2,1,3},
+                    new List<int> {2,3,1},
+                    new List<int> {3,2,1},
+                    new List<int> {3,1,2},
+                    new List<int> {1,3,2},
+                    new List<int> {1,2,-3},
+                    new List<int> {2,1,-3},
+                    new List<int> {2,3,-1},
+                    new List<int> {3,2,-1},
+                    new List<int> {3,1,-2},
+                    new List<int> {1,3,-2},
+                    new List<int> {1,-2,3},
+                    new List<int> {2,-1,3},
+                    new List<int> {2,-3,1},
+                    new List<int> {3,-2,1},
+                    new List<int> {3,-1,2},
+                    new List<int> {1,-3,2},
+                    new List<int> {-1,2,3},
+                    new List<int> {-2,1,3},
+                    new List<int> {-2,3,1},
+                    new List<int> {-3,2,1},
+                    new List<int> {-3,1,2},
+                    new List<int> {-1,3,2},
+                    new List<int> {1,-2,-3},
+                    new List<int> {2,-1,-3},
+                    new List<int> {2,-3,-1},
+                    new List<int> {3,-2,-1},
+                    new List<int> {3,-1,-2},
+                    new List<int> {1,-3,-2},
+                    new List<int> {-1,2,-3},
+                    new List<int> {-2,1,-3},
+                    new List<int> {-2,3,-1},
+                    new List<int> {-3,2,-1},
+                    new List<int> {-3,1,-2},
+                    new List<int> {-1,3,-2},
+                    new List<int> {-1,-2,3},
+                    new List<int> {-2,-1,3},
+                    new List<int> {-2,-3,1},
+                    new List<int> {-3,-2,1},
+                    new List<int> {-3,-1,2},
+                    new List<int> {-1,-3,2},
+                    new List<int> {-1,-2,-3},
+                    new List<int> {-2,-1,-3},
+                    new List<int> {-2,-3,-1},
+                    new List<int> {-3,-2,-1},
+                    new List<int> {-3,-1,-2},
+                    new List<int> {-1,-3,-2},
+                };
+                foreach (List<int> moveVector in Moveset)
+                {
+                        int x = moveVector[0] + xSelectionInt;
+                        int y = moveVector[1] + ySelectionInt;
+                        int z = moveVector[2] + zSelectionInt;
+                        if (x < 9)
+                        {
+                            if (x > 0)
+                            {
+                                if (y < 9)
+                                {
+                                    if (y > 0)
+                                    {
+                                        if (z < 9)
+                                        {
+                                            if (z > 0)
+                                            {
+                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                                }
+                                                else if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                }
+                                                else if (xYZCube[x][y][z].GetCellContents() == null)
+                                                {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                }
+            }
+            if (copySelectedPieceString == " kn")
+            {
+                List<List<int>> Moveset = new List<List<int>>
+                {
+                    new List<int> {1,2,3},
+                    new List<int> {2,1,3},
+                    new List<int> {2,3,1},
+                    new List<int> {3,2,1},
+                    new List<int> {3,1,2},
+                    new List<int> {1,3,2},
+                    new List<int> {1,2,-3},
+                    new List<int> {2,1,-3},
+                    new List<int> {2,3,-1},
+                    new List<int> {3,2,-1},
+                    new List<int> {3,1,-2},
+                    new List<int> {1,3,-2},
+                    new List<int> {1,-2,3},
+                    new List<int> {2,-1,3},
+                    new List<int> {2,-3,1},
+                    new List<int> {3,-2,1},
+                    new List<int> {3,-1,2},
+                    new List<int> {1,-3,2},
+                    new List<int> {-1,2,3},
+                    new List<int> {-2,1,3},
+                    new List<int> {-2,3,1},
+                    new List<int> {-3,2,1},
+                    new List<int> {-3,1,2},
+                    new List<int> {-1,3,2},
+                    new List<int> {1,-2,-3},
+                    new List<int> {2,-1,-3},
+                    new List<int> {2,-3,-1},
+                    new List<int> {3,-2,-1},
+                    new List<int> {3,-1,-2},
+                    new List<int> {1,-3,-2},
+                    new List<int> {-1,2,-3},
+                    new List<int> {-2,1,-3},
+                    new List<int> {-2,3,-1},
+                    new List<int> {-3,2,-1},
+                    new List<int> {-3,1,-2},
+                    new List<int> {-1,3,-2},
+                    new List<int> {-1,-2,3},
+                    new List<int> {-2,-1,3},
+                    new List<int> {-2,-3,1},
+                    new List<int> {-3,-2,1},
+                    new List<int> {-3,-1,2},
+                    new List<int> {-1,-3,2},
+                    new List<int> {-1,-2,-3},
+                    new List<int> {-2,-1,-3},
+                    new List<int> {-2,-3,-1},
+                    new List<int> {-3,-2,-1},
+                    new List<int> {-3,-1,-2},
+                    new List<int> {-1,-3,-2},
+                };
+                foreach (List<int> moveVector in Moveset)
+                {
+                    int x = moveVector[0] + xSelectionInt;
+                    int y = moveVector[1] + ySelectionInt;
+                    int z = moveVector[2] + zSelectionInt;
+                    if (x < 9)
+                    {
+                        if (x > 0)
+                        {
+                            if (y < 9)
+                            {
+                                if (y > 0)
+                                {
+                                    if (z < 9)
+                                    {
+                                        if (z > 0)
+                                        {
+                                            if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                            }
+                                            else if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                            }
+                                            else if (xYZCube[x][y][z].GetCellContents() == null)
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            if (copySelectedPieceString == " P ")
+            {
+                List<List<int>> Moveset = new List<List<int>>
+                {
+                    new List<int> {1,1,0},
+                    new List<int> {1,0,1},
+                    new List<int> {1,-1,0},
+                    new List<int> {1,0,-1}
+                };
+                List<List<int>> Attackset = new List<List<int>>
+                {
+                    new List<int> {2,1,1},
+                    new List<int> {1,2,1},
+                    new List<int> {1,1,2},
+                    new List<int> {2,1,-1},
+                    new List<int> {1,2,-1},
+                    new List<int> {1,1,-2},
+                    new List<int> {2,-1,1},
+                    new List<int> {1,-2,1},
+                    new List<int> {1,-1,2},
+                    new List<int> {2,-1,-1},
+                    new List<int> {1,-2,-1},
+                    new List<int> {1,-1,-2}
+                };
+                foreach (List<int> moveVector in Moveset)
+                {
+                    int x = moveVector[0] + xSelectionInt;
+                    int y = moveVector[1] + ySelectionInt;
+                    int z = moveVector[2] + zSelectionInt;
+                    if (x < 9)
+                    {
+                        if (x > 0)
+                        {
+                            if (y < 9)
+                            {
+                                if (y > 0)
+                                {
+                                    if (z < 9)
+                                    {
+                                        if (z > 0)
+                                        {
+                                            if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+                foreach (List<int> moveVector in Moveset)
+                {
+                    int x = (moveVector[0]*2) + xSelectionInt;
+                    int y = (moveVector[1]*2) + ySelectionInt;
+                    int z = (moveVector[2]*2) + zSelectionInt;
+                    if (x < 9)
+                    {
+                        if (x > 0)
+                        {
+                            if (y < 9)
+                            {
+                                if (y > 0)
+                                {
+                                    if (z < 9)
+                                    {
+                                        if (z > 0)
+                                        {
+                                            if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGreen);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+                foreach (List<int> moveVector in Attackset)
+                {
+                    int x = moveVector[0] + xSelectionInt;
+                    int y = moveVector[1] + ySelectionInt;
+                    int z = moveVector[2] + zSelectionInt;
+                    if (x < 9)
+                    {
+                        if (x > 0)
+                        {
+                            if (y < 9)
+                            {
+                                if (y > 0)
+                                {
+                                    if (z < 9)
+                                    {
+                                        if (z > 0)
+                                        {
+                                            if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+            if (copySelectedPieceString == " p ")
+            {
+                List<List<int>> Moveset = new List<List<int>>
+                {
+                    new List<int> {-1,1,0},
+                    new List<int> {-1,0,1},
+                    new List<int> {-1,-1,0},
+                    new List<int> {-1,0,-1}
+                };
+                List<List<int>> Attackset = new List<List<int>>
+                {
+                    new List<int> {-2,1,1},
+                    new List<int> {-1,2,1},
+                    new List<int> {-1,1,2},
+                    new List<int> {-2,1,-1},
+                    new List<int> {-1,2,-1},
+                    new List<int> {-1,1,-2},
+                    new List<int> {-2,-1,1},
+                    new List<int> {-1,-2,1},
+                    new List<int> {-1,-1,2},
+                    new List<int> {-2,-1,-1},
+                    new List<int> {-1,-2,-1},
+                    new List<int> {-1,-1,-2}
+                };
+                foreach (List<int> moveVector in Moveset)
+                {
+                    int x = moveVector[0] + xSelectionInt;
+                    int y = moveVector[1] + ySelectionInt;
+                    int z = moveVector[2] + zSelectionInt;
+                    if (x < 9)
+                    {
+                        if (x > 0)
+                        {
+                            if (y < 9)
+                            {
+                                if (y > 0)
+                                {
+                                    if (z < 9)
+                                    {
+                                        if (z > 0)
+                                        {
+                                            if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+                foreach (List<int> moveVector in Moveset)
+                {
+                    int x = (moveVector[0] * 2) + xSelectionInt;
+                    int y = (moveVector[1] * 2) + ySelectionInt;
+                    int z = (moveVector[2] * 2) + zSelectionInt;
+                    if (x < 9)
+                    {
+                        if (x > 0)
+                        {
+                            if (y < 9)
+                            {
+                                if (y > 0)
+                                {
+                                    if (z < 9)
+                                    {
+                                        if (z > 0)
+                                        {
+                                            if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGreen);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+                foreach (List<int> moveVector in Attackset)
+                {
+                    int x = moveVector[0] + xSelectionInt;
+                    int y = moveVector[1] + ySelectionInt;
+                    int z = moveVector[2] + zSelectionInt;
+                    if (x < 9)
+                    {
+                        if (x > 0)
+                        {
+                            if (y < 9)
+                            {
+                                if (y > 0)
+                                {
+                                    if (z < 9)
+                                    {
+                                        if (z > 0)
+                                        {
+                                            if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
                 }
             }
         }
