@@ -2334,6 +2334,8 @@ namespace TetraChessdron
             }
             Console.WriteLine("|");
             Console.WriteLine("|188|287|386|485|584|683|782|881|");
+            Console.WriteLine("");
+            Console.WriteLine("    |---|---|---|---|---|---|---|");
 
             Console.Write("    ");
             foreach (List<int> xyz in row2)
@@ -2360,7 +2362,9 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|177|278|377|476|575|674|773|---|");
+            Console.WriteLine("|177|278|377|476|575|674|773|");
+            Console.WriteLine("");
+            Console.WriteLine("        |---|---|---|---|---|---|");
 
 
             Console.Write("        ");
@@ -2403,7 +2407,9 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|166|267|368|467|566|665|---|---|");
+            Console.WriteLine("|166|267|368|467|566|665|");
+            Console.WriteLine("");
+            Console.WriteLine("            |---|---|---|---|---|");
 
 
             Console.Write("            ");
@@ -2461,7 +2467,9 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|155|256|357|458|557|---|---|---|");
+            Console.WriteLine("|155|256|357|458|557|");
+            Console.WriteLine("");
+            Console.WriteLine("            |---|---|---|---|---|");
 
 
             Console.Write("            ");
@@ -2519,7 +2527,9 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|144|245|346|447|548|---|---|---|");
+            Console.WriteLine("|144|245|346|447|548|");
+            Console.WriteLine("");
+            Console.WriteLine("        |---|---|---|---|---|---|");
 
 
             Console.Write("        ");
@@ -2562,7 +2572,9 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|133|234|335|436|537|638|---|---|");
+            Console.WriteLine("|133|234|335|436|537|638|");
+            Console.WriteLine("");
+            Console.WriteLine("    |---|---|---|---|---|---|---|");
 
 
             Console.Write("    ");
@@ -2590,7 +2602,9 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|122|223|324|425|526|627|728|---|");
+            Console.WriteLine("|122|223|324|425|526|627|728|");
+            Console.WriteLine("");
+            Console.WriteLine("|---|---|---|---|---|---|---|---|");
 
             foreach (List<int> xyz in row20)
             {
