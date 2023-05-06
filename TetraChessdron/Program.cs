@@ -236,13 +236,6 @@ namespace TetraChessdron
             }
             CheckForPawnPromotion(copySelectedPieceString,xDestinationInt, yDestinationInt, zDestinationInt);
 
-            if (aKingIsInCheck == true)
-            {
-                CheckCheck();
-                xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellContents(copySelectedPieceString);
-                xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(copyOfDestinationPieceString);
-                thePlayersTurnBool = !thePlayersTurnBool;
-            }
             PrintBoardToConsole();
         }
         private static void CheckForPawnPromotion(string copySelectedPieceString, int xDestinationInt, int yDestinationInt, int zDestinationInt)
