@@ -29,10 +29,89 @@ namespace TetraChessdron
                 {
                     Console.WriteLine("Player two's turn");
                 }
+                CheckCheck();
                 MoveAPiece();
                 thePlayersTurnBool = !thePlayersTurnBool;
             }
         }
+        private static void CheckCheck()
+        {
+            for (int xSelectionInt = 1; xSelectionInt < 9; xSelectionInt++)
+            {
+                for (int ySelectionInt = 1; ySelectionInt < 9; ySelectionInt++)
+                {
+                    for (int zSelectionInt = 1; zSelectionInt < 9; zSelectionInt++)
+                    {
+                        if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() != null)
+                        {
+                            if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() != "   ")
+                            {
+                                if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " R ")
+                                {
+
+                                    List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {1,1,0},
+                                        new List<int> {1,0,1},
+                                        new List<int> {0,1,1},
+                                        new List<int> {-1,1,0},
+                                        new List<int> {-1,0,1},
+                                        new List<int> {0,-1,1},
+                                        new List<int> {1,-1,0},
+                                        new List<int> {1,0,-1},
+                                        new List<int> {0,1,-1},
+                                        new List<int> {-1,-1,0},
+                                        new List<int> {-1,0,-1},
+                                        new List<int> {0,-1,-1}
+                                    };
+
+                                    foreach (List<int> moveVector in Moveset)
+                                    {
+                                        for (int index = 1; index < 8; index++)
+                                        {
+                                            int x = (moveVector[0] * index) + xSelectionInt;
+                                            int y = (moveVector[1] * index) + ySelectionInt;
+                                            int z = (moveVector[2] * index) + zSelectionInt;
+                                            if (x < 9)
+                                            {
+                                                if (x > 0)
+                                                {
+                                                    if (y < 9)
+                                                    {
+                                                        if (y > 0)
+                                                        {
+                                                            if (z < 9)
+                                                            {
+                                                                if (z > 0)
+                                                                {
+                                                                    if (xYZCube[x][y][z].GetCellContents() == " k ")
+                                                                    {
+                                                                        xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                                        xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
+                                                                        Console.WriteLine("player 2's king is in check");
+
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+
+                            
+
+                        }
+                    }
+
+                }
+
+            }
+        }
+        
         private static void MoveAPiece()
         {
             Console.WriteLine("select a location to move from:");
