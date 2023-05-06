@@ -45,7 +45,7 @@ namespace TetraChessdron
 
             string copySelectedPieceString = xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents();
 
-            if (copySelectedPieceString == " + ")
+            if (copySelectedPieceString == "   ")
             {
                 PrintBoardToConsole();
                 Console.WriteLine("there is no piece here");
@@ -201,7 +201,7 @@ namespace TetraChessdron
                                         {
                                             if (z > 0)
                                             {
-                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                if (xYZCube[x][y][z].GetCellContents() == "   ")
                                                 {
                                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
                                                 }
@@ -259,7 +259,7 @@ namespace TetraChessdron
                                         {
                                             if (z > 0)
                                             {
-                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                if (xYZCube[x][y][z].GetCellContents() == "   ")
                                                 {
                                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
                                                 }
@@ -329,7 +329,7 @@ namespace TetraChessdron
                                         {
                                             if (z > 0)
                                             {
-                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                if (xYZCube[x][y][z].GetCellContents() == "   ")
                                                 {
                                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
                                                 }
@@ -399,7 +399,7 @@ namespace TetraChessdron
                                         {
                                             if (z > 0)
                                             {
-                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                if (xYZCube[x][y][z].GetCellContents() == "   ")
                                                 {
                                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
                                                 }
@@ -481,7 +481,7 @@ namespace TetraChessdron
                                         {
                                             if (z > 0)
                                             {
-                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                if (xYZCube[x][y][z].GetCellContents() == "   ")
                                                 {
                                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
                                                 }
@@ -563,7 +563,7 @@ namespace TetraChessdron
                                         {
                                             if (z > 0)
                                             {
-                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                if (xYZCube[x][y][z].GetCellContents() == "   ")
                                                 {
                                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
                                                 }
@@ -643,7 +643,7 @@ namespace TetraChessdron
                                         {
                                             if (z > 0)
                                             {
-                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                if (xYZCube[x][y][z].GetCellContents() == "   ")
                                                 {
                                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
                                                 }
@@ -722,7 +722,7 @@ namespace TetraChessdron
                                     {
                                         if (z > 0)
                                         {
-                                            if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                            if (xYZCube[x][y][z].GetCellContents() == "   ")
                                             {
                                                 xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
                                             }
@@ -813,7 +813,7 @@ namespace TetraChessdron
                                         {
                                             if (z > 0)
                                             {
-                                                if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                                if (xYZCube[x][y][z].GetCellContents() == "   ")
                                                 {
                                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
                                                 }
@@ -903,7 +903,7 @@ namespace TetraChessdron
                                     {
                                         if (z > 0)
                                         {
-                                            if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                            if (xYZCube[x][y][z].GetCellContents() == "   ")
                                             {
                                                 xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
                                             }
@@ -964,7 +964,7 @@ namespace TetraChessdron
                                     {
                                         if (z > 0)
                                         {
-                                            if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                            if (xYZCube[x][y][z].GetCellContents() == "   ")
                                             {
                                                 xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
                                             }
@@ -993,7 +993,7 @@ namespace TetraChessdron
                                     {
                                         if (z > 0)
                                         {
-                                            if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                            if (xYZCube[x][y][z].GetCellContents() == "   ")
                                             {
                                                 xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGreen);
                                             }
@@ -1076,7 +1076,7 @@ namespace TetraChessdron
                                     {
                                         if (z > 0)
                                         {
-                                            if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                            if (xYZCube[x][y][z].GetCellContents() == "   ")
                                             {
                                                 xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
                                             }
@@ -1105,7 +1105,7 @@ namespace TetraChessdron
                                     {
                                         if (z > 0)
                                         {
-                                            if (xYZCube[x][y][z].GetCellContents() == " + ")
+                                            if (xYZCube[x][y][z].GetCellContents() == "   ")
                                             {
                                                 xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGreen);
                                             }
@@ -1279,7 +1279,7 @@ namespace TetraChessdron
             }
             public string SetCellContentsToEmpty()
             {
-                cellContents = " + ";
+                cellContents = "   ";
                 return cellContents;
             }
             public string GetCellContents()
