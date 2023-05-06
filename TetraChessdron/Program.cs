@@ -88,6 +88,7 @@ namespace TetraChessdron
                                                                     {
                                                                         xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
                                                                         xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
+                                                                        PrintBoardToConsole();
                                                                         Console.WriteLine("player 2's king is in check");
 
                                                                     }
