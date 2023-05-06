@@ -10,7 +10,6 @@ namespace TetraChessdron
     {
         private static List<List<List<CubeCell>>> xYZCube = MakeCube();
         private static bool thePlayersTurnBool = true;
-        private static bool aKingIsInCheck = false;
 
         static void Main(string[] args)
         {
@@ -49,7 +48,10 @@ namespace TetraChessdron
                             {
                                 if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " R ")
                                 {
-
+                                    List<string> pieceList = new List<string>
+                                    {
+                                       " R "," KN"," B "," Q "," K "," P "," r "," kn"," b "," q "," p "
+                                    };
                                     List<List<int>> Moveset = new List<List<int>>
                                     {
                                         new List<int> {1,1,0},
@@ -85,68 +87,25 @@ namespace TetraChessdron
                                                             {
                                                                 if (z > 0)
                                                                 {
+                                                                    if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                                    {
+                                                                        break;
+                                                                    }
+
                                                                     if (xYZCube[x][y][z].GetCellContents() == " k ")
                                                                     {
                                                                         xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
                                                                         xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
                                                                         PrintBoardToConsole();
                                                                         Console.WriteLine("player 2's king is in check");
-                                                                        aKingIsInCheck = true;
-                                                                        return;
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
-                                                }
-                                            }
-                                        }
-                                    }
-                                }
-                                if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " r ")
-                                {
-                                    List<List<int>> Moveset = new List<List<int>>
-                                    {
-                                        new List<int> {1,1,0},
-                                        new List<int> {1,0,1},
-                                        new List<int> {0,1,1},
-                                        new List<int> {-1,1,0},
-                                        new List<int> {-1,0,1},
-                                        new List<int> {0,-1,1},
-                                        new List<int> {1,-1,0},
-                                        new List<int> {1,0,-1},
-                                        new List<int> {0,1,-1},
-                                        new List<int> {-1,-1,0},
-                                        new List<int> {-1,0,-1},
-                                        new List<int> {0,-1,-1}
-                                    };
-
-                                    foreach (List<int> moveVector in Moveset)
-                                    {
-                                        for (int index = 1; index < 8; index++)
-                                        {
-                                            int x = (moveVector[0] * index) + xSelectionInt;
-                                            int y = (moveVector[1] * index) + ySelectionInt;
-                                            int z = (moveVector[2] * index) + zSelectionInt;
-                                            if (x < 9)
-                                            {
-                                                if (x > 0)
-                                                {
-                                                    if (y < 9)
-                                                    {
-                                                        if (y > 0)
-                                                        {
-                                                            if (z < 9)
-                                                            {
-                                                                if (z > 0)
-                                                                {
-                                                                    if (xYZCube[x][y][z].GetCellContents() == " K ")
-                                                                    {
-                                                                        xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                                                        xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
-                                                                        PrintBoardToConsole();
-                                                                        Console.WriteLine("player 1's king is in check");
-                                                                        aKingIsInCheck = true;
+                                                                        if (thePlayersTurnBool == true)
+                                                                        {
+                                                                            Console.WriteLine("Player one's turn");
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Console.WriteLine("Player two's turn");
+                                                                        }
                                                                         return;
                                                                     }
                                                                 }
@@ -159,16 +118,10 @@ namespace TetraChessdron
                                     }
                                 }
                             }
-
-                            
-
                         }
                     }
-
                 }
-
             }
-            aKingIsInCheck = false;
         }
         
         private static void MoveAPiece()
@@ -235,7 +188,6 @@ namespace TetraChessdron
                 }
             }
             CheckForPawnPromotion(copySelectedPieceString,xDestinationInt, yDestinationInt, zDestinationInt);
-
             PrintBoardToConsole();
         }
         private static void CheckForPawnPromotion(string copySelectedPieceString, int xDestinationInt, int yDestinationInt, int zDestinationInt)
