@@ -117,6 +117,741 @@ namespace TetraChessdron
                                         }
                                     }
                                 }
+                                if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " B ")
+                                {
+                                    List<string> pieceList = new List<string>
+                                    {
+                                       " R "," KN"," B "," Q "," K "," P "," r "," kn"," b "," q "," p "
+                                    };
+                                    List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                         new List<int> {2,1,1},
+                                         new List<int> {1,2,1},
+                                         new List<int> {1,1,2},
+                                         new List<int> {2,1,-1},
+                                         new List<int> {1,2,-1},
+                                         new List<int> {1,1,-2},
+                                         new List<int> {2,-1,1},
+                                         new List<int> {1,-2,1},
+                                         new List<int> {1,-1,2},
+                                         new List<int> {-2,1,1},
+                                         new List<int> {-1,2,1},
+                                         new List<int> {-1,1,2},
+                                         new List<int> {2,-1,-1},
+                                         new List<int> {1,-2,-1},
+                                         new List<int> {1,-1,-2},
+                                         new List<int> {-2,1,-1},
+                                         new List<int> {-1,2,-1},
+                                         new List<int> {-1,1,-2},
+                                         new List<int> {-2,-1,1},
+                                         new List<int> {-1,-2,1},
+                                         new List<int> {-1,-1,2},
+                                         new List<int> {-2,-1,-1},
+                                         new List<int> {-1,-2,-1},
+                                         new List<int> {-1,-1,-2}
+                                    };
+
+                                    foreach (List<int> moveVector in Moveset)
+                                    {
+                                        for (int index = 1; index < 8; index++)
+                                        {
+                                            int x = (moveVector[0] * index) + xSelectionInt;
+                                            int y = (moveVector[1] * index) + ySelectionInt;
+                                            int z = (moveVector[2] * index) + zSelectionInt;
+                                            if (x < 9)
+                                            {
+                                                if (x > 0)
+                                                {
+                                                    if (y < 9)
+                                                    {
+                                                        if (y > 0)
+                                                        {
+                                                            if (z < 9)
+                                                            {
+                                                                if (z > 0)
+                                                                {
+                                                                    if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                                    {
+                                                                        break;
+                                                                    }
+
+                                                                    if (xYZCube[x][y][z].GetCellContents() == " k ")
+                                                                    {
+                                                                        xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                                        xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
+                                                                        PrintBoardToConsole();
+                                                                        Console.WriteLine("player 2's king is in check");
+                                                                        if (thePlayersTurnBool == true)
+                                                                        {
+                                                                            Console.WriteLine("Player one's turn");
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Console.WriteLine("Player two's turn");
+                                                                        }
+                                                                        return;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " Q ")
+                                {
+                                    List<string> pieceList = new List<string>
+                                    {
+                                       " R "," KN"," B "," Q "," K "," P "," r "," kn"," b "," q "," p "
+                                    };
+                                    List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {1,1,0},
+                                        new List<int> {1,0,1},
+                                        new List<int> {0,1,1},
+                                        new List<int> {-1,1,0},
+                                        new List<int> {-1,0,1},
+                                        new List<int> {0,-1,1},
+                                        new List<int> {1,-1,0},
+                                        new List<int> {1,0,-1},
+                                        new List<int> {0,1,-1},
+                                        new List<int> {-1,-1,0},
+                                        new List<int> {-1,0,-1},
+                                        new List<int> {0,-1,-1},
+                                        new List<int> {2,1,1},
+                                        new List<int> {1,2,1},
+                                        new List<int> {1,1,2},
+                                        new List<int> {2,1,-1},
+                                        new List<int> {1,2,-1},
+                                        new List<int> {1,1,-2},
+                                        new List<int> {2,-1,1},
+                                        new List<int> {1,-2,1},
+                                        new List<int> {1,-1,2},
+                                        new List<int> {-2,1,1},
+                                        new List<int> {-1,2,1},
+                                        new List<int> {-1,1,2},
+                                        new List<int> {2,-1,-1},
+                                        new List<int> {1,-2,-1},
+                                        new List<int> {1,-1,-2},
+                                        new List<int> {-2,1,-1},
+                                        new List<int> {-1,2,-1},
+                                        new List<int> {-1,1,-2},
+                                        new List<int> {-2,-1,1},
+                                        new List<int> {-1,-2,1},
+                                        new List<int> {-1,-1,2},
+                                        new List<int> {-2,-1,-1},
+                                        new List<int> {-1,-2,-1},
+                                        new List<int> {-1,-1,-2}
+                                    };
+
+                                    foreach (List<int> moveVector in Moveset)
+                                    {
+                                        for (int index = 1; index < 8; index++)
+                                        {
+                                            int x = (moveVector[0] * index) + xSelectionInt;
+                                            int y = (moveVector[1] * index) + ySelectionInt;
+                                            int z = (moveVector[2] * index) + zSelectionInt;
+                                            if (x < 9)
+                                            {
+                                                if (x > 0)
+                                                {
+                                                    if (y < 9)
+                                                    {
+                                                        if (y > 0)
+                                                        {
+                                                            if (z < 9)
+                                                            {
+                                                                if (z > 0)
+                                                                {
+                                                                    if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                                    {
+                                                                        break;
+                                                                    }
+
+                                                                    if (xYZCube[x][y][z].GetCellContents() == " k ")
+                                                                    {
+                                                                        xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                                        xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
+                                                                        PrintBoardToConsole();
+                                                                        Console.WriteLine("player 2's king is in check");
+                                                                        if (thePlayersTurnBool == true)
+                                                                        {
+                                                                            Console.WriteLine("Player one's turn");
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Console.WriteLine("Player two's turn");
+                                                                        }
+                                                                        return;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " KN")
+                                {
+                                    List<List<int>> Moveset = new List<List<int>>
+                                    {
+                    new List<int> {1,2,3},
+                    new List<int> {2,1,3},
+                    new List<int> {2,3,1},
+                    new List<int> {3,2,1},
+                    new List<int> {3,1,2},
+                    new List<int> {1,3,2},
+                    new List<int> {1,2,-3},
+                    new List<int> {2,1,-3},
+                    new List<int> {2,3,-1},
+                    new List<int> {3,2,-1},
+                    new List<int> {3,1,-2},
+                    new List<int> {1,3,-2},
+                    new List<int> {1,-2,3},
+                    new List<int> {2,-1,3},
+                    new List<int> {2,-3,1},
+                    new List<int> {3,-2,1},
+                    new List<int> {3,-1,2},
+                    new List<int> {1,-3,2},
+                    new List<int> {-1,2,3},
+                    new List<int> {-2,1,3},
+                    new List<int> {-2,3,1},
+                    new List<int> {-3,2,1},
+                    new List<int> {-3,1,2},
+                    new List<int> {-1,3,2},
+                    new List<int> {1,-2,-3},
+                    new List<int> {2,-1,-3},
+                    new List<int> {2,-3,-1},
+                    new List<int> {3,-2,-1},
+                    new List<int> {3,-1,-2},
+                    new List<int> {1,-3,-2},
+                    new List<int> {-1,2,-3},
+                    new List<int> {-2,1,-3},
+                    new List<int> {-2,3,-1},
+                    new List<int> {-3,2,-1},
+                    new List<int> {-3,1,-2},
+                    new List<int> {-1,3,-2},
+                    new List<int> {-1,-2,3},
+                    new List<int> {-2,-1,3},
+                    new List<int> {-2,-3,1},
+                    new List<int> {-3,-2,1},
+                    new List<int> {-3,-1,2},
+                    new List<int> {-1,-3,2},
+                    new List<int> {-1,-2,-3},
+                    new List<int> {-2,-1,-3},
+                    new List<int> {-2,-3,-1},
+                    new List<int> {-3,-2,-1},
+                    new List<int> {-3,-1,-2},
+                    new List<int> {-1,-3,-2},
+                                    };
+
+                                    foreach (List<int> moveVector in Moveset)
+                                    {
+                                            int x = moveVector[0] + xSelectionInt;
+                                            int y = moveVector[1] + ySelectionInt;
+                                            int z = moveVector[2] + zSelectionInt;
+                                            if (x < 9)
+                                            {
+                                                if (x > 0)
+                                                {
+                                                    if (y < 9)
+                                                    {
+                                                        if (y > 0)
+                                                        {
+                                                            if (z < 9)
+                                                            {
+                                                                if (z > 0)
+                                                                {
+                                                                    if (xYZCube[x][y][z].GetCellContents() == " k ")
+                                                                    {
+                                                                        xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                                        xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
+                                                                        PrintBoardToConsole();
+                                                                        Console.WriteLine("player 2's king is in check");
+                                                                        if (thePlayersTurnBool == true)
+                                                                        {
+                                                                            Console.WriteLine("Player one's turn");
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Console.WriteLine("Player two's turn");
+                                                                        }
+                                                                        return;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                    }
+                                }
+                                if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " P ")
+                                {
+                                    List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {2,1,1},
+                                        new List<int> {1,2,1},
+                                        new List<int> {1,1,2},
+                                        new List<int> {2,1,-1},
+                                        new List<int> {1,2,-1},
+                                        new List<int> {1,1,-2},
+                                        new List<int> {2,-1,1},
+                                        new List<int> {1,-2,1},
+                                        new List<int> {1,-1,2},
+                                        new List<int> {2,-1,-1},
+                                        new List<int> {1,-2,-1},
+                                        new List<int> {1,-1,-2}
+                                    };
+
+                                    foreach (List<int> moveVector in Moveset)
+                                    {
+                                        int x = moveVector[0] + xSelectionInt;
+                                        int y = moveVector[1] + ySelectionInt;
+                                        int z = moveVector[2] + zSelectionInt;
+                                        if (x < 9)
+                                        {
+                                            if (x > 0)
+                                            {
+                                                if (y < 9)
+                                                {
+                                                    if (y > 0)
+                                                    {
+                                                        if (z < 9)
+                                                        {
+                                                            if (z > 0)
+                                                            {
+                                                                if (xYZCube[x][y][z].GetCellContents() == " k ")
+                                                                {
+                                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                                    xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
+                                                                    PrintBoardToConsole();
+                                                                    Console.WriteLine("player 2's king is in check");
+                                                                    if (thePlayersTurnBool == true)
+                                                                    {
+                                                                        Console.WriteLine("Player one's turn");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        Console.WriteLine("Player two's turn");
+                                                                    }
+                                                                    return;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " r ")
+                                {
+                                    List<string> pieceList = new List<string>
+                                    {
+                                       " R "," KN"," B "," Q "," k "," P "," r "," kn"," b "," q "," p "
+                                    };
+                                    List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {1,1,0},
+                                        new List<int> {1,0,1},
+                                        new List<int> {0,1,1},
+                                        new List<int> {-1,1,0},
+                                        new List<int> {-1,0,1},
+                                        new List<int> {0,-1,1},
+                                        new List<int> {1,-1,0},
+                                        new List<int> {1,0,-1},
+                                        new List<int> {0,1,-1},
+                                        new List<int> {-1,-1,0},
+                                        new List<int> {-1,0,-1},
+                                        new List<int> {0,-1,-1}
+                                    };
+
+                                    foreach (List<int> moveVector in Moveset)
+                                    {
+                                        for (int index = 1; index < 8; index++)
+                                        {
+                                            int x = (moveVector[0] * index) + xSelectionInt;
+                                            int y = (moveVector[1] * index) + ySelectionInt;
+                                            int z = (moveVector[2] * index) + zSelectionInt;
+                                            if (x < 9)
+                                            {
+                                                if (x > 0)
+                                                {
+                                                    if (y < 9)
+                                                    {
+                                                        if (y > 0)
+                                                        {
+                                                            if (z < 9)
+                                                            {
+                                                                if (z > 0)
+                                                                {
+                                                                    if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                                    {
+                                                                        break;
+                                                                    }
+
+                                                                    if (xYZCube[x][y][z].GetCellContents() == " K ")
+                                                                    {
+                                                                        xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                                        xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
+                                                                        PrintBoardToConsole();
+                                                                        Console.WriteLine("player 1's king is in check");
+                                                                        if (thePlayersTurnBool == true)
+                                                                        {
+                                                                            Console.WriteLine("Player one's turn");
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Console.WriteLine("Player two's turn");
+                                                                        }
+                                                                        return;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " b ")
+                                {
+                                    List<string> pieceList = new List<string>
+                                    {
+                                       " R "," KN"," B "," Q "," k "," P "," r "," kn"," b "," q "," p "
+                                    };
+                                    List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                         new List<int> {2,1,1},
+                                         new List<int> {1,2,1},
+                                         new List<int> {1,1,2},
+                                         new List<int> {2,1,-1},
+                                         new List<int> {1,2,-1},
+                                         new List<int> {1,1,-2},
+                                         new List<int> {2,-1,1},
+                                         new List<int> {1,-2,1},
+                                         new List<int> {1,-1,2},
+                                         new List<int> {-2,1,1},
+                                         new List<int> {-1,2,1},
+                                         new List<int> {-1,1,2},
+                                         new List<int> {2,-1,-1},
+                                         new List<int> {1,-2,-1},
+                                         new List<int> {1,-1,-2},
+                                         new List<int> {-2,1,-1},
+                                         new List<int> {-1,2,-1},
+                                         new List<int> {-1,1,-2},
+                                         new List<int> {-2,-1,1},
+                                         new List<int> {-1,-2,1},
+                                         new List<int> {-1,-1,2},
+                                         new List<int> {-2,-1,-1},
+                                         new List<int> {-1,-2,-1},
+                                         new List<int> {-1,-1,-2}
+                                    };
+
+                                    foreach (List<int> moveVector in Moveset)
+                                    {
+                                        for (int index = 1; index < 8; index++)
+                                        {
+                                            int x = (moveVector[0] * index) + xSelectionInt;
+                                            int y = (moveVector[1] * index) + ySelectionInt;
+                                            int z = (moveVector[2] * index) + zSelectionInt;
+                                            if (x < 9)
+                                            {
+                                                if (x > 0)
+                                                {
+                                                    if (y < 9)
+                                                    {
+                                                        if (y > 0)
+                                                        {
+                                                            if (z < 9)
+                                                            {
+                                                                if (z > 0)
+                                                                {
+                                                                    if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                                    {
+                                                                        break;
+                                                                    }
+
+                                                                    if (xYZCube[x][y][z].GetCellContents() == " K ")
+                                                                    {
+                                                                        xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                                        xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
+                                                                        PrintBoardToConsole();
+                                                                        Console.WriteLine("player 1's king is in check");
+                                                                        if (thePlayersTurnBool == true)
+                                                                        {
+                                                                            Console.WriteLine("Player one's turn");
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Console.WriteLine("Player two's turn");
+                                                                        }
+                                                                        return;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " q ")
+                                {
+                                    List<string> pieceList = new List<string>
+                                    {
+                                       " R "," KN"," B "," Q "," k "," P "," r "," kn"," b "," q "," p "
+                                    };
+                                    List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {1,1,0},
+                                        new List<int> {1,0,1},
+                                        new List<int> {0,1,1},
+                                        new List<int> {-1,1,0},
+                                        new List<int> {-1,0,1},
+                                        new List<int> {0,-1,1},
+                                        new List<int> {1,-1,0},
+                                        new List<int> {1,0,-1},
+                                        new List<int> {0,1,-1},
+                                        new List<int> {-1,-1,0},
+                                        new List<int> {-1,0,-1},
+                                        new List<int> {0,-1,-1},
+                                        new List<int> {2,1,1},
+                                        new List<int> {1,2,1},
+                                        new List<int> {1,1,2},
+                                        new List<int> {2,1,-1},
+                                        new List<int> {1,2,-1},
+                                        new List<int> {1,1,-2},
+                                        new List<int> {2,-1,1},
+                                        new List<int> {1,-2,1},
+                                        new List<int> {1,-1,2},
+                                        new List<int> {-2,1,1},
+                                        new List<int> {-1,2,1},
+                                        new List<int> {-1,1,2},
+                                        new List<int> {2,-1,-1},
+                                        new List<int> {1,-2,-1},
+                                        new List<int> {1,-1,-2},
+                                        new List<int> {-2,1,-1},
+                                        new List<int> {-1,2,-1},
+                                        new List<int> {-1,1,-2},
+                                        new List<int> {-2,-1,1},
+                                        new List<int> {-1,-2,1},
+                                        new List<int> {-1,-1,2},
+                                        new List<int> {-2,-1,-1},
+                                        new List<int> {-1,-2,-1},
+                                        new List<int> {-1,-1,-2}
+                                    };
+
+                                    foreach (List<int> moveVector in Moveset)
+                                    {
+                                        for (int index = 1; index < 8; index++)
+                                        {
+                                            int x = (moveVector[0] * index) + xSelectionInt;
+                                            int y = (moveVector[1] * index) + ySelectionInt;
+                                            int z = (moveVector[2] * index) + zSelectionInt;
+                                            if (x < 9)
+                                            {
+                                                if (x > 0)
+                                                {
+                                                    if (y < 9)
+                                                    {
+                                                        if (y > 0)
+                                                        {
+                                                            if (z < 9)
+                                                            {
+                                                                if (z > 0)
+                                                                {
+                                                                    if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                                    {
+                                                                        break;
+                                                                    }
+
+                                                                    if (xYZCube[x][y][z].GetCellContents() == " K ")
+                                                                    {
+                                                                        xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                                        xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
+                                                                        PrintBoardToConsole();
+                                                                        Console.WriteLine("player 1's king is in check");
+                                                                        if (thePlayersTurnBool == true)
+                                                                        {
+                                                                            Console.WriteLine("Player one's turn");
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Console.WriteLine("Player two's turn");
+                                                                        }
+                                                                        return;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " kn")
+                                {
+                                    List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {1,2,3},
+                                        new List<int> {2,1,3},
+                                        new List<int> {2,3,1},
+                                        new List<int> {3,2,1},
+                                        new List<int> {3,1,2},
+                                        new List<int> {1,3,2},
+                                        new List<int> {1,2,-3},
+                                        new List<int> {2,1,-3},
+                                        new List<int> {2,3,-1},
+                                        new List<int> {3,2,-1},
+                                        new List<int> {3,1,-2},
+                                        new List<int> {1,3,-2},
+                                        new List<int> {1,-2,3},
+                                        new List<int> {2,-1,3},
+                                        new List<int> {2,-3,1},
+                                        new List<int> {3,-2,1},
+                                        new List<int> {3,-1,2},
+                                        new List<int> {1,-3,2},
+                                        new List<int> {-1,2,3},
+                                        new List<int> {-2,1,3},
+                                        new List<int> {-2,3,1},
+                                        new List<int> {-3,2,1},
+                                        new List<int> {-3,1,2},
+                                        new List<int> {-1,3,2},
+                                        new List<int> {1,-2,-3},
+                                        new List<int> {2,-1,-3},
+                                        new List<int> {2,-3,-1},
+                                        new List<int> {3,-2,-1},
+                                        new List<int> {3,-1,-2},
+                                        new List<int> {1,-3,-2},
+                                        new List<int> {-1,2,-3},
+                                        new List<int> {-2,1,-3},
+                                        new List<int> {-2,3,-1},
+                                        new List<int> {-3,2,-1},
+                                        new List<int> {-3,1,-2},
+                                        new List<int> {-1,3,-2},
+                                        new List<int> {-1,-2,3},
+                                        new List<int> {-2,-1,3},
+                                        new List<int> {-2,-3,1},
+                                        new List<int> {-3,-2,1},
+                                        new List<int> {-3,-1,2},
+                                        new List<int> {-1,-3,2},
+                                        new List<int> {-1,-2,-3},
+                                        new List<int> {-2,-1,-3},
+                                        new List<int> {-2,-3,-1},
+                                        new List<int> {-3,-2,-1},
+                                        new List<int> {-3,-1,-2},
+                                        new List<int> {-1,-3,-2},
+                                    };
+
+                                    foreach (List<int> moveVector in Moveset)
+                                    {
+                                        int x = moveVector[0] + xSelectionInt;
+                                        int y = moveVector[1] + ySelectionInt;
+                                        int z = moveVector[2] + zSelectionInt;
+                                        if (x < 9)
+                                        {
+                                            if (x > 0)
+                                            {
+                                                if (y < 9)
+                                                {
+                                                    if (y > 0)
+                                                    {
+                                                        if (z < 9)
+                                                        {
+                                                            if (z > 0)
+                                                            {
+                                                                if (xYZCube[x][y][z].GetCellContents() == " K ")
+                                                                {
+                                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                                    xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
+                                                                    PrintBoardToConsole();
+                                                                    Console.WriteLine("player 1's king is in check");
+                                                                    if (thePlayersTurnBool == true)
+                                                                    {
+                                                                        Console.WriteLine("Player one's turn");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        Console.WriteLine("Player two's turn");
+                                                                    }
+                                                                    return;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " p ")
+                                {
+                                    List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {-2,1,1},
+                                        new List<int> {-1,2,1},
+                                        new List<int> {-1,1,2},
+                                        new List<int> {-2,1,-1},
+                                        new List<int> {-1,2,-1},
+                                        new List<int> {-1,1,-2},
+                                        new List<int> {-2,-1,1},
+                                        new List<int> {-1,-2,1},
+                                        new List<int> {-1,-1,2},
+                                        new List<int> {-2,-1,-1},
+                                        new List<int> {-1,-2,-1},
+                                        new List<int> {-1,-1,-2}
+                                    };
+
+                                    foreach (List<int> moveVector in Moveset)
+                                    {
+                                        int x = moveVector[0] + xSelectionInt;
+                                        int y = moveVector[1] + ySelectionInt;
+                                        int z = moveVector[2] + zSelectionInt;
+                                        if (x < 9)
+                                        {
+                                            if (x > 0)
+                                            {
+                                                if (y < 9)
+                                                {
+                                                    if (y > 0)
+                                                    {
+                                                        if (z < 9)
+                                                        {
+                                                            if (z > 0)
+                                                            {
+                                                                if (xYZCube[x][y][z].GetCellContents() == " K ")
+                                                                {
+                                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                                    xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
+                                                                    PrintBoardToConsole();
+                                                                    Console.WriteLine("player 1's king is in check");
+                                                                    if (thePlayersTurnBool == true)
+                                                                    {
+                                                                        Console.WriteLine("Player one's turn");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        Console.WriteLine("Player two's turn");
+                                                                    }
+                                                                    return;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
                             }
                         }
                     }
@@ -1640,7 +2375,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("    |---|364|463|562|661|761|863|");
+            Console.WriteLine("    |---|364|463|562|661|762|863|");
 
 
             Console.Write("    ");
