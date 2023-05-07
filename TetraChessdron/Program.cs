@@ -860,26 +860,21 @@ namespace TetraChessdron
         }
         private static void MoveAPiece()
         {
-            
+            Console.WriteLine("select a location to move from:");
+            string selectionString = Console.ReadLine();
+            List<string> selectionStringList = new List<string>();
 
-                Console.WriteLine("select a location to move from:");
-                string selectionString = Console.ReadLine();
-                List<string> selectionStringList = new List<string>();
+            foreach (char letter in selectionString)
+            {
+                selectionStringList.Add(letter.ToString());
+            }
 
-                foreach (char letter in selectionString)
-                {
-                    selectionStringList.Add(letter.ToString());
-                }
-
-                string xSelectionString = selectionStringList[0];
-                int xSelectionInt = int.Parse(xSelectionString);
-                string ySelectionString = selectionStringList[1];
-                int ySelectionInt = int.Parse(ySelectionString);
-                string zSelectionString = selectionStringList[2];
-                int zSelectionInt = int.Parse(zSelectionString);
-
-            
-
+            string xSelectionString = selectionStringList[0];
+            int xSelectionInt = int.Parse(xSelectionString);
+            string ySelectionString = selectionStringList[1];
+            int ySelectionInt = int.Parse(ySelectionString);
+            string zSelectionString = selectionStringList[2];
+            int zSelectionInt = int.Parse(zSelectionString);
 
             string copySelectedPieceString = xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents();
 
@@ -922,14 +917,133 @@ namespace TetraChessdron
 
             if (copyofDestinationPieceString == null)
             {
+                for (int x = 1; x < 9; x++)
+                {
+                    for (int y = 1; y < 9; y++)
+                    {
+                        for (int z = 1; z < 9; z++)
+                        {
+                            xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                        }
+                    }
+                }
                 PrintBoardToConsole();
                 Console.WriteLine("there is no board here");
                 thePlayersTurnBool = !thePlayersTurnBool;
                 return;
             }
 
+            if (thePlayersTurnBool == true)
+            {
+                List<string> pieceList = new List<string>
+                {
+                   " r "," kn"," b "," q "," k "," p "
+                };
+
+                if (pieceList.Contains(copySelectedPieceString) == true)
+                {
+                    for (int x = 1; x < 9; x++)
+                    {
+                        for (int y = 1; y < 9; y++)
+                        {
+                            for (int z = 1; z < 9; z++)
+                            {
+                                xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                            }
+                        }
+                    }
+                    PrintBoardToConsole();
+                    Console.WriteLine("cannot move other player's piece");
+                    thePlayersTurnBool = !thePlayersTurnBool;
+                    return;
+
+                }
+            }
+
+            if (thePlayersTurnBool == false)
+            {
+                List<string> pieceList = new List<string>
+                {
+                   " r "," kn"," b "," q "," k "," p "
+                };
+
+                if (pieceList.Contains(copyofDestinationPieceString) == true)
+                {
+                    for (int x = 1; x < 9; x++)
+                    {
+                        for (int y = 1; y < 9; y++)
+                        {
+                            for (int z = 1; z < 9; z++)
+                            {
+                                xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                            }
+                        }
+                    }
+                    PrintBoardToConsole();
+                    Console.WriteLine("cannot take own piece");
+                    thePlayersTurnBool = !thePlayersTurnBool;
+                    return;
+
+                }
+            }
+
+            if (thePlayersTurnBool == false)
+            {
+                List<string> pieceList = new List<string>
+                {
+                   " R "," KN"," B "," Q "," K "," P "
+                };
+
+                if (pieceList.Contains(copySelectedPieceString) == true)
+                {
+                    for (int x = 1; x < 9; x++)
+                    {
+                        for (int y = 1; y < 9; y++)
+                        {
+                            for (int z = 1; z < 9; z++)
+                            {
+                                xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                            }
+                        }
+                    }
+                    PrintBoardToConsole();
+                    Console.WriteLine("cannot move other player's piece");
+                    thePlayersTurnBool = !thePlayersTurnBool;
+                    return;
+
+                }
+            }
+
+            if (thePlayersTurnBool == true)
+            {
+                List<string> pieceList = new List<string>
+                {
+                   " R "," KN"," B "," Q "," K "," P "
+                };
+
+                if (pieceList.Contains(copyofDestinationPieceString) == true)
+                {
+                    for (int x = 1; x < 9; x++)
+                    {
+                        for (int y = 1; y < 9; y++)
+                        {
+                            for (int z = 1; z < 9; z++)
+                            {
+                                xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                            }
+                        }
+                    }
+                    PrintBoardToConsole();
+                    Console.WriteLine("cannot take own piece");
+                    thePlayersTurnBool = !thePlayersTurnBool;
+                    return;
+
+                }
+            }
+
             xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellContentsToEmpty();
             xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(copySelectedPieceString);
+
             if (xDestinationInt == xSelectionInt)
             {
                 if (yDestinationInt == ySelectionInt)
@@ -951,6 +1065,7 @@ namespace TetraChessdron
                     }
                 }
             }
+
             CheckForPawnPromotion(copySelectedPieceString,xDestinationInt, yDestinationInt, zDestinationInt);
             PrintBoardToConsole();
         }
