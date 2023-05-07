@@ -23,11 +23,11 @@ namespace TetraChessdron
             {
                 if (thePlayersTurnBool == true)
                 {
-                    Console.WriteLine("Player one's turn");
+                    Console.WriteLine("Player 1's turn");
                 }
                 else
                 {
-                    Console.WriteLine("Player two's turn");
+                    Console.WriteLine("Player 2's turn");
                 }
                 CheckCheck();
                 MoveAPiece();
@@ -100,11 +100,11 @@ namespace TetraChessdron
                                                                         Console.WriteLine("player 2's king is in check");
                                                                         if (thePlayersTurnBool == true)
                                                                         {
-                                                                            Console.WriteLine("Player one's turn");
+                                                                            Console.WriteLine("Player 1's turn");
                                                                         }
                                                                         else
                                                                         {
-                                                                            Console.WriteLine("Player two's turn");
+                                                                            Console.WriteLine("Player 2's turn");
                                                                         }
                                                                         return;
                                                                     }
@@ -183,11 +183,11 @@ namespace TetraChessdron
                                                                         Console.WriteLine("player 2's king is in check");
                                                                         if (thePlayersTurnBool == true)
                                                                         {
-                                                                            Console.WriteLine("Player one's turn");
+                                                                            Console.WriteLine("Player 1's turn");
                                                                         }
                                                                         else
                                                                         {
-                                                                            Console.WriteLine("Player two's turn");
+                                                                            Console.WriteLine("Player 2's turn");
                                                                         }
                                                                         return;
                                                                     }
@@ -278,11 +278,11 @@ namespace TetraChessdron
                                                                         Console.WriteLine("player 2's king is in check");
                                                                         if (thePlayersTurnBool == true)
                                                                         {
-                                                                            Console.WriteLine("Player one's turn");
+                                                                            Console.WriteLine("Player 1's turn");
                                                                         }
                                                                         else
                                                                         {
-                                                                            Console.WriteLine("Player two's turn");
+                                                                            Console.WriteLine("Player 2's turn");
                                                                         }
                                                                         return;
                                                                     }
@@ -374,11 +374,11 @@ namespace TetraChessdron
                                                                         Console.WriteLine("player 2's king is in check");
                                                                         if (thePlayersTurnBool == true)
                                                                         {
-                                                                            Console.WriteLine("Player one's turn");
+                                                                            Console.WriteLine("Player 1's turn");
                                                                         }
                                                                         else
                                                                         {
-                                                                            Console.WriteLine("Player two's turn");
+                                                                            Console.WriteLine("Player 2's turn");
                                                                         }
                                                                         return;
                                                                     }
@@ -433,11 +433,11 @@ namespace TetraChessdron
                                                                     Console.WriteLine("player 2's king is in check");
                                                                     if (thePlayersTurnBool == true)
                                                                     {
-                                                                        Console.WriteLine("Player one's turn");
+                                                                        Console.WriteLine("Player 1's turn");
                                                                     }
                                                                     else
                                                                     {
-                                                                        Console.WriteLine("Player two's turn");
+                                                                        Console.WriteLine("Player 2's turn");
                                                                     }
                                                                     return;
                                                                 }
@@ -503,11 +503,11 @@ namespace TetraChessdron
                                                                         Console.WriteLine("player 1's king is in check");
                                                                         if (thePlayersTurnBool == true)
                                                                         {
-                                                                            Console.WriteLine("Player one's turn");
+                                                                            Console.WriteLine("Player 1's turn");
                                                                         }
                                                                         else
                                                                         {
-                                                                            Console.WriteLine("Player two's turn");
+                                                                            Console.WriteLine("Player 2's turn");
                                                                         }
                                                                         return;
                                                                     }
@@ -586,11 +586,11 @@ namespace TetraChessdron
                                                                         Console.WriteLine("player 1's king is in check");
                                                                         if (thePlayersTurnBool == true)
                                                                         {
-                                                                            Console.WriteLine("Player one's turn");
+                                                                            Console.WriteLine("Player 1's turn");
                                                                         }
                                                                         else
                                                                         {
-                                                                            Console.WriteLine("Player two's turn");
+                                                                            Console.WriteLine("Player 2's turn");
                                                                         }
                                                                         return;
                                                                     }
@@ -681,11 +681,11 @@ namespace TetraChessdron
                                                                         Console.WriteLine("player 1's king is in check");
                                                                         if (thePlayersTurnBool == true)
                                                                         {
-                                                                            Console.WriteLine("Player one's turn");
+                                                                            Console.WriteLine("Player 1's turn");
                                                                         }
                                                                         else
                                                                         {
-                                                                            Console.WriteLine("Player two's turn");
+                                                                            Console.WriteLine("Player 2's turn");
                                                                         }
                                                                         return;
                                                                     }
@@ -777,11 +777,11 @@ namespace TetraChessdron
                                                                     Console.WriteLine("player 1's king is in check");
                                                                     if (thePlayersTurnBool == true)
                                                                     {
-                                                                        Console.WriteLine("Player one's turn");
+                                                                        Console.WriteLine("Player 1's turn");
                                                                     }
                                                                     else
                                                                     {
-                                                                        Console.WriteLine("Player two's turn");
+                                                                        Console.WriteLine("Player 2's turn");
                                                                     }
                                                                     return;
                                                                 }
@@ -836,11 +836,179 @@ namespace TetraChessdron
                                                                     Console.WriteLine("player 1's king is in check");
                                                                     if (thePlayersTurnBool == true)
                                                                     {
-                                                                        Console.WriteLine("Player one's turn");
+                                                                        Console.WriteLine("Player 1's turn");
                                                                     }
                                                                     else
                                                                     {
-                                                                        Console.WriteLine("Player two's turn");
+                                                                        Console.WriteLine("Player 2's turn");
+                                                                    }
+                                                                    return;
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                                if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " K ")
+                                {
+                                    List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {1,1,0},
+                                        new List<int> {1,0,1},
+                                        new List<int> {0,1,1},
+                                        new List<int> {-1,1,0},
+                                        new List<int> {-1,0,1},
+                                        new List<int> {0,-1,1},
+                                        new List<int> {1,-1,0},
+                                        new List<int> {1,0,-1},
+                                        new List<int> {0,1,-1},
+                                        new List<int> {-1,-1,0},
+                                        new List<int> {-1,0,-1},
+                                        new List<int> {0,-1,-1},
+                                        new List<int> {2,1,1},
+                                        new List<int> {1,2,1},
+                                        new List<int> {1,1,2},
+                                        new List<int> {2,1,-1},
+                                        new List<int> {1,2,-1},
+                                        new List<int> {1,1,-2},
+                                        new List<int> {2,-1,1},
+                                        new List<int> {1,-2,1},
+                                        new List<int> {1,-1,2},
+                                        new List<int> {-2,1,1},
+                                        new List<int> {-1,2,1},
+                                        new List<int> {-1,1,2},
+                                        new List<int> {2,-1,-1},
+                                        new List<int> {1,-2,-1},
+                                        new List<int> {1,-1,-2},
+                                        new List<int> {-2,1,-1},
+                                        new List<int> {-1,2,-1},
+                                        new List<int> {-1,1,-2},
+                                        new List<int> {-2,-1,1},
+                                        new List<int> {-1,-2,1},
+                                        new List<int> {-1,-1,2},
+                                        new List<int> {-2,-1,-1},
+                                        new List<int> {-1,-2,-1},
+                                        new List<int> {-1,-1,-2}
+                                    };
+
+                                    foreach (List<int> moveVector in Moveset)
+                                    {
+                                            int x = moveVector[0] + xSelectionInt;
+                                            int y = moveVector[1] + ySelectionInt;
+                                            int z = moveVector[2] + zSelectionInt;
+                                            if (x < 9)
+                                            {
+                                                if (x > 0)
+                                                {
+                                                    if (y < 9)
+                                                    {
+                                                        if (y > 0)
+                                                        {
+                                                            if (z < 9)
+                                                            {
+                                                                if (z > 0)
+                                                                {
+
+                                                                    if (xYZCube[x][y][z].GetCellContents() == " k ")
+                                                                    {
+                                                                        xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                                        xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
+                                                                        PrintBoardToConsole();
+                                                                        Console.WriteLine("player 2's king is in check");
+                                                                        if (thePlayersTurnBool == true)
+                                                                        {
+                                                                            Console.WriteLine("Player 1's turn");
+                                                                        }
+                                                                        else
+                                                                        {
+                                                                            Console.WriteLine("Player 2's turn");
+                                                                        }
+                                                                        return;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                    }
+                                }
+                                if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " k ")
+                                {
+                                    List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {1,1,0},
+                                        new List<int> {1,0,1},
+                                        new List<int> {0,1,1},
+                                        new List<int> {-1,1,0},
+                                        new List<int> {-1,0,1},
+                                        new List<int> {0,-1,1},
+                                        new List<int> {1,-1,0},
+                                        new List<int> {1,0,-1},
+                                        new List<int> {0,1,-1},
+                                        new List<int> {-1,-1,0},
+                                        new List<int> {-1,0,-1},
+                                        new List<int> {0,-1,-1},
+                                        new List<int> {2,1,1},
+                                        new List<int> {1,2,1},
+                                        new List<int> {1,1,2},
+                                        new List<int> {2,1,-1},
+                                        new List<int> {1,2,-1},
+                                        new List<int> {1,1,-2},
+                                        new List<int> {2,-1,1},
+                                        new List<int> {1,-2,1},
+                                        new List<int> {1,-1,2},
+                                        new List<int> {-2,1,1},
+                                        new List<int> {-1,2,1},
+                                        new List<int> {-1,1,2},
+                                        new List<int> {2,-1,-1},
+                                        new List<int> {1,-2,-1},
+                                        new List<int> {1,-1,-2},
+                                        new List<int> {-2,1,-1},
+                                        new List<int> {-1,2,-1},
+                                        new List<int> {-1,1,-2},
+                                        new List<int> {-2,-1,1},
+                                        new List<int> {-1,-2,1},
+                                        new List<int> {-1,-1,2},
+                                        new List<int> {-2,-1,-1},
+                                        new List<int> {-1,-2,-1},
+                                        new List<int> {-1,-1,-2}
+                                    };
+
+                                    foreach (List<int> moveVector in Moveset)
+                                    {
+                                        int x = moveVector[0] + xSelectionInt;
+                                        int y = moveVector[1] + ySelectionInt;
+                                        int z = moveVector[2] + zSelectionInt;
+                                        if (x < 9)
+                                        {
+                                            if (x > 0)
+                                            {
+                                                if (y < 9)
+                                                {
+                                                    if (y > 0)
+                                                    {
+                                                        if (z < 9)
+                                                        {
+                                                            if (z > 0)
+                                                            {
+
+                                                                if (xYZCube[x][y][z].GetCellContents() == " K ")
+                                                                {
+                                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                                    xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
+                                                                    PrintBoardToConsole();
+                                                                    Console.WriteLine("player 1's king is in check");
+                                                                    if (thePlayersTurnBool == true)
+                                                                    {
+                                                                        Console.WriteLine("Player 1's turn");
+                                                                    }
+                                                                    else
+                                                                    {
+                                                                        Console.WriteLine("Player 2's turn");
                                                                     }
                                                                     return;
                                                                 }
@@ -1093,6 +1261,32 @@ namespace TetraChessdron
                 List<string> pieceList = new List<string>
                 {
                    " R "," KN"," B "," Q "," K "," P "
+                };
+
+                if (pieceList.Contains(copyofDestinationPieceString) == true)
+                {
+                    for (int x = 1; x < 9; x++)
+                    {
+                        for (int y = 1; y < 9; y++)
+                        {
+                            for (int z = 1; z < 9; z++)
+                            {
+                                xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                            }
+                        }
+                    }
+                    PrintBoardToConsole();
+                    Console.WriteLine("cannot take own piece");
+                    thePlayersTurnBool = !thePlayersTurnBool;
+                    return;
+
+                }
+            }
+            if (thePlayersTurnBool == false)
+            {
+                List<string> pieceList = new List<string>
+                {
+                   " r "," kn"," b "," q "," k "," p "
                 };
 
                 if (pieceList.Contains(copyofDestinationPieceString) == true)
@@ -3240,11 +3434,14 @@ namespace TetraChessdron
         private static void SetupTeams()
         {
             //team 1
+            /*
             xYZCube[1][1][1].SetCellContents(" R ");
             xYZCube[1][2][2].SetCellContents(" KN");
             xYZCube[1][3][3].SetCellContents(" B ");
+            */
             xYZCube[1][4][4].SetCellContents(" Q ");
             xYZCube[1][5][5].SetCellContents(" K ");
+            /*
             xYZCube[1][6][6].SetCellContents(" B ");
             xYZCube[1][7][7].SetCellContents(" KN");
             xYZCube[1][8][8].SetCellContents(" R ");
@@ -3262,12 +3459,16 @@ namespace TetraChessdron
             xYZCube[2][7][6].SetCellContents(" P ");
             xYZCube[2][7][8].SetCellContents(" P ");
             xYZCube[2][8][7].SetCellContents(" P ");
+            */
             //team 2
+            /*
             xYZCube[8][1][8].SetCellContents(" r ");
             xYZCube[8][2][7].SetCellContents(" kn");
             xYZCube[8][3][6].SetCellContents(" b ");
+            */
             xYZCube[8][4][5].SetCellContents(" q ");
             xYZCube[8][5][4].SetCellContents(" k ");
+            /*
             xYZCube[8][6][3].SetCellContents(" b ");
             xYZCube[8][7][2].SetCellContents(" kn");
             xYZCube[8][8][1].SetCellContents(" r ");
@@ -3285,6 +3486,7 @@ namespace TetraChessdron
             xYZCube[7][7][1].SetCellContents(" p ");
             xYZCube[7][7][3].SetCellContents(" p ");
             xYZCube[7][8][2].SetCellContents(" p ");
+            */
         }
         private static void WriteTetrahedronBoardOntoCube()
         {
