@@ -2377,28 +2377,32 @@ namespace TetraChessdron
             {
                 if (xDestinationInt == 8)
                 {
-                    PrintBoardToConsole();
-                    Console.WriteLine("Choose a promotion for this pawn:");
-                    Console.WriteLine(" r , kn , b , q ");
-                    string promotionChoice = Console.ReadLine();
-                    if (promotionChoice == "r")
+                    List<string> choices = new List<string> { "R", "KN", "B", "Q" };
+                    string promotionChoice = "hmm";
+                    bool thisChoice = false;
+                    while (thisChoice == false)
                     {
-
+                        PrintBoardToConsole();
+                        Console.WriteLine("Choose a promotion for this pawn:");
+                        Console.WriteLine(" R , KN , B , Q ");
+                        promotionChoice = Console.ReadLine();
+                        promotionChoice = promotionChoice.ToUpper();
+                        thisChoice = choices.Contains(promotionChoice);
+                    }
+                    if (promotionChoice == "R")
+                    {
                         xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" R ");
                     }
-                    if (promotionChoice == "kn")
+                    if (promotionChoice == "KN")
                     {
-
                         xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" KN");
                     }
-                    if (promotionChoice == "b")
+                    if (promotionChoice == "B")
                     {
-
                         xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" B ");
                     }
-                    if (promotionChoice == "q")
+                    if (promotionChoice == "Q")
                     {
-
                         xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" Q ");
                     }
 
@@ -2408,23 +2412,31 @@ namespace TetraChessdron
             {
                 if (xDestinationInt == 1)
                 {
-                    PrintBoardToConsole();
-                    Console.WriteLine("Choose a promotion for this pawn:");
-                    Console.WriteLine(" r , kn , b , q ");
-                    string promotionChoice = Console.ReadLine();
-                    if (promotionChoice == "r")
+                    List<string> choices = new List<string> { "R", "KN", "B", "Q" };
+                    string promotionChoice = "hmm";
+                    bool thisChoice = false;
+                    while (thisChoice == false)
+                    {
+                        PrintBoardToConsole();
+                        Console.WriteLine("Choose a promotion for this pawn:");
+                        Console.WriteLine(" r , kn , b , q ");
+                        promotionChoice = Console.ReadLine();
+                        promotionChoice = promotionChoice.ToUpper();
+                        thisChoice = choices.Contains(promotionChoice);
+                    }
+                    if (promotionChoice == "R")
                     {
                         xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" r ");
                     }
-                    if (promotionChoice == "kn")
+                    if (promotionChoice == "KN")
                     {
                         xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" kn");
                     }
-                    if (promotionChoice == "b")
+                    if (promotionChoice == "B")
                     {
                         xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" b ");
                     }
-                    if (promotionChoice == "q")
+                    if (promotionChoice == "Q")
                     {
                         xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(" q ");
                     }
@@ -3433,6 +3445,10 @@ namespace TetraChessdron
         }
         private static void SetupTeams()
         {
+            //experimental pieces
+
+            xYZCube[7][7][3].SetCellContents(" P ");
+
             //team 1
             /*
             xYZCube[1][1][1].SetCellContents(" R ");
