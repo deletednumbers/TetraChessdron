@@ -862,11 +862,19 @@ namespace TetraChessdron
         private static void MoveAPiece()
         {
             Console.WriteLine("select a location to move from:");
-            string xSelectionString = Console.ReadLine();
+            string selectionString = Console.ReadLine();
+            List<string> selectionStringList = new List<string>();
+            
+            foreach (char letter in selectionString)
+            {
+                selectionStringList.Add(letter.ToString());
+            }
+
+            string xSelectionString = selectionStringList[0];
             int xSelectionInt = int.Parse(xSelectionString);
-            string ySelectionString = Console.ReadLine();
+            string ySelectionString = selectionStringList[1];
             int ySelectionInt = int.Parse(ySelectionString);
-            string zSelectionString = Console.ReadLine();
+            string zSelectionString = selectionStringList[2];
             int zSelectionInt = int.Parse(zSelectionString);
 
             string copySelectedPieceString = xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents();
@@ -891,11 +899,19 @@ namespace TetraChessdron
             PrintBoardToConsole();
 
             Console.WriteLine("select a destination:");
-            string xDestinationString = Console.ReadLine();
+            string destinationString = Console.ReadLine();
+            List<string> destinationStringList = new List<string>();
+
+            foreach (char letter in selectionString)
+            {
+                destinationStringList.Add(letter.ToString());
+            }
+
+            string xDestinationString = destinationStringList[0];
             int xDestinationInt = int.Parse(xDestinationString);
-            string yDestinationString = Console.ReadLine();
+            string yDestinationString = destinationStringList[1];
             int yDestinationInt = int.Parse(yDestinationString);
-            string zDestinationString = Console.ReadLine();
+            string zDestinationString = destinationStringList[2];
             int zDestinationInt = int.Parse(zDestinationString);
 
             string copyOfDestinationPieceString = xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].GetCellContents();
