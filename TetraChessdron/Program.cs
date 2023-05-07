@@ -858,24 +858,28 @@ namespace TetraChessdron
                 }
             }
         }
-        
         private static void MoveAPiece()
         {
-            Console.WriteLine("select a location to move from:");
-            string selectionString = Console.ReadLine();
-            List<string> selectionStringList = new List<string>();
             
-            foreach (char letter in selectionString)
-            {
-                selectionStringList.Add(letter.ToString());
-            }
 
-            string xSelectionString = selectionStringList[0];
-            int xSelectionInt = int.Parse(xSelectionString);
-            string ySelectionString = selectionStringList[1];
-            int ySelectionInt = int.Parse(ySelectionString);
-            string zSelectionString = selectionStringList[2];
-            int zSelectionInt = int.Parse(zSelectionString);
+                Console.WriteLine("select a location to move from:");
+                string selectionString = Console.ReadLine();
+                List<string> selectionStringList = new List<string>();
+
+                foreach (char letter in selectionString)
+                {
+                    selectionStringList.Add(letter.ToString());
+                }
+
+                string xSelectionString = selectionStringList[0];
+                int xSelectionInt = int.Parse(xSelectionString);
+                string ySelectionString = selectionStringList[1];
+                int ySelectionInt = int.Parse(ySelectionString);
+                string zSelectionString = selectionStringList[2];
+                int zSelectionInt = int.Parse(zSelectionString);
+
+            
+
 
             string copySelectedPieceString = xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents();
 
@@ -902,7 +906,7 @@ namespace TetraChessdron
             string destinationString = Console.ReadLine();
             List<string> destinationStringList = new List<string>();
 
-            foreach (char letter in selectionString)
+            foreach (char letter in destinationString)
             {
                 destinationStringList.Add(letter.ToString());
             }
@@ -913,8 +917,6 @@ namespace TetraChessdron
             int yDestinationInt = int.Parse(yDestinationString);
             string zDestinationString = destinationStringList[2];
             int zDestinationInt = int.Parse(zDestinationString);
-
-            string copyOfDestinationPieceString = xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].GetCellContents();
 
             xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellContentsToEmpty();
             xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(copySelectedPieceString);
@@ -2041,9 +2043,8 @@ namespace TetraChessdron
             xYZCube[7][7][3].SetCellContents(" p ");
             xYZCube[7][8][2].SetCellContents(" p ");
         }
-        private static List<List<List<CubeCell>>> WriteTetrahedronBoardOntoCube()
+        private static void WriteTetrahedronBoardOntoCube()
         {
-            List<List<List<CubeCell>>> tetrahedronInACube = new List<List<List<CubeCell>>>();
 
             for (var x = 1; x < 9; x++)
             {
@@ -2064,7 +2065,6 @@ namespace TetraChessdron
                 }
             }
 
-            return tetrahedronInACube;
         }
         private static List<List<List<CubeCell>>> MakeCube()
         {
