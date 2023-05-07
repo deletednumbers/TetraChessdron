@@ -862,11 +862,29 @@ namespace TetraChessdron
         {
             Console.WriteLine("select a location to move from:");
             string selectionString = Console.ReadLine();
+            int anIntVariableForParseTesting;
+            bool doesTheSelectionStringParseToInt = int.TryParse(selectionString, out anIntVariableForParseTesting);
+
+            if (doesTheSelectionStringParseToInt == false)
+            {
+                PrintBoardToConsole();
+                Console.WriteLine("type selection coordinates like this example '111', numbers only");
+                thePlayersTurnBool = !thePlayersTurnBool;
+                return;
+            }
+            if (selectionString.Length != 3)
+            {
+                PrintBoardToConsole();
+                Console.WriteLine("type selection coordinates like this example '111'");
+                thePlayersTurnBool = !thePlayersTurnBool;
+                return;
+            }
+
             List<string> selectionStringList = new List<string>();
 
-            foreach (char letter in selectionString)
+            foreach (char singleCharacter in selectionString)
             {
-                selectionStringList.Add(letter.ToString());
+                selectionStringList.Add(singleCharacter.ToString());
             }
 
             string xSelectionString = selectionStringList[0];
@@ -899,7 +917,43 @@ namespace TetraChessdron
 
             Console.WriteLine("select a destination:");
             string destinationString = Console.ReadLine();
-            List<string> destinationStringList = new List<string>();
+            List<string> destinationStringList = new List<string>(); 
+            bool doesTheDestinationStringParseToInt = int.TryParse(destinationString, out anIntVariableForParseTesting);
+
+            if (doesTheDestinationStringParseToInt == false)
+            {
+                for (int x = 1; x < 9; x++)
+                {
+                    for (int y = 1; y < 9; y++)
+                    {
+                        for (int z = 1; z < 9; z++)
+                        {
+                            xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                        }
+                    }
+                }
+                PrintBoardToConsole();
+                Console.WriteLine("type destination coordinates like this example '111', numbers only");
+                thePlayersTurnBool = !thePlayersTurnBool;
+                return;
+            }
+            if (destinationString.Length != 3)
+            {
+                for (int x = 1; x < 9; x++)
+                {
+                    for (int y = 1; y < 9; y++)
+                    {
+                        for (int z = 1; z < 9; z++)
+                        {
+                            xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                        }
+                    }
+                }
+                PrintBoardToConsole();
+                Console.WriteLine("type destination coordinates like this example '111'");
+                thePlayersTurnBool = !thePlayersTurnBool;
+                return;
+            }
 
             foreach (char letter in destinationString)
             {
