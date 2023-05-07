@@ -1011,6 +1011,29 @@ namespace TetraChessdron
 
                 }
             }
+            if (xDestinationInt == xSelectionInt)
+            {
+                if (yDestinationInt == ySelectionInt)
+                {
+                    if (zDestinationInt == zSelectionInt)
+                    {
+                        for (int x = 1; x < 9; x++)
+                        {
+                            for (int y = 1; y < 9; y++)
+                            {
+                                for (int z = 1; z < 9; z++)
+                                {
+                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                                }
+                            }
+                        }
+                        PrintBoardToConsole();
+                        thePlayersTurnBool = !thePlayersTurnBool;
+                        return;
+                    }
+                }
+            }
+
             if (thePlayersTurnBool == true)
             {
                 List<string> pieceList = new List<string>
@@ -1060,16 +1083,6 @@ namespace TetraChessdron
             xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellContentsToEmpty();
             xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(copySelectedPieceString);
 
-            if (xDestinationInt == xSelectionInt)
-            {
-                if (yDestinationInt == ySelectionInt)
-                {
-                    if (zDestinationInt == zSelectionInt)
-                    {
-                        thePlayersTurnBool = !thePlayersTurnBool;
-                    }
-                }
-            }
 
             for (int x = 1; x < 9; x++)
             {
