@@ -918,6 +918,16 @@ namespace TetraChessdron
             string zDestinationString = destinationStringList[2];
             int zDestinationInt = int.Parse(zDestinationString);
 
+            string copyofDestinationPieceString = xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].GetCellContents();
+
+            if (copyofDestinationPieceString == null)
+            {
+                PrintBoardToConsole();
+                Console.WriteLine("there is no board here");
+                thePlayersTurnBool = !thePlayersTurnBool;
+                return;
+            }
+
             xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellContentsToEmpty();
             xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(copySelectedPieceString);
             if (xDestinationInt == xSelectionInt)
@@ -930,6 +940,7 @@ namespace TetraChessdron
                     }
                 }
             }
+
             for (int x = 1; x < 9; x++)
             {
                 for (int y = 1; y < 9; y++)
