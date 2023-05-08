@@ -9,6 +9,8 @@ namespace TetraChessdron
     class TetraChessdron
     {
         private static List<List<List<CubeCell>>> xYZCube = MakeCube();
+        private static List<List<List<CubeCell>>> previousXYZCube = MakeCube();
+
         private static bool thePlayersTurnBool = true;
 
         static void Main(string[] args)
@@ -1026,6 +1028,874 @@ namespace TetraChessdron
                 }
             }
         }
+        private static bool SelfCheckCheck( bool thePlayersTurnBool)
+        {
+            bool selfCheckBool = false;
+            for (int xSelectionInt = 1; xSelectionInt < 9; xSelectionInt++)
+            {
+                for (int ySelectionInt = 1; ySelectionInt < 9; ySelectionInt++)
+                {
+                    for (int zSelectionInt = 1; zSelectionInt < 9; zSelectionInt++)
+                    {
+                        if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() != null)
+                        {
+                            if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() != "   ")
+                            {
+                                if (thePlayersTurnBool == false)
+                                {
+                                    if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " R ")
+                                    {
+                                        List<string> pieceList = new List<string>
+                                    {
+                                       " R "," KN"," B "," Q "," K "," P "," r "," kn"," b "," q "," p "
+                                    };
+                                        List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {1,1,0},
+                                        new List<int> {1,0,1},
+                                        new List<int> {0,1,1},
+                                        new List<int> {-1,1,0},
+                                        new List<int> {-1,0,1},
+                                        new List<int> {0,-1,1},
+                                        new List<int> {1,-1,0},
+                                        new List<int> {1,0,-1},
+                                        new List<int> {0,1,-1},
+                                        new List<int> {-1,-1,0},
+                                        new List<int> {-1,0,-1},
+                                        new List<int> {0,-1,-1}
+                                    };
+
+                                        foreach (List<int> moveVector in Moveset)
+                                        {
+                                            for (int index = 1; index < 8; index++)
+                                            {
+                                                int x = (moveVector[0] * index) + xSelectionInt;
+                                                int y = (moveVector[1] * index) + ySelectionInt;
+                                                int z = (moveVector[2] * index) + zSelectionInt;
+                                                if (x < 9)
+                                                {
+                                                    if (x > 0)
+                                                    {
+                                                        if (y < 9)
+                                                        {
+                                                            if (y > 0)
+                                                            {
+                                                                if (z < 9)
+                                                                {
+                                                                    if (z > 0)
+                                                                    {
+                                                                        if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                                        {
+                                                                            break;
+                                                                        }
+
+                                                                        if (xYZCube[x][y][z].GetCellContents() == " k ")
+                                                                        {
+                                                                            selfCheckBool = true;
+                                                                            return selfCheckBool;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " B ")
+                                    {
+                                        List<string> pieceList = new List<string>
+                                    {
+                                       " R "," KN"," B "," Q "," K "," P "," r "," kn"," b "," q "," p "
+                                    };
+                                        List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                         new List<int> {2,1,1},
+                                         new List<int> {1,2,1},
+                                         new List<int> {1,1,2},
+                                         new List<int> {2,1,-1},
+                                         new List<int> {1,2,-1},
+                                         new List<int> {1,1,-2},
+                                         new List<int> {2,-1,1},
+                                         new List<int> {1,-2,1},
+                                         new List<int> {1,-1,2},
+                                         new List<int> {-2,1,1},
+                                         new List<int> {-1,2,1},
+                                         new List<int> {-1,1,2},
+                                         new List<int> {2,-1,-1},
+                                         new List<int> {1,-2,-1},
+                                         new List<int> {1,-1,-2},
+                                         new List<int> {-2,1,-1},
+                                         new List<int> {-1,2,-1},
+                                         new List<int> {-1,1,-2},
+                                         new List<int> {-2,-1,1},
+                                         new List<int> {-1,-2,1},
+                                         new List<int> {-1,-1,2},
+                                         new List<int> {-2,-1,-1},
+                                         new List<int> {-1,-2,-1},
+                                         new List<int> {-1,-1,-2}
+                                    };
+
+                                        foreach (List<int> moveVector in Moveset)
+                                        {
+                                            for (int index = 1; index < 8; index++)
+                                            {
+                                                int x = (moveVector[0] * index) + xSelectionInt;
+                                                int y = (moveVector[1] * index) + ySelectionInt;
+                                                int z = (moveVector[2] * index) + zSelectionInt;
+                                                if (x < 9)
+                                                {
+                                                    if (x > 0)
+                                                    {
+                                                        if (y < 9)
+                                                        {
+                                                            if (y > 0)
+                                                            {
+                                                                if (z < 9)
+                                                                {
+                                                                    if (z > 0)
+                                                                    {
+                                                                        if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                                        {
+                                                                            break;
+                                                                        }
+
+                                                                        if (xYZCube[x][y][z].GetCellContents() == " k ")
+                                                                        {
+                                                                            selfCheckBool = true;
+                                                                            return selfCheckBool;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " Q ")
+                                    {
+                                        List<string> pieceList = new List<string>
+                                    {
+                                       " R "," KN"," B "," Q "," K "," P "," r "," kn"," b "," q "," p "
+                                    };
+                                        List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {1,1,0},
+                                        new List<int> {1,0,1},
+                                        new List<int> {0,1,1},
+                                        new List<int> {-1,1,0},
+                                        new List<int> {-1,0,1},
+                                        new List<int> {0,-1,1},
+                                        new List<int> {1,-1,0},
+                                        new List<int> {1,0,-1},
+                                        new List<int> {0,1,-1},
+                                        new List<int> {-1,-1,0},
+                                        new List<int> {-1,0,-1},
+                                        new List<int> {0,-1,-1},
+                                        new List<int> {2,1,1},
+                                        new List<int> {1,2,1},
+                                        new List<int> {1,1,2},
+                                        new List<int> {2,1,-1},
+                                        new List<int> {1,2,-1},
+                                        new List<int> {1,1,-2},
+                                        new List<int> {2,-1,1},
+                                        new List<int> {1,-2,1},
+                                        new List<int> {1,-1,2},
+                                        new List<int> {-2,1,1},
+                                        new List<int> {-1,2,1},
+                                        new List<int> {-1,1,2},
+                                        new List<int> {2,-1,-1},
+                                        new List<int> {1,-2,-1},
+                                        new List<int> {1,-1,-2},
+                                        new List<int> {-2,1,-1},
+                                        new List<int> {-1,2,-1},
+                                        new List<int> {-1,1,-2},
+                                        new List<int> {-2,-1,1},
+                                        new List<int> {-1,-2,1},
+                                        new List<int> {-1,-1,2},
+                                        new List<int> {-2,-1,-1},
+                                        new List<int> {-1,-2,-1},
+                                        new List<int> {-1,-1,-2}
+                                    };
+
+                                        foreach (List<int> moveVector in Moveset)
+                                        {
+                                            for (int index = 1; index < 8; index++)
+                                            {
+                                                int x = (moveVector[0] * index) + xSelectionInt;
+                                                int y = (moveVector[1] * index) + ySelectionInt;
+                                                int z = (moveVector[2] * index) + zSelectionInt;
+                                                if (x < 9)
+                                                {
+                                                    if (x > 0)
+                                                    {
+                                                        if (y < 9)
+                                                        {
+                                                            if (y > 0)
+                                                            {
+                                                                if (z < 9)
+                                                                {
+                                                                    if (z > 0)
+                                                                    {
+                                                                        if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                                        {
+                                                                            break;
+                                                                        }
+
+                                                                        if (xYZCube[x][y][z].GetCellContents() == " k ")
+                                                                        {
+                                                                            selfCheckBool = true;
+                                                                            return selfCheckBool;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " KN")
+                                    {
+                                        List<List<int>> Moveset = new List<List<int>>
+                                        {
+                                            new List<int> {1,2,3},
+                                            new List<int> {2,1,3},
+                                            new List<int> {2,3,1},
+                                            new List<int> {3,2,1},
+                                            new List<int> {3,1,2},
+                                            new List<int> {1,3,2},
+                                            new List<int> {1,2,-3},
+                                            new List<int> {2,1,-3},
+                                            new List<int> {2,3,-1},
+                                            new List<int> {3,2,-1},
+                                            new List<int> {3,1,-2},
+                                            new List<int> {1,3,-2},
+                                            new List<int> {1,-2,3},
+                                            new List<int> {2,-1,3},
+                                            new List<int> {2,-3,1},
+                                            new List<int> {3,-2,1},
+                                            new List<int> {3,-1,2},
+                                            new List<int> {1,-3,2},
+                                            new List<int> {-1,2,3},
+                                            new List<int> {-2,1,3},
+                                            new List<int> {-2,3,1},
+                                            new List<int> {-3,2,1},
+                                            new List<int> {-3,1,2},
+                                            new List<int> {-1,3,2},
+                                            new List<int> {1,-2,-3},
+                                            new List<int> {2,-1,-3},
+                                            new List<int> {2,-3,-1},
+                                            new List<int> {3,-2,-1},
+                                            new List<int> {3,-1,-2},
+                                            new List<int> {1,-3,-2},
+                                            new List<int> {-1,2,-3},
+                                            new List<int> {-2,1,-3},
+                                            new List<int> {-2,3,-1},
+                                            new List<int> {-3,2,-1},
+                                            new List<int> {-3,1,-2},
+                                            new List<int> {-1,3,-2},
+                                            new List<int> {-1,-2,3},
+                                            new List<int> {-2,-1,3},
+                                            new List<int> {-2,-3,1},
+                                            new List<int> {-3,-2,1},
+                                            new List<int> {-3,-1,2},
+                                            new List<int> {-1,-3,2},
+                                            new List<int> {-1,-2,-3},
+                                            new List<int> {-2,-1,-3},
+                                            new List<int> {-2,-3,-1},
+                                            new List<int> {-3,-2,-1},
+                                            new List<int> {-3,-1,-2},
+                                            new List<int> {-1,-3,-2},
+                                        };
+
+                                        foreach (List<int> moveVector in Moveset)
+                                        {
+                                            int x = moveVector[0] + xSelectionInt;
+                                            int y = moveVector[1] + ySelectionInt;
+                                            int z = moveVector[2] + zSelectionInt;
+                                            if (x < 9)
+                                            {
+                                                if (x > 0)
+                                                {
+                                                    if (y < 9)
+                                                    {
+                                                        if (y > 0)
+                                                        {
+                                                            if (z < 9)
+                                                            {
+                                                                if (z > 0)
+                                                                {
+                                                                    if (xYZCube[x][y][z].GetCellContents() == " k ")
+                                                                    {
+                                                                        selfCheckBool = true;
+                                                                        return selfCheckBool;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " P ")
+                                    {
+                                        List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {2,1,1},
+                                        new List<int> {1,2,1},
+                                        new List<int> {1,1,2},
+                                        new List<int> {2,1,-1},
+                                        new List<int> {1,2,-1},
+                                        new List<int> {1,1,-2},
+                                        new List<int> {2,-1,1},
+                                        new List<int> {1,-2,1},
+                                        new List<int> {1,-1,2},
+                                        new List<int> {2,-1,-1},
+                                        new List<int> {1,-2,-1},
+                                        new List<int> {1,-1,-2}
+                                    };
+
+                                        foreach (List<int> moveVector in Moveset)
+                                        {
+                                            int x = moveVector[0] + xSelectionInt;
+                                            int y = moveVector[1] + ySelectionInt;
+                                            int z = moveVector[2] + zSelectionInt;
+                                            if (x < 9)
+                                            {
+                                                if (x > 0)
+                                                {
+                                                    if (y < 9)
+                                                    {
+                                                        if (y > 0)
+                                                        {
+                                                            if (z < 9)
+                                                            {
+                                                                if (z > 0)
+                                                                {
+                                                                    if (xYZCube[x][y][z].GetCellContents() == " k ")
+                                                                    {
+                                                                            selfCheckBool = true;
+                                                                            return selfCheckBool;
+                                                                        
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " K ")
+                                    {
+                                        List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {1,1,0},
+                                        new List<int> {1,0,1},
+                                        new List<int> {0,1,1},
+                                        new List<int> {-1,1,0},
+                                        new List<int> {-1,0,1},
+                                        new List<int> {0,-1,1},
+                                        new List<int> {1,-1,0},
+                                        new List<int> {1,0,-1},
+                                        new List<int> {0,1,-1},
+                                        new List<int> {-1,-1,0},
+                                        new List<int> {-1,0,-1},
+                                        new List<int> {0,-1,-1},
+                                        new List<int> {2,1,1},
+                                        new List<int> {1,2,1},
+                                        new List<int> {1,1,2},
+                                        new List<int> {2,1,-1},
+                                        new List<int> {1,2,-1},
+                                        new List<int> {1,1,-2},
+                                        new List<int> {2,-1,1},
+                                        new List<int> {1,-2,1},
+                                        new List<int> {1,-1,2},
+                                        new List<int> {-2,1,1},
+                                        new List<int> {-1,2,1},
+                                        new List<int> {-1,1,2},
+                                        new List<int> {2,-1,-1},
+                                        new List<int> {1,-2,-1},
+                                        new List<int> {1,-1,-2},
+                                        new List<int> {-2,1,-1},
+                                        new List<int> {-1,2,-1},
+                                        new List<int> {-1,1,-2},
+                                        new List<int> {-2,-1,1},
+                                        new List<int> {-1,-2,1},
+                                        new List<int> {-1,-1,2},
+                                        new List<int> {-2,-1,-1},
+                                        new List<int> {-1,-2,-1},
+                                        new List<int> {-1,-1,-2}
+                                    };
+
+                                        foreach (List<int> moveVector in Moveset)
+                                        {
+                                            int x = moveVector[0] + xSelectionInt;
+                                            int y = moveVector[1] + ySelectionInt;
+                                            int z = moveVector[2] + zSelectionInt;
+                                            if (x < 9)
+                                            {
+                                                if (x > 0)
+                                                {
+                                                    if (y < 9)
+                                                    {
+                                                        if (y > 0)
+                                                        {
+                                                            if (z < 9)
+                                                            {
+                                                                if (z > 0)
+                                                                {
+                                                                    if (xYZCube[x][y][z].GetCellContents() == " k ")
+                                                                    {
+                                                                        selfCheckBool = true;
+                                                                        return selfCheckBool;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+
+                                if (thePlayersTurnBool == true)
+                                {
+                                    if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " r ")
+                                    {
+                                        List<string> pieceList = new List<string>
+                                    {
+                                       " R "," KN"," B "," Q "," k "," P "," r "," kn"," b "," q "," p "
+                                    };
+                                        List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {1,1,0},
+                                        new List<int> {1,0,1},
+                                        new List<int> {0,1,1},
+                                        new List<int> {-1,1,0},
+                                        new List<int> {-1,0,1},
+                                        new List<int> {0,-1,1},
+                                        new List<int> {1,-1,0},
+                                        new List<int> {1,0,-1},
+                                        new List<int> {0,1,-1},
+                                        new List<int> {-1,-1,0},
+                                        new List<int> {-1,0,-1},
+                                        new List<int> {0,-1,-1}
+                                    };
+
+                                        foreach (List<int> moveVector in Moveset)
+                                        {
+                                            for (int index = 1; index < 8; index++)
+                                            {
+                                                int x = (moveVector[0] * index) + xSelectionInt;
+                                                int y = (moveVector[1] * index) + ySelectionInt;
+                                                int z = (moveVector[2] * index) + zSelectionInt;
+                                                if (x < 9)
+                                                {
+                                                    if (x > 0)
+                                                    {
+                                                        if (y < 9)
+                                                        {
+                                                            if (y > 0)
+                                                            {
+                                                                if (z < 9)
+                                                                {
+                                                                    if (z > 0)
+                                                                    {
+                                                                        if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                                        {
+                                                                            break;
+                                                                        }
+
+                                                                        if (xYZCube[x][y][z].GetCellContents() == " K ")
+                                                                        {
+                                                                            selfCheckBool = true;
+                                                                            return selfCheckBool;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " b ")
+                                    {
+                                        List<string> pieceList = new List<string>
+                                    {
+                                       " R "," KN"," B "," Q "," k "," P "," r "," kn"," b "," q "," p "
+                                    };
+                                        List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                         new List<int> {2,1,1},
+                                         new List<int> {1,2,1},
+                                         new List<int> {1,1,2},
+                                         new List<int> {2,1,-1},
+                                         new List<int> {1,2,-1},
+                                         new List<int> {1,1,-2},
+                                         new List<int> {2,-1,1},
+                                         new List<int> {1,-2,1},
+                                         new List<int> {1,-1,2},
+                                         new List<int> {-2,1,1},
+                                         new List<int> {-1,2,1},
+                                         new List<int> {-1,1,2},
+                                         new List<int> {2,-1,-1},
+                                         new List<int> {1,-2,-1},
+                                         new List<int> {1,-1,-2},
+                                         new List<int> {-2,1,-1},
+                                         new List<int> {-1,2,-1},
+                                         new List<int> {-1,1,-2},
+                                         new List<int> {-2,-1,1},
+                                         new List<int> {-1,-2,1},
+                                         new List<int> {-1,-1,2},
+                                         new List<int> {-2,-1,-1},
+                                         new List<int> {-1,-2,-1},
+                                         new List<int> {-1,-1,-2}
+                                    };
+
+                                        foreach (List<int> moveVector in Moveset)
+                                        {
+                                            for (int index = 1; index < 8; index++)
+                                            {
+                                                int x = (moveVector[0] * index) + xSelectionInt;
+                                                int y = (moveVector[1] * index) + ySelectionInt;
+                                                int z = (moveVector[2] * index) + zSelectionInt;
+                                                if (x < 9)
+                                                {
+                                                    if (x > 0)
+                                                    {
+                                                        if (y < 9)
+                                                        {
+                                                            if (y > 0)
+                                                            {
+                                                                if (z < 9)
+                                                                {
+                                                                    if (z > 0)
+                                                                    {
+                                                                        if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                                        {
+                                                                            break;
+                                                                        }
+
+                                                                        if (xYZCube[x][y][z].GetCellContents() == " K ")
+                                                                        {
+                                                                            selfCheckBool = true;
+                                                                            return selfCheckBool;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " q ")
+                                    {
+                                        List<string> pieceList = new List<string>
+                                    {
+                                       " R "," KN"," B "," Q "," k "," P "," r "," kn"," b "," q "," p "
+                                    };
+                                        List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {1,1,0},
+                                        new List<int> {1,0,1},
+                                        new List<int> {0,1,1},
+                                        new List<int> {-1,1,0},
+                                        new List<int> {-1,0,1},
+                                        new List<int> {0,-1,1},
+                                        new List<int> {1,-1,0},
+                                        new List<int> {1,0,-1},
+                                        new List<int> {0,1,-1},
+                                        new List<int> {-1,-1,0},
+                                        new List<int> {-1,0,-1},
+                                        new List<int> {0,-1,-1},
+                                        new List<int> {2,1,1},
+                                        new List<int> {1,2,1},
+                                        new List<int> {1,1,2},
+                                        new List<int> {2,1,-1},
+                                        new List<int> {1,2,-1},
+                                        new List<int> {1,1,-2},
+                                        new List<int> {2,-1,1},
+                                        new List<int> {1,-2,1},
+                                        new List<int> {1,-1,2},
+                                        new List<int> {-2,1,1},
+                                        new List<int> {-1,2,1},
+                                        new List<int> {-1,1,2},
+                                        new List<int> {2,-1,-1},
+                                        new List<int> {1,-2,-1},
+                                        new List<int> {1,-1,-2},
+                                        new List<int> {-2,1,-1},
+                                        new List<int> {-1,2,-1},
+                                        new List<int> {-1,1,-2},
+                                        new List<int> {-2,-1,1},
+                                        new List<int> {-1,-2,1},
+                                        new List<int> {-1,-1,2},
+                                        new List<int> {-2,-1,-1},
+                                        new List<int> {-1,-2,-1},
+                                        new List<int> {-1,-1,-2}
+                                    };
+
+                                        foreach (List<int> moveVector in Moveset)
+                                        {
+                                            for (int index = 1; index < 8; index++)
+                                            {
+                                                int x = (moveVector[0] * index) + xSelectionInt;
+                                                int y = (moveVector[1] * index) + ySelectionInt;
+                                                int z = (moveVector[2] * index) + zSelectionInt;
+                                                if (x < 9)
+                                                {
+                                                    if (x > 0)
+                                                    {
+                                                        if (y < 9)
+                                                        {
+                                                            if (y > 0)
+                                                            {
+                                                                if (z < 9)
+                                                                {
+                                                                    if (z > 0)
+                                                                    {
+                                                                        if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                                                        {
+                                                                            break;
+                                                                        }
+
+                                                                        if (xYZCube[x][y][z].GetCellContents() == " K ")
+                                                                        {
+                                                                            selfCheckBool = true;
+                                                                            return selfCheckBool;
+                                                                        }
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " kn")
+                                    {
+                                        List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {1,2,3},
+                                        new List<int> {2,1,3},
+                                        new List<int> {2,3,1},
+                                        new List<int> {3,2,1},
+                                        new List<int> {3,1,2},
+                                        new List<int> {1,3,2},
+                                        new List<int> {1,2,-3},
+                                        new List<int> {2,1,-3},
+                                        new List<int> {2,3,-1},
+                                        new List<int> {3,2,-1},
+                                        new List<int> {3,1,-2},
+                                        new List<int> {1,3,-2},
+                                        new List<int> {1,-2,3},
+                                        new List<int> {2,-1,3},
+                                        new List<int> {2,-3,1},
+                                        new List<int> {3,-2,1},
+                                        new List<int> {3,-1,2},
+                                        new List<int> {1,-3,2},
+                                        new List<int> {-1,2,3},
+                                        new List<int> {-2,1,3},
+                                        new List<int> {-2,3,1},
+                                        new List<int> {-3,2,1},
+                                        new List<int> {-3,1,2},
+                                        new List<int> {-1,3,2},
+                                        new List<int> {1,-2,-3},
+                                        new List<int> {2,-1,-3},
+                                        new List<int> {2,-3,-1},
+                                        new List<int> {3,-2,-1},
+                                        new List<int> {3,-1,-2},
+                                        new List<int> {1,-3,-2},
+                                        new List<int> {-1,2,-3},
+                                        new List<int> {-2,1,-3},
+                                        new List<int> {-2,3,-1},
+                                        new List<int> {-3,2,-1},
+                                        new List<int> {-3,1,-2},
+                                        new List<int> {-1,3,-2},
+                                        new List<int> {-1,-2,3},
+                                        new List<int> {-2,-1,3},
+                                        new List<int> {-2,-3,1},
+                                        new List<int> {-3,-2,1},
+                                        new List<int> {-3,-1,2},
+                                        new List<int> {-1,-3,2},
+                                        new List<int> {-1,-2,-3},
+                                        new List<int> {-2,-1,-3},
+                                        new List<int> {-2,-3,-1},
+                                        new List<int> {-3,-2,-1},
+                                        new List<int> {-3,-1,-2},
+                                        new List<int> {-1,-3,-2},
+                                    };
+
+                                        foreach (List<int> moveVector in Moveset)
+                                        {
+                                            int x = moveVector[0] + xSelectionInt;
+                                            int y = moveVector[1] + ySelectionInt;
+                                            int z = moveVector[2] + zSelectionInt;
+                                            if (x < 9)
+                                            {
+                                                if (x > 0)
+                                                {
+                                                    if (y < 9)
+                                                    {
+                                                        if (y > 0)
+                                                        {
+                                                            if (z < 9)
+                                                            {
+                                                                if (z > 0)
+                                                                {
+                                                                    if (xYZCube[x][y][z].GetCellContents() == " K ")
+                                                                    {
+                                                                        selfCheckBool = true;
+                                                                        return selfCheckBool;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " p ")
+                                    {
+                                        List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {-2,1,1},
+                                        new List<int> {-1,2,1},
+                                        new List<int> {-1,1,2},
+                                        new List<int> {-2,1,-1},
+                                        new List<int> {-1,2,-1},
+                                        new List<int> {-1,1,-2},
+                                        new List<int> {-2,-1,1},
+                                        new List<int> {-1,-2,1},
+                                        new List<int> {-1,-1,2},
+                                        new List<int> {-2,-1,-1},
+                                        new List<int> {-1,-2,-1},
+                                        new List<int> {-1,-1,-2}
+                                    };
+
+                                        foreach (List<int> moveVector in Moveset)
+                                        {
+                                            int x = moveVector[0] + xSelectionInt;
+                                            int y = moveVector[1] + ySelectionInt;
+                                            int z = moveVector[2] + zSelectionInt;
+                                            if (x < 9)
+                                            {
+                                                if (x > 0)
+                                                {
+                                                    if (y < 9)
+                                                    {
+                                                        if (y > 0)
+                                                        {
+                                                            if (z < 9)
+                                                            {
+                                                                if (z > 0)
+                                                                {
+                                                                    if (xYZCube[x][y][z].GetCellContents() == " K ")
+                                                                    {
+                                                                        selfCheckBool = true;
+                                                                        return selfCheckBool;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                    if (xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].GetCellContents() == " k ")
+                                    {
+                                        List<List<int>> Moveset = new List<List<int>>
+                                    {
+                                        new List<int> {1,1,0},
+                                        new List<int> {1,0,1},
+                                        new List<int> {0,1,1},
+                                        new List<int> {-1,1,0},
+                                        new List<int> {-1,0,1},
+                                        new List<int> {0,-1,1},
+                                        new List<int> {1,-1,0},
+                                        new List<int> {1,0,-1},
+                                        new List<int> {0,1,-1},
+                                        new List<int> {-1,-1,0},
+                                        new List<int> {-1,0,-1},
+                                        new List<int> {0,-1,-1},
+                                        new List<int> {2,1,1},
+                                        new List<int> {1,2,1},
+                                        new List<int> {1,1,2},
+                                        new List<int> {2,1,-1},
+                                        new List<int> {1,2,-1},
+                                        new List<int> {1,1,-2},
+                                        new List<int> {2,-1,1},
+                                        new List<int> {1,-2,1},
+                                        new List<int> {1,-1,2},
+                                        new List<int> {-2,1,1},
+                                        new List<int> {-1,2,1},
+                                        new List<int> {-1,1,2},
+                                        new List<int> {2,-1,-1},
+                                        new List<int> {1,-2,-1},
+                                        new List<int> {1,-1,-2},
+                                        new List<int> {-2,1,-1},
+                                        new List<int> {-1,2,-1},
+                                        new List<int> {-1,1,-2},
+                                        new List<int> {-2,-1,1},
+                                        new List<int> {-1,-2,1},
+                                        new List<int> {-1,-1,2},
+                                        new List<int> {-2,-1,-1},
+                                        new List<int> {-1,-2,-1},
+                                        new List<int> {-1,-1,-2}
+                                    };
+
+                                        foreach (List<int> moveVector in Moveset)
+                                        {
+                                            int x = moveVector[0] + xSelectionInt;
+                                            int y = moveVector[1] + ySelectionInt;
+                                            int z = moveVector[2] + zSelectionInt;
+                                            if (x < 9)
+                                            {
+                                                if (x > 0)
+                                                {
+                                                    if (y < 9)
+                                                    {
+                                                        if (y > 0)
+                                                        {
+                                                            if (z < 9)
+                                                            {
+                                                                if (z > 0)
+                                                                {
+                                                                    if (xYZCube[x][y][z].GetCellContents() == " K ")
+                                                                    {
+                                                                        selfCheckBool = true;
+                                                                        return selfCheckBool;
+                                                                    }
+                                                                }
+                                                            }
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+            return selfCheckBool;
+        }
         private static void MoveAPiece()
         {
             Console.WriteLine("select a location to move from:");
@@ -1256,7 +2126,7 @@ namespace TetraChessdron
                 }
             }
 
-            if (thePlayersTurnBool == true)
+            if (thePlayersTurnBool == false)
             {
                 List<string> pieceList = new List<string>
                 {
@@ -1282,7 +2152,7 @@ namespace TetraChessdron
 
                 }
             }
-            if (thePlayersTurnBool == false)
+            if (thePlayersTurnBool == true)
             {
                 List<string> pieceList = new List<string>
                 {
@@ -1309,6 +2179,8 @@ namespace TetraChessdron
                 }
             }
 
+
+
             if (CheckForLegalPieceMoveset(copySelectedPieceString, xSelectionInt, ySelectionInt, zSelectionInt, xDestinationInt, yDestinationInt, zDestinationInt) == false)
             {
                 for (int x = 1; x < 9; x++)
@@ -1328,15 +2200,36 @@ namespace TetraChessdron
                 return;
             }
 
+
+            for (int x = 0; x < 9; x++)
+            {
+                for (int y = 0; y < 9; y++)
+                {
+                    for (int z = 0; z < 9; z++)
+                    {
+                        previousXYZCube[x][y][z].SetCellContents(xYZCube[x][y][z].GetCellContents());
+                    }
+                }
+            }
+
             xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellContentsToEmpty();
             xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(copySelectedPieceString);
 
-
-            for (int x = 1; x < 9; x++)
+           if (SelfCheckCheck(thePlayersTurnBool) == true)
             {
-                for (int y = 1; y < 9; y++)
+                xYZCube = new List<List<List<CubeCell>>>(previousXYZCube);
+
+                PrintBoardToConsole();
+                Console.WriteLine("cannot make move, would endanger king");
+                thePlayersTurnBool = !thePlayersTurnBool;
+                return;
+            }
+
+            for (int x = 0; x < 9; x++)
+            {
+                for (int y = 0; y < 9; y++)
                 {
-                    for (int z = 1; z < 9; z++)
+                    for (int z = 0; z < 9; z++)
                     {
                         xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
                     }
@@ -3447,7 +4340,6 @@ namespace TetraChessdron
         {
             //experimental pieces
 
-            xYZCube[7][7][3].SetCellContents(" P ");
 
             //team 1
             /*
