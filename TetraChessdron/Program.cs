@@ -4724,202 +4724,83 @@ namespace TetraChessdron
         {
             List<List<int>> row1 = new List<List<int>>
             {
-            new List<int> { 1, 8, 8 },
-            new List<int> { 2, 8, 7 },
-            new List<int> { 3, 8, 6 },
-            new List<int> { 4, 8, 5 },
-            new List<int> { 5, 8, 4 },
-            new List<int> { 6, 8, 3 },
-            new List<int> { 7, 8, 2 },
-            new List<int> { 8, 8, 1 }
+            new List<int> { 1, 8, 8 },new List<int> { 2, 8, 7 },new List<int> { 3, 8, 6 },new List<int> { 4, 8, 5 },new List<int> { 5, 8, 4 },new List<int> { 6, 8, 3 },new List<int> { 7, 8, 2 },new List<int> { 8, 8, 1 }
             };
-
             List<List<int>> row2 = new List<List<int>>
             {
-            new List<int> { 2, 7, 6 },
-            new List<int> { 3, 7, 5 },
-            new List<int> { 4, 7, 4 },
-            new List<int> { 5, 7, 3 },
-            new List<int> { 6, 7, 2 },
-            new List<int> { 7, 7, 1 },
-            new List<int> { 8, 7, 2 }
+            new List<int> { 2, 7, 8 },new List<int> { 3, 7, 7 },new List<int> { 4, 7, 6 },new List<int> { 5, 7, 5 },new List<int> { 6, 7, 4 },new List<int> { 7, 7, 3 },new List<int> { 8, 7, 2 }
             };
-
             List<List<int>> row3 = new List<List<int>>
             {
-            new List<int> { 1, 7, 7 },
-            new List<int> { 2, 7, 8 },
-            new List<int> { 3, 7, 7 },
-            new List<int> { 4, 7, 6 },
-            new List<int> { 5, 7, 5 },
-            new List<int> { 6, 7, 4 },
-            new List<int> { 7, 7, 3 }
+            new List<int> { 1, 7, 7 },new List<int> { 2, 7, 6 },new List<int> { 3, 7, 5 },new List<int> { 4, 7, 4 },new List<int> { 5, 7, 3 },new List<int> { 6, 7, 2 },new List<int> { 7, 7, 1 }
             };
-
             List<List<int>> row4 = new List<List<int>>
             {
-            new List<int> { 3, 6, 4 },
-            new List<int> { 4, 6, 3 },
-            new List<int> { 5, 6, 2 },
-            new List<int> { 6, 6, 1 },
-            new List<int> { 7, 6, 2 },
-            new List<int> { 8, 6, 3 }
+            new List<int> { 3, 6, 8 },new List<int> { 4, 6, 7 },new List<int> { 5, 6, 6 },new List<int> { 6, 6, 5 },new List<int> { 7, 6, 4 },new List<int> { 8, 6, 3 }
             };
-
             List<List<int>> row5 = new List<List<int>>
             {
-           new List<int> { 2, 6, 5 },
-           new List<int> { 3, 6, 6 },
-           new List<int> { 4, 6, 5 },
-           new List<int> { 5, 6, 4 },
-           new List<int> { 6, 6, 3 },
-           new List<int> { 7, 6, 4 }
+            new List<int> { 2, 6, 7 },new List<int> { 3, 6, 6 },new List<int> { 4, 6, 5 },new List<int> { 5, 6, 4 },new List<int> { 6, 6, 3 },new List<int> { 7, 6, 2 }
             };
-
             List<List<int>> row6 = new List<List<int>>
             {
-            new List<int> { 1, 6, 6 },
-            new List<int> { 2, 6, 7 },
-            new List<int> { 3, 6, 8 },
-            new List<int> { 4, 6, 7 },
-            new List<int> { 5, 6, 6 },
-            new List<int> { 6, 6, 5 }
+            new List<int> { 1, 6, 6 },new List<int> { 2, 6, 5 },new List<int> { 3, 6, 4 },new List<int> { 4, 6, 3 },new List<int> { 5, 6, 2 },new List<int> { 6, 6, 1 }
             };
-
             List<List<int>> row7 = new List<List<int>>
             {
-            new List<int> {4 , 5, 2 },
-            new List<int> {5 , 5, 1 },
-            new List<int> {6 , 5, 2 },
-            new List<int> {7 , 5, 3 },
-            new List<int> {8 , 5, 4 }
+            new List<int> {4 , 5, 8 },new List<int> {5 , 5, 7 },new List<int> {6 , 5, 6 },new List<int> {7 , 5, 5 },new List<int> {8 , 5, 4 }
             };
-
             List<List<int>> row8 = new List<List<int>>
             {
-            new List<int> {3 , 5, 3 },
-            new List<int> {4 , 5, 4 },
-            new List<int> {5 , 5, 3 },
-            new List<int> {6 , 5, 4 },
-            new List<int> {7 , 5, 5 }
+            new List<int> {3 , 5, 7 },new List<int> {4 , 5, 6 },new List<int> {5 , 5, 5 },new List<int> {6 , 5, 4 },new List<int> {7 , 5, 3 }
             };
-
             List<List<int>> row9 = new List<List<int>>
             {
-            new List<int> { 2,5,4 },
-            new List<int> { 3,5,5 },
-            new List<int> { 4,5,6 },
-            new List<int> { 5,5,5 },
-            new List<int> { 6,5,6 }
+            new List<int> { 2,5,6 },new List<int> { 3,5,5 },new List<int> { 4,5,4 },new List<int> { 5,5,3 },new List<int> { 6,5,2 }
             };
-
             List<List<int>> row10 = new List<List<int>>
             {
-            new List<int> {1 ,5, 5},
-            new List<int> {2 ,5, 6},
-            new List<int> {3 ,5, 7},
-            new List<int> {4 ,5, 8},
-            new List<int> {5 ,5, 7}
+            new List<int> {1 ,5, 5},new List<int> {2 ,5, 4},new List<int> {3 ,5, 3},new List<int> {4 ,5, 2},new List<int> {5 ,5, 1}
             };
-
             List<List<int>> row11 = new List<List<int>>
             {
-            new List<int> { 4,4,1 },
-            new List<int> { 5,4,2 },
-            new List<int> { 6,4,3 },
-            new List<int> { 7,4,4 },
-            new List<int> { 8,4,5 }
+            new List<int> { 4,4,7 },new List<int> { 5,4,8 },new List<int> { 6,4,7 },new List<int> { 7,4,6 },new List<int> { 8,4,5 }
             };
-
             List<List<int>> row12 = new List<List<int>>
             {
-            new List<int> { 3,4,2 },
-            new List<int> { 4,4,3 },
-            new List<int> { 5,4,4 },
-            new List<int> { 6,4,5 },
-            new List<int> { 7,4,6 }
+            new List<int> { 3,4,6 },new List<int> { 4,4,5 },new List<int> { 5,4,6 },new List<int> { 6,4,5 },new List<int> { 7,4,4 }
             };
-
             List<List<int>> row13 = new List<List<int>>
             {
-            new List<int> { 2,4,3 },
-            new List<int> { 3,4,4 },
-            new List<int> { 4,4,5 },
-            new List<int> { 5,4,6 },
-            new List<int> { 6,4,7 }
+            new List<int> { 2,4,5 },new List<int> { 3,4,4 },new List<int> { 4,4,3 },new List<int> { 5,4,4 },new List<int> { 6,4,3 }
             };
-
             List<List<int>> row14 = new List<List<int>>
             {
-            new List<int> { 1,4, 4},
-            new List<int> { 2,4, 5},
-            new List<int> { 3,4, 6},
-            new List<int> { 4,4, 7},
-            new List<int> { 5,4, 8}
+            new List<int> { 1,4, 4},new List<int> { 2,4, 3},new List<int> { 3,4, 2},new List<int> { 4,4, 1},new List<int> { 5,4, 2}
             };
-
             List<List<int>> row15 = new List<List<int>>
             {
-            new List<int> { 3,3,1 },
-            new List<int> { 4,3,2 },
-            new List<int> { 5,3,3 },
-            new List<int> { 6,3,4 },
-            new List<int> { 7,3,5 },
-            new List<int> { 8,3,6 }
+            new List<int> { 3,3,5 },new List<int> { 4,3,6 },new List<int> { 5,3,7 },new List<int> { 6,3,8 },new List<int> { 7,3,7 },new List<int> { 8,3,6 }
             };
-
             List<List<int>> row16 = new List<List<int>>
             {
-            new List<int> { 2,3,2 },
-            new List<int> { 3,3,3 },
-            new List<int> { 4,3,4 },
-            new List<int> { 5,3,5 },
-            new List<int> { 6,3,6 },
-            new List<int> { 7,3,7 }
+            new List<int> { 2,3,4 },new List<int> { 3,3,3 },new List<int> { 4,3,4 },new List<int> { 5,3,5 },new List<int> { 6,3,6 },new List<int> { 7,3,5 }
             };
-
             List<List<int>> row17 = new List<List<int>>
             {
-            new List<int> { 1,3,3 },
-            new List<int> { 2,3,4 },
-            new List<int> { 3,3,5 },
-            new List<int> { 4,3,6 },
-            new List<int> { 5,3,7 },
-            new List<int> { 6,3,8 }
+            new List<int> { 1,3,3 },new List<int> { 2,3,2 },new List<int> { 3,3,1 },new List<int> { 4,3,2 },new List<int> { 5,3,3 },new List<int> { 6,3,4 }
             };
-
             List<List<int>> row18 = new List<List<int>>
             {
-            new List<int> { 2,2,1 },
-            new List<int> { 3,2,2 },
-            new List<int> { 4,2,3 },
-            new List<int> { 5,2,4 },
-            new List<int> { 6,2,5 },
-            new List<int> { 7,2,6 },
-            new List<int> { 8,2,7 }
+            new List<int> { 2,2,3 },new List<int> { 3,2,4 },new List<int> { 4,2,5 },new List<int> { 5,2,6 },new List<int> { 6,2,7 },new List<int> { 7,2,8 },new List<int> { 8,2,7 }
             };
-
             List<List<int>> row19 = new List<List<int>>
             {
-            new List<int> { 1,2,2 },
-            new List<int> { 2,2,3 },
-            new List<int> { 3,2,4 },
-            new List<int> { 4,2,5 },
-            new List<int> { 5,2,6 },
-            new List<int> { 6,2,7 },
-            new List<int> { 7,2,8 }
+            new List<int> { 1,2,2 },new List<int> { 2,2,1 },new List<int> { 3,2,2 },new List<int> { 4,2,3 },new List<int> { 5,2,4 },new List<int> { 6,2,5 },new List<int> { 7,2,6 }
             };
-
             List<List<int>> row20 = new List<List<int>>
             {
-            new List<int> { 1,1,1 },
-            new List<int> { 2,1,2 },
-            new List<int> { 3,1,3 },
-            new List<int> { 4,1,4 },
-            new List<int> { 5,1,5 },
-            new List<int> { 6,1,6 },
-            new List<int> { 7,1,7 },
-            new List<int> { 8,1,8 }
+            new List<int> { 1,1,1 }, new List<int> { 2,1,2 }, new List<int> { 3,1,3 }, new List<int> { 4,1,4 }, new List<int> { 5,1,5 }, new List<int> { 6,1,6 }, new List<int> { 7,1,7 }, new List<int> { 8,1,8 }
             };
 
 
@@ -4954,7 +4835,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|---|276|375|474|573|672|771|872|");
+            Console.WriteLine("|---|278|377|476|575|674|773|872|");
 
             foreach (List<int> xyz in row3)
             {
@@ -4967,7 +4848,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|177|278|377|476|575|674|773|");
+            Console.WriteLine("|177|276|375|474|573|672|771|");
             Console.WriteLine("");
             Console.WriteLine("        |---|---|---|---|---|---|");
 
@@ -4984,7 +4865,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("    |---|364|463|562|661|762|863|");
+            Console.WriteLine("    |---|368|467|566|665|764|863|");
 
 
             Console.Write("    ");
@@ -4999,7 +4880,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|---|265|366|465|564|663|764|");
+            Console.WriteLine("|---|267|366|465|564|663|762|");
 
             foreach (List<int> xyz in row6)
             {
@@ -5012,7 +4893,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|166|267|368|467|566|665|");
+            Console.WriteLine("|166|265|364|463|562|661|");
             Console.WriteLine("");
             Console.WriteLine("            |---|---|---|---|---|");
 
@@ -5029,7 +4910,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("        |---|452|551|652|753|854|");
+            Console.WriteLine("        |---|458|557|656|755|854|");
 
 
             Console.Write("        ");
@@ -5044,7 +4925,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("    |---|353|454|553|654|755|");
+            Console.WriteLine("    |---|357|456|555|654|753|");
 
 
             Console.Write("    ");
@@ -5059,7 +4940,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|---|254|355|456|555|656|");
+            Console.WriteLine("|---|256|355|454|553|652|");
 
             foreach (List<int> xyz in row10)
             {
@@ -5072,7 +4953,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|155|256|357|458|557|");
+            Console.WriteLine("|155|254|353|452|551|");
             Console.WriteLine("");
             Console.WriteLine("            |---|---|---|---|---|");
 
@@ -5089,7 +4970,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("        |---|441|542|643|744|845|");
+            Console.WriteLine("        |---|447|548|647|746|845|");
 
 
             Console.Write("        ");
@@ -5104,7 +4985,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("    |---|342|443|544|645|746|");
+            Console.WriteLine("    |---|346|445|546|645|744|");
 
 
             Console.Write("    ");
@@ -5119,7 +5000,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|---|243|344|445|546|647|");
+            Console.WriteLine("|---|245|344|443|544|643|");
 
             foreach (List<int> xyz in row14)
             {
@@ -5132,7 +5013,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|144|245|346|447|548|");
+            Console.WriteLine("|144|243|342|441|542|");
             Console.WriteLine("");
             Console.WriteLine("        |---|---|---|---|---|---|");
 
@@ -5149,7 +5030,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("    |---|331|432|533|634|735|836|");
+            Console.WriteLine("    |---|335|436|537|638|737|836|");
 
 
             Console.Write("    ");
@@ -5164,7 +5045,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|---|232|333|434|535|636|737|");
+            Console.WriteLine("|---|234|333|434|535|636|735|");
 
             foreach (List<int> xyz in row17)
             {
@@ -5177,7 +5058,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|133|234|335|436|537|638|");
+            Console.WriteLine("|133|232|331|432|533|634|");
             Console.WriteLine("");
             Console.WriteLine("    |---|---|---|---|---|---|---|");
 
@@ -5194,7 +5075,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|---|221|322|423|524|625|726|827|");
+            Console.WriteLine("|---|223|324|425|526|627|728|827|");
 
             foreach (List<int> xyz in row19)
             {
@@ -5207,7 +5088,7 @@ namespace TetraChessdron
                 Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
             }
             Console.WriteLine("|");
-            Console.WriteLine("|122|223|324|425|526|627|728|");
+            Console.WriteLine("|122|221|322|423|524|625|726|");
             Console.WriteLine("");
             Console.WriteLine("|---|---|---|---|---|---|---|---|");
 
