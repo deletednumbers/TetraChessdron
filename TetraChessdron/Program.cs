@@ -3261,6 +3261,222 @@ namespace TetraChessdron
 
                 }
             }
+            if (copySelectedPieceString == " KN")
+            {
+                List<List<int>> Moveset = new List<List<int>>
+                {
+                    new List<int> {1,2,3},
+                    new List<int> {2,1,3},
+                    new List<int> {2,3,1},
+                    new List<int> {3,2,1},
+                    new List<int> {3,1,2},
+                    new List<int> {1,3,2},
+                    new List<int> {1,2,-3},
+                    new List<int> {2,1,-3},
+                    new List<int> {2,3,-1},
+                    new List<int> {3,2,-1},
+                    new List<int> {3,1,-2},
+                    new List<int> {1,3,-2},
+                    new List<int> {1,-2,3},
+                    new List<int> {2,-1,3},
+                    new List<int> {2,-3,1},
+                    new List<int> {3,-2,1},
+                    new List<int> {3,-1,2},
+                    new List<int> {1,-3,2},
+                    new List<int> {-1,2,3},
+                    new List<int> {-2,1,3},
+                    new List<int> {-2,3,1},
+                    new List<int> {-3,2,1},
+                    new List<int> {-3,1,2},
+                    new List<int> {-1,3,2},
+                    new List<int> {1,-2,-3},
+                    new List<int> {2,-1,-3},
+                    new List<int> {2,-3,-1},
+                    new List<int> {3,-2,-1},
+                    new List<int> {3,-1,-2},
+                    new List<int> {1,-3,-2},
+                    new List<int> {-1,2,-3},
+                    new List<int> {-2,1,-3},
+                    new List<int> {-2,3,-1},
+                    new List<int> {-3,2,-1},
+                    new List<int> {-3,1,-2},
+                    new List<int> {-1,3,-2},
+                    new List<int> {-1,-2,3},
+                    new List<int> {-2,-1,3},
+                    new List<int> {-2,-3,1},
+                    new List<int> {-3,-2,1},
+                    new List<int> {-3,-1,2},
+                    new List<int> {-1,-3,2},
+                    new List<int> {-1,-2,-3},
+                    new List<int> {-2,-1,-3},
+                    new List<int> {-2,-3,-1},
+                    new List<int> {-3,-2,-1},
+                    new List<int> {-3,-1,-2},
+                    new List<int> {-1,-3,-2},
+                };
+                foreach (List<int> moveVector in Moveset)
+                {
+                    int x = moveVector[0] + xSelectionInt;
+                    int y = moveVector[1] + ySelectionInt;
+                    int z = moveVector[2] + zSelectionInt;
+                    if (x < 9)
+                    {
+                        if (x > 0)
+                        {
+                            if (y < 9)
+                            {
+                                if (y > 0)
+                                {
+                                    if (z < 9)
+                                    {
+                                        if (z > 0)
+                                        {
+                                            if (xYZCube[x][y][z].GetCellContents() == "   ")
+                                            {
+                                                if (x == xDestinationInt)
+                                                {
+                                                    if (y == yDestinationInt)
+                                                    {
+                                                        if (z == zDestinationInt)
+                                                        {
+                                                            isALegalMove = true;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            else if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                            {
+                                                if (x == xDestinationInt)
+                                                {
+                                                    if (y == yDestinationInt)
+                                                    {
+                                                        if (z == zDestinationInt)
+                                                        {
+                                                            isALegalMove = true;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            else if (xYZCube[x][y][z].GetCellContents() == null)
+                                            {
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
+            if (copySelectedPieceString == " kn")
+            {
+                List<List<int>> Moveset = new List<List<int>>
+                {
+                    new List<int> {1,2,3},
+                    new List<int> {2,1,3},
+                    new List<int> {2,3,1},
+                    new List<int> {3,2,1},
+                    new List<int> {3,1,2},
+                    new List<int> {1,3,2},
+                    new List<int> {1,2,-3},
+                    new List<int> {2,1,-3},
+                    new List<int> {2,3,-1},
+                    new List<int> {3,2,-1},
+                    new List<int> {3,1,-2},
+                    new List<int> {1,3,-2},
+                    new List<int> {1,-2,3},
+                    new List<int> {2,-1,3},
+                    new List<int> {2,-3,1},
+                    new List<int> {3,-2,1},
+                    new List<int> {3,-1,2},
+                    new List<int> {1,-3,2},
+                    new List<int> {-1,2,3},
+                    new List<int> {-2,1,3},
+                    new List<int> {-2,3,1},
+                    new List<int> {-3,2,1},
+                    new List<int> {-3,1,2},
+                    new List<int> {-1,3,2},
+                    new List<int> {1,-2,-3},
+                    new List<int> {2,-1,-3},
+                    new List<int> {2,-3,-1},
+                    new List<int> {3,-2,-1},
+                    new List<int> {3,-1,-2},
+                    new List<int> {1,-3,-2},
+                    new List<int> {-1,2,-3},
+                    new List<int> {-2,1,-3},
+                    new List<int> {-2,3,-1},
+                    new List<int> {-3,2,-1},
+                    new List<int> {-3,1,-2},
+                    new List<int> {-1,3,-2},
+                    new List<int> {-1,-2,3},
+                    new List<int> {-2,-1,3},
+                    new List<int> {-2,-3,1},
+                    new List<int> {-3,-2,1},
+                    new List<int> {-3,-1,2},
+                    new List<int> {-1,-3,2},
+                    new List<int> {-1,-2,-3},
+                    new List<int> {-2,-1,-3},
+                    new List<int> {-2,-3,-1},
+                    new List<int> {-3,-2,-1},
+                    new List<int> {-3,-1,-2},
+                    new List<int> {-1,-3,-2},
+                };
+                foreach (List<int> moveVector in Moveset)
+                {
+                    int x = moveVector[0] + xSelectionInt;
+                    int y = moveVector[1] + ySelectionInt;
+                    int z = moveVector[2] + zSelectionInt;
+                    if (x < 9)
+                    {
+                        if (x > 0)
+                        {
+                            if (y < 9)
+                            {
+                                if (y > 0)
+                                {
+                                    if (z < 9)
+                                    {
+                                        if (z > 0)
+                                        {
+                                            if (xYZCube[x][y][z].GetCellContents() == "   ")
+                                            {
+                                                if (x == xDestinationInt)
+                                                {
+                                                    if (y == yDestinationInt)
+                                                    {
+                                                        if (z == zDestinationInt)
+                                                        {
+                                                            isALegalMove = true;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            else if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                            {
+                                                if (x == xDestinationInt)
+                                                {
+                                                    if (y == yDestinationInt)
+                                                    {
+                                                        if (z == zDestinationInt)
+                                                        {
+                                                            isALegalMove = true;
+                                                        }
+                                                    }
+                                                }
+                                            }
+                                            else if (xYZCube[x][y][z].GetCellContents() == null)
+                                            {
+                                            }
+                                        }
+                                    }
+                                }
+                            }
+                        }
+                    }
+
+                }
+            }
 
             return isALegalMove;
         }
