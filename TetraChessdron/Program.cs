@@ -4731,54 +4731,36 @@ namespace TetraChessdron
         
         private static void PrintBoardToConsole()
         {
+            
             Console.Clear();
-            for (int z = 1; z < 9; z++)
+            for (int x = 1; x < 9; x++)
             {
-                List<string> sliceOfCubeList = new List<string>();
-                List<string> sliceOfCubeCoordinateList = new List<string>();
-
                 for (int y = 1; y < 9; y++)
                 {
-                    List<string> lineStringList = new List<string>();
-                    List<string> lineCoordinateStringList = new List<string>();
-                    for (int x = 1; x < 9; x++)
+                    for (int z = 1; z < 9; z++)
                     {
                         if (xYZCube[x][y][z].GetCellContents() != null)
                         {
                             string entry = xYZCube[x][y][z].GetCellContents() + "|";
                             string entryCoordinate = x.ToString() + y.ToString() + z.ToString() + "|";
-                            lineStringList.Add(entry);
-                            lineCoordinateStringList.Add(entryCoordinate);
+                            Console.Write(entry);
+                            Console.Write(entryCoordinate);
                         }
                         else
                         {
                             string entry = "    ";
                             string entryCoordinate = "    ";
-                            lineStringList.Add(entry);
-                            lineCoordinateStringList.Add(entryCoordinate);
+                            Console.Write(entry);
+                            Console.Write(entryCoordinate);
+
                         }
                     }
-                    foreach (string entry in lineStringList)
-                    {
-                        sliceOfCubeList.Add(entry);
-                    }
-                    foreach (string entry in lineCoordinateStringList)
-                    {
-                        sliceOfCubeCoordinateList.Add(entry);
-                    }
-                }
-                foreach (string entry in sliceOfCubeList)
-                {
-                    Console.Write(entry);
+                    Console.WriteLine();
                 }
                 Console.WriteLine();
-                foreach (string entry in sliceOfCubeCoordinateList)
-                {
-                    Console.Write(entry);
-                }
-                Console.WriteLine();
-
             }
+
+
             /*
             List<List<int>> row1 = new List<List<int>>
             {
