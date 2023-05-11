@@ -4741,9 +4741,11 @@ namespace TetraChessdron
                     {
                         if (xYZCube[x][y][z].GetCellContents() != null)
                         {
-                            string entry = xYZCube[x][y][z].GetCellContents() + "|";
+                            Console.BackgroundColor = xYZCube[x][y][z].GetCellColor();
+                            Console.Write(xYZCube[x][y][z].GetCellContents());
+                            Console.BackgroundColor = xYZCube[x][y][z].SetDefaultCellColor();
+                            Console.Write("|");
                             string entryCoordinate = x.ToString() + y.ToString() + z.ToString() + "|";
-                            Console.Write(entry);
                             Console.Write(entryCoordinate);
                         }
                         else
