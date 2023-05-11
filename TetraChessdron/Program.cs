@@ -3611,11 +3611,8 @@ namespace TetraChessdron
                                                 }
                                                 else if (pieceList1.Contains(xYZCube[x][y][z].GetCellContents()) == true)
                                                 {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGray);
                                                     break;
-                                                }
-                                                else if (xYZCube[x][y][z].GetCellContents() == null)
-                                                {
-                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
                                                 }
                                             }
                                         }
@@ -3673,11 +3670,8 @@ namespace TetraChessdron
                                                 }
                                                 else if (pieceList2.Contains(xYZCube[x][y][z].GetCellContents()) == true)
                                                 {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGray);
                                                     break;
-                                                }
-                                                else if (xYZCube[x][y][z].GetCellContents() == null)
-                                                {
-                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
                                                 }
                                             }
                                         }
@@ -3747,11 +3741,8 @@ namespace TetraChessdron
                                                 }
                                                 else if (pieceList1.Contains(xYZCube[x][y][z].GetCellContents()) == true)
                                                 {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGray);
                                                     break;
-                                                }
-                                                else if (xYZCube[x][y][z].GetCellContents() == null)
-                                                {
-                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
                                                 }
                                             }
                                         }
@@ -3821,11 +3812,8 @@ namespace TetraChessdron
                                                 }
                                                 else if (pieceList2.Contains(xYZCube[x][y][z].GetCellContents()) == true)
                                                 {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGray);
                                                     break;
-                                                }
-                                                else if (xYZCube[x][y][z].GetCellContents() == null)
-                                                {
-                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
                                                 }
                                             }
                                         }
@@ -3907,10 +3895,8 @@ namespace TetraChessdron
                                                 }
                                                 else if (pieceList1.Contains(xYZCube[x][y][z].GetCellContents()) == true)
                                                 {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGray);
                                                     break;
-                                                }
-                                                else if (xYZCube[x][y][z].GetCellContents() == null)
-                                                {
                                                 }
                                             }
                                         }
@@ -3992,11 +3978,8 @@ namespace TetraChessdron
                                                 }
                                                 else if (pieceList2.Contains(xYZCube[x][y][z].GetCellContents()) == true)
                                                 {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGray);
                                                     break;
-                                                }
-                                                else if (xYZCube[x][y][z].GetCellContents() == null)
-                                                {
-                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
                                                 }
                                             }
                                         }
@@ -4073,9 +4056,9 @@ namespace TetraChessdron
                                                 {
                                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
                                                 }
-                                                else if (xYZCube[x][y][z].GetCellContents() == null)
+                                                else if (pieceList1.Contains(xYZCube[x][y][z].GetCellContents()) == true)
                                                 {
-                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGray);
                                                 }
                                             }
                                         }
@@ -4152,9 +4135,9 @@ namespace TetraChessdron
                                             {
                                                 xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
                                             }
-                                            else if (xYZCube[x][y][z].GetCellContents() == null)
+                                            else if (pieceList2.Contains(xYZCube[x][y][z].GetCellContents()) == true)
                                             {
-                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGray);
                                             }
                                         }
                                     }
@@ -4243,9 +4226,9 @@ namespace TetraChessdron
                                                 {
                                                     xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
                                                 }
-                                                else if (xYZCube[x][y][z].GetCellContents() == null)
+                                                else if (pieceList1.Contains(xYZCube[x][y][z].GetCellContents()) == true)
                                                 {
-                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGray);
                                                 }
                                             }
                                         }
@@ -4333,9 +4316,9 @@ namespace TetraChessdron
                                             {
                                                 xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
                                             }
-                                            else if (xYZCube[x][y][z].GetCellContents() == null)
+                                            else if (pieceList2.Contains(xYZCube[x][y][z].GetCellContents()) == true)
                                             {
-                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGray);
                                             }
                                         }
                                     }
@@ -4453,6 +4436,14 @@ namespace TetraChessdron
                                             {
                                                 xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
                                             }
+                                            if (pieceList1.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGray);
+                                            }
+                                            if (xYZCube[x][y][z].GetCellContents() == "   ")
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGray);
+                                            }
                                         }
                                     }
                                 }
@@ -4568,6 +4559,14 @@ namespace TetraChessdron
                                             if (pieceList1.Contains(xYZCube[x][y][z].GetCellContents()) == true)
                                             {
                                                 xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                            }
+                                            if (pieceList2.Contains(xYZCube[x][y][z].GetCellContents()) == true)
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGray);
+                                            }
+                                            if (xYZCube[x][y][z].GetCellContents() == "   ")
+                                            {
+                                                xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGray);
                                             }
                                         }
                                     }
