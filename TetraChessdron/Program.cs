@@ -3911,7 +3911,6 @@ namespace TetraChessdron
                                                 }
                                                 else if (xYZCube[x][y][z].GetCellContents() == null)
                                                 {
-                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
                                                 }
                                             }
                                         }
@@ -4583,8 +4582,7 @@ namespace TetraChessdron
         private static void SetupTeams()
         {
             //experimental pieces
-
-
+            
             //team 1
             xYZCube[1][1][1].SetCellContents(" R ");
             xYZCube[1][2][2].SetCellContents(" KN");
@@ -4631,29 +4629,39 @@ namespace TetraChessdron
             xYZCube[7][7][1].SetCellContents(" p ");
             xYZCube[7][7][3].SetCellContents(" p ");
             xYZCube[7][8][2].SetCellContents(" p ");
+            
         }
         private static void WriteTetrahedronBoardOntoCube()
         {
-
-            for (var x = 1; x < 9; x++)
+            for (int tz = 0; tz < 8; tz++)
             {
-                for (var y = 1; y < 9; y++)
+                List<string> secondlineStringList = new List<string>();
+
+                for (int ty = 0; ty < 8; ty++)
                 {
-                    for (var z = 1; z < 9; z++)
+                    List<string> lineStringList = new List<string>();
+
+                    for (int tx = 0; tx < 8; tx++)
                     {
-                        if (x > 8 | y > 8 | z > 8)
+                        int cx = tx + tz + 1;
+                        int cy = ty + tz + 1;
+                        int cz = tx + ty + 1;
+
+                        if (cx < 9 && cy < 9 && cz < 9 && cx + cy + cz < 18)
                         {
-                            break;
+                            xYZCube[cx][cy][cz].SetCellContents("   ");
+                            string entry = cx.ToString() + cy.ToString() + cz.ToString() + xYZCube[cx][cy][cz].GetCellContents();
+                            lineStringList.Add(entry);
                         }
-                        if (x + y + z > 17)
-                        {
-                            break;
-                        }
-                        xYZCube[x][y][z].SetCellContentsToEmpty();
+                    }
+
+                    foreach(string entry in lineStringList)
+                    {
+                        Console.Write(entry);
                     }
                 }
+                Console.WriteLine();
             }
-
         }
         private static List<List<List<CubeCell>>> MakeCube()
         {
@@ -4720,8 +4728,58 @@ namespace TetraChessdron
                 return cellContents;
             }
         }
+        
         private static void PrintBoardToConsole()
         {
+            Console.Clear();
+            for (int z = 1; z < 9; z++)
+            {
+                List<string> sliceOfCubeList = new List<string>();
+                List<string> sliceOfCubeCoordinateList = new List<string>();
+
+                for (int y = 1; y < 9; y++)
+                {
+                    List<string> lineStringList = new List<string>();
+                    List<string> lineCoordinateStringList = new List<string>();
+                    for (int x = 1; x < 9; x++)
+                    {
+                        if (xYZCube[x][y][z].GetCellContents() != null)
+                        {
+                            string entry = xYZCube[x][y][z].GetCellContents() + "|";
+                            string entryCoordinate = x.ToString() + y.ToString() + z.ToString() + "|";
+                            lineStringList.Add(entry);
+                            lineCoordinateStringList.Add(entryCoordinate);
+                        }
+                        else
+                        {
+                            string entry = "    ";
+                            string entryCoordinate = "    ";
+                            lineStringList.Add(entry);
+                            lineCoordinateStringList.Add(entryCoordinate);
+                        }
+                    }
+                    foreach (string entry in lineStringList)
+                    {
+                        sliceOfCubeList.Add(entry);
+                    }
+                    foreach (string entry in lineCoordinateStringList)
+                    {
+                        sliceOfCubeCoordinateList.Add(entry);
+                    }
+                }
+                foreach (string entry in sliceOfCubeList)
+                {
+                    Console.Write(entry);
+                }
+                Console.WriteLine();
+                foreach (string entry in sliceOfCubeCoordinateList)
+                {
+                    Console.Write(entry);
+                }
+                Console.WriteLine();
+
+            }
+            /*
             List<List<int>> row1 = new List<List<int>>
             {
             new List<int> { 1, 8, 8 },new List<int> { 2, 8, 7 },new List<int> { 3, 8, 6 },new List<int> { 4, 8, 5 },new List<int> { 5, 8, 4 },new List<int> { 6, 8, 3 },new List<int> { 7, 8, 2 },new List<int> { 8, 8, 1 }
@@ -5105,6 +5163,7 @@ namespace TetraChessdron
             Console.WriteLine("|");
             Console.WriteLine("|111|212|313|414|515|616|717|818|");
             Console.WriteLine("");
+            */
         }
     }
 }
