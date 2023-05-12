@@ -4577,12 +4577,6 @@ namespace TetraChessdron
         {
             //experimental pieces
 
-            xYZCube[1][1][1].SetCellContents(" Q ");
-            xYZCube[1][2][2].SetCellContents(" Q ");
-            xYZCube[1][3][3].SetCellContents(" Q ");
-            xYZCube[8][4][5].SetCellContents(" k ");
-
-            /*
             //team 1
             xYZCube[1][1][1].SetCellContents(" R ");
             xYZCube[1][2][2].SetCellContents(" KN");
@@ -4629,7 +4623,6 @@ namespace TetraChessdron
             xYZCube[7][7][1].SetCellContents(" p ");
             xYZCube[7][7][3].SetCellContents(" p ");
             xYZCube[7][8][2].SetCellContents(" p ");
-            */
         }
         private static void WriteTetrahedronBoardOntoCube()
         {
