@@ -77,44 +77,30 @@ namespace TetraChessdron
                                             int x = (moveVector[0] * index) + xSelectionInt;
                                             int y = (moveVector[1] * index) + ySelectionInt;
                                             int z = (moveVector[2] * index) + zSelectionInt;
-                                            if (x < 9)
+                                            if (x < 9&&x > 0&&y < 9&&y > 0&&z < 9&&z > 0)
                                             {
-                                                if (x > 0)
+                                                if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
                                                 {
-                                                    if (y < 9)
-                                                    {
-                                                        if (y > 0)
-                                                        {
-                                                            if (z < 9)
-                                                            {
-                                                                if (z > 0)
-                                                                {
-                                                                    if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
-                                                                    {
-                                                                        break;
-                                                                    }
-
-                                                                    if (xYZCube[x][y][z].GetCellContents() == " k ")
-                                                                    {
-                                                                        xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
-                                                                        xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
-                                                                        PrintBoardToConsole();
-                                                                        Console.WriteLine("player 2's king is in check");
-                                                                        if (thePlayersTurnBool == true)
-                                                                        {
-                                                                            Console.WriteLine("Player 1's turn");
-                                                                        }
-                                                                        else
-                                                                        {
-                                                                            Console.WriteLine("Player 2's turn");
-                                                                        }
-                                                                        return;
-                                                                    }
-                                                                }
-                                                            }
-                                                        }
-                                                    }
+                                                    break;
                                                 }
+
+                                                if (xYZCube[x][y][z].GetCellContents() == " k ")
+                                                {
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkRed);
+                                                    xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellColor(ConsoleColor.DarkGreen);
+                                                    PrintBoardToConsole();
+                                                    Console.WriteLine("player 2's king is in check");
+                                                    if (thePlayersTurnBool == true)
+                                                    {
+                                                        Console.WriteLine("Player 1's turn");
+                                                    }
+                                                    else
+                                                    {
+                                                        Console.WriteLine("Player 2's turn");
+                                                    }
+                                                    return;
+                                                }
+                                                                
                                             }
                                         }
                                     }
@@ -2217,8 +2203,17 @@ namespace TetraChessdron
 
            if (SelfCheckCheck(thePlayersTurnBool) == true)
             {
-                xYZCube = new List<List<List<CubeCell>>>(previousXYZCube);
-
+               
+                for (int x = 0; x < 9; x++)
+                {
+                    for (int y = 0; y < 9; y++)
+                    {
+                        for (int z = 0; z < 9; z++)
+                        {
+                            xYZCube[x][y][z].SetCellContents(previousXYZCube[x][y][z].GetCellContents());
+                        }
+                    }
+                }
                 PrintBoardToConsole();
                 Console.WriteLine("cannot make move, would endanger king");
                 thePlayersTurnBool = !thePlayersTurnBool;
@@ -4581,7 +4576,13 @@ namespace TetraChessdron
         private static void SetupTeams()
         {
             //experimental pieces
-            
+
+            xYZCube[1][1][1].SetCellContents(" Q ");
+            xYZCube[1][2][2].SetCellContents(" Q ");
+            xYZCube[1][3][3].SetCellContents(" Q ");
+            xYZCube[8][4][5].SetCellContents(" k ");
+
+            /*
             //team 1
             xYZCube[1][1][1].SetCellContents(" R ");
             xYZCube[1][2][2].SetCellContents(" KN");
@@ -4628,7 +4629,7 @@ namespace TetraChessdron
             xYZCube[7][7][1].SetCellContents(" p ");
             xYZCube[7][7][3].SetCellContents(" p ");
             xYZCube[7][8][2].SetCellContents(" p ");
-            
+            */
         }
         private static void WriteTetrahedronBoardOntoCube()
         {
