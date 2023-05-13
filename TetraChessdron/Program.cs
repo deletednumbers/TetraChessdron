@@ -20,6 +20,15 @@ namespace TetraChessdron
         private static bool hasTeam2Rook1Moved = false;
         private static bool hasTeam2Rook2Moved = false;
 
+        private static bool hasTeam1UsedPawnOpeningMove = false;
+        private static bool hasTeam2UsedPawnOpeningMove = false;
+        private static List<int> team1LastPawnOpeningMoveOrigin = new List<int> { 0, 0, 0 };
+        private static List<int> team1LastPawnOpeningMoveEnd = new List<int> { 0, 0, 0 };
+        private static List<int> team1LastPawnOpeningMoveAttackLocation = new List<int> { 0, 0, 0 };
+        private static List<int> team2LastPawnOpeningMoveOrigin = new List<int> { 0, 0, 0 };
+        private static List<int> team2LastPawnOpeningMoveEnd = new List<int> { 0, 0, 0 };
+        private static List<int> team2LastPawnOpeningMoveAttackLocation = new List<int> { 0, 0, 0 };
+
         static void Main(string[] args)
         {
             bool theGameIsOngoing = true;
@@ -33,10 +42,12 @@ namespace TetraChessdron
                 if (thePlayersTurnBool == true)
                 {
                     Console.WriteLine("Player 1's turn");
+                    hasTeam1UsedPawnOpeningMove = false;
                 }
                 else
                 {
                     Console.WriteLine("Player 2's turn");
+                    hasTeam2UsedPawnOpeningMove = false;
                 }
                 CheckCheck();
                 MoveAPiece();
@@ -2174,25 +2185,8 @@ namespace TetraChessdron
 
 
 
-            if (CheckForLegalPieceMoveset(copySelectedPieceString, xSelectionInt, ySelectionInt, zSelectionInt, xDestinationInt, yDestinationInt, zDestinationInt) == false)
-            {
-                for (int x = 1; x < 9; x++)
-                {
-                    for (int y = 1; y < 9; y++)
-                    {
-                        for (int z = 1; z < 9; z++)
-                        {
-                            xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
-                        }
-                    }
-                }
 
-                PrintBoardToConsole();
-                Console.WriteLine("not a legal move for this piece");
-                thePlayersTurnBool = !thePlayersTurnBool;
-                return;
-            }
-
+            //save one move, to undo if self check
             for (int x = 0; x < 9; x++)
             {
                 for (int y = 0; y < 9; y++)
@@ -2236,6 +2230,34 @@ namespace TetraChessdron
             xYZCube[xSelectionInt][ySelectionInt][zSelectionInt].SetCellContentsToEmpty();
             xYZCube[xDestinationInt][yDestinationInt][zDestinationInt].SetCellContents(copySelectedPieceString);
 
+            if (CheckForLegalPieceMoveset(copySelectedPieceString, xSelectionInt, ySelectionInt, zSelectionInt, xDestinationInt, yDestinationInt, zDestinationInt) == false)
+            {
+                for (int x = 0; x < 9; x++)
+                {
+                    for (int y = 0; y < 9; y++)
+                    {
+                        for (int z = 0; z < 9; z++)
+                        {
+                            xYZCube[x][y][z].SetCellContents(previousXYZCube[x][y][z].GetCellContents());
+                        }
+                    }
+                }
+                for (int x = 1; x < 9; x++)
+                {
+                    for (int y = 1; y < 9; y++)
+                    {
+                        for (int z = 1; z < 9; z++)
+                        {
+                            xYZCube[x][y][z].SetCellColor(ConsoleColor.Black);
+                        }
+                    }
+                }
+
+                PrintBoardToConsole();
+                Console.WriteLine("not a legal move for this piece");
+                thePlayersTurnBool = !thePlayersTurnBool;
+                return;
+            }
             if (SelfCheckCheck(thePlayersTurnBool) == true)
             {
                
@@ -3151,6 +3173,16 @@ namespace TetraChessdron
                                                             if (z == zDestinationInt)
                                                             {
                                                                 isALegalMove = true;
+                                                                team1LastPawnOpeningMoveOrigin[0] = xSelectionInt;
+                                                                team1LastPawnOpeningMoveOrigin[1] = ySelectionInt;
+                                                                team1LastPawnOpeningMoveOrigin[2] = zSelectionInt;
+                                                                team1LastPawnOpeningMoveEnd[0] = xDestinationInt;
+                                                                team1LastPawnOpeningMoveEnd[1] = yDestinationInt;
+                                                                team1LastPawnOpeningMoveEnd[2] = zDestinationInt;
+                                                                team1LastPawnOpeningMoveAttackLocation[0] = ((xDestinationInt - xSelectionInt) / 2) + xSelectionInt;
+                                                                team1LastPawnOpeningMoveAttackLocation[1] = ((yDestinationInt - ySelectionInt) / 2) + ySelectionInt;
+                                                                team1LastPawnOpeningMoveAttackLocation[2] = ((zDestinationInt - zSelectionInt) / 2) + zSelectionInt;
+                                                                hasTeam1UsedPawnOpeningMove = true;
                                                             }
                                                         }
                                                     }
@@ -3183,6 +3215,13 @@ namespace TetraChessdron
                                     {
                                         if (z > 0)
                                         {
+                                            if (hasTeam2UsedPawnOpeningMove == true)
+                                            {
+                                                if (x == 5)
+                                                {
+
+                                                }
+                                            }
                                             if (pieceList.Contains(xYZCube[x][y][z].GetCellContents()) == true)
                                             {
                                                 if (x == xDestinationInt)
@@ -3203,6 +3242,32 @@ namespace TetraChessdron
                         }
                     }
 
+                }
+
+                List<List<int>> enPassantTargetOriginMoveset = new List<List<int>>
+                {
+                    new List<int> {2,1,3},
+                    new List<int> {2,3,1},
+                    new List<int> {2,1,-3},
+                    new List<int> {2,3,-1},
+                    new List<int> {2,-1,3},
+                    new List<int> {2,-3,1},
+                    new List<int> {2,-1,-3},
+                    new List<int> {2,-3,-1}
+                };
+                if (hasTeam2UsedPawnOpeningMove == true)
+                {
+                    foreach (List<int> target in enPassantTargetOriginMoveset)
+                    {
+                        if (xSelectionInt + target[0] == team2LastPawnOpeningMoveOrigin[0] && ySelectionInt + target[1] == team2LastPawnOpeningMoveOrigin[1] && zSelectionInt + target[2] == team2LastPawnOpeningMoveOrigin[2])
+                        {
+                                if (xYZCube[team2LastPawnOpeningMoveAttackLocation[0]][team2LastPawnOpeningMoveAttackLocation[1]][team2LastPawnOpeningMoveAttackLocation[2]].GetCellContents() == "  ")
+                                {
+                                    isALegalMove = true;
+                                }
+                            
+                        }
+                    }
                 }
             }
             if (copySelectedPieceString == " p ")
@@ -3269,7 +3334,6 @@ namespace TetraChessdron
                 }
                 if (xSelectionInt == 7)
                 {
-
                     foreach (List<int> moveVector in Moveset)
                     {
                         int x = (moveVector[0] * 2) + xSelectionInt;
@@ -3296,6 +3360,16 @@ namespace TetraChessdron
                                                             if (z == zDestinationInt)
                                                             {
                                                                 isALegalMove = true;
+                                                                team2LastPawnOpeningMoveOrigin[0] = xSelectionInt;
+                                                                team2LastPawnOpeningMoveOrigin[1] = ySelectionInt;
+                                                                team2LastPawnOpeningMoveOrigin[2] = zSelectionInt;
+                                                                team2LastPawnOpeningMoveEnd[0] = xDestinationInt;
+                                                                team2LastPawnOpeningMoveEnd[1] = yDestinationInt;
+                                                                team2LastPawnOpeningMoveEnd[2] = zDestinationInt;
+                                                                team2LastPawnOpeningMoveAttackLocation[0] = ((xDestinationInt- xSelectionInt)/2)+ xSelectionInt;
+                                                                team2LastPawnOpeningMoveAttackLocation[1] = ((yDestinationInt- ySelectionInt)/2)+ ySelectionInt;
+                                                                team2LastPawnOpeningMoveAttackLocation[2] = ((zDestinationInt- zSelectionInt)/2)+ zSelectionInt;
+                                                                hasTeam2UsedPawnOpeningMove = true;
                                                             }
                                                         }
                                                     }
@@ -3346,6 +3420,32 @@ namespace TetraChessdron
                         }
                     }
 
+                }
+
+                List<List<int>> enPassantTargetOriginMoveset = new List<List<int>>
+                {
+                    new List<int> {2,1,3},
+                    new List<int> {2,3,1},
+                    new List<int> {2,1,-3},
+                    new List<int> {2,3,-1},
+                    new List<int> {2,-1,3},
+                    new List<int> {2,-3,1},
+                    new List<int> {2,-1,-3},
+                    new List<int> {2,-3,-1}
+                };
+                if (hasTeam1UsedPawnOpeningMove == true)
+                {
+                    foreach (List<int> target in enPassantTargetOriginMoveset)
+                    {
+                        if (xSelectionInt + target[0] == team1LastPawnOpeningMoveOrigin[0] && ySelectionInt + target[1] == team1LastPawnOpeningMoveOrigin[1] && zSelectionInt + target[2] == team1LastPawnOpeningMoveOrigin[2])
+                        {
+                                if (xYZCube[team1LastPawnOpeningMoveAttackLocation[0]][team1LastPawnOpeningMoveAttackLocation[1]][team1LastPawnOpeningMoveAttackLocation[2]].GetCellContents() == "  ")
+                                {
+                                    isALegalMove = true;
+                                }
+                            
+                        }
+                    }
                 }
             }
             if (copySelectedPieceString == " KN")
@@ -4507,7 +4607,7 @@ namespace TetraChessdron
                                             {
                                                 if (xYZCube[x][y][z].GetCellContents() == "   ")
                                                 {
-                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGreen);
                                                 }
                                             }
                                         }
@@ -4557,9 +4657,48 @@ namespace TetraChessdron
                     }
 
                 }
+
+                List<List<int>> enPassantTargetOriginMoveset = new List<List<int>>
+                {
+                    new List<int> {2,1,3},
+                    new List<int> {2,3,1},
+                    new List<int> {2,1,-3},
+                    new List<int> {2,3,-1},
+                    new List<int> {2,-1,3},
+                    new List<int> {2,-3,1},
+                    new List<int> {2,-1,-3},
+                    new List<int> {2,-3,-1},
+                };
+                if (hasTeam2UsedPawnOpeningMove == true)
+                {
+                    foreach (List<int> target in enPassantTargetOriginMoveset)
+                    {
+                        if (xSelectionInt + target[0] == team2LastPawnOpeningMoveOrigin[0] && ySelectionInt + target[1] == team2LastPawnOpeningMoveOrigin[1] && zSelectionInt + target[2] == team2LastPawnOpeningMoveOrigin[2])
+                        {
+                            if (Math.Abs(xSelectionInt - team2LastPawnOpeningMoveEnd[0]) == 0 && Math.Abs(ySelectionInt - team2LastPawnOpeningMoveEnd[1]) == 1 && Math.Abs(zSelectionInt - team2LastPawnOpeningMoveEnd[2]) == 1)
+                            {
+                                if(xYZCube[team2LastPawnOpeningMoveAttackLocation[0]][team2LastPawnOpeningMoveAttackLocation[1]][team2LastPawnOpeningMoveAttackLocation[2]].GetCellContents() == "  ")
+                                {
+                                    xYZCube[team2LastPawnOpeningMoveAttackLocation[0]][team2LastPawnOpeningMoveAttackLocation[1]][team2LastPawnOpeningMoveAttackLocation[2]].SetCellColor(ConsoleColor.DarkGreen);
+                                }
+                            }
+                        }
+                    }
+                }
             }
             if (copySelectedPieceString == " p ")
             {
+                List<List<int>> enPassantTargetOriginMoveset = new List<List<int>>
+                {
+                    new List<int> {-2,1,3},
+                    new List<int> {-2,3,1},
+                    new List<int> {-2,1,-3},
+                    new List<int> {-2,3,-1},
+                    new List<int> {-2,-1,3},
+                    new List<int> {-2,-3,1},
+                    new List<int> {-2,-1,-3},
+                    new List<int> {-2,-3,-1},
+                };
                 List<List<int>> Moveset = new List<List<int>>
                 {
                     new List<int> {-1,1,0},
@@ -4633,7 +4772,7 @@ namespace TetraChessdron
                                             {
                                                 if (xYZCube[x][y][z].GetCellContents() == "   ")
                                                 {
-                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkMagenta);
+                                                    xYZCube[x][y][z].SetCellColor(ConsoleColor.DarkGreen);
                                                 }
                                             }
                                         }
@@ -4681,18 +4820,29 @@ namespace TetraChessdron
                     }
 
                 }
+
+                if (hasTeam1UsedPawnOpeningMove == true)
+                {
+                    foreach (List<int> target in enPassantTargetOriginMoveset)
+                    {
+                        if (xSelectionInt + target[0] == team1LastPawnOpeningMoveOrigin[0] && ySelectionInt + target[1] == team1LastPawnOpeningMoveOrigin[1] && zSelectionInt + target[2] == team1LastPawnOpeningMoveOrigin[2])
+                        {
+                            if (Math.Abs(xSelectionInt - team1LastPawnOpeningMoveEnd[0]) == 0 && Math.Abs(ySelectionInt - team1LastPawnOpeningMoveEnd[1]) == 1 && Math.Abs(zSelectionInt - team1LastPawnOpeningMoveEnd[2]) == 1)
+                            {
+                                if (xYZCube[team1LastPawnOpeningMoveAttackLocation[0]][team1LastPawnOpeningMoveAttackLocation[1]][team1LastPawnOpeningMoveAttackLocation[2]].GetCellContents() == "  ")
+                                {
+                                    xYZCube[team1LastPawnOpeningMoveAttackLocation[0]][team1LastPawnOpeningMoveAttackLocation[1]][team1LastPawnOpeningMoveAttackLocation[2]].SetCellColor(ConsoleColor.DarkGreen);
+                                }
+                            }
+                        }
+                    }
+                }
             }
         }
         private static void SetupTeams()
         {
             //experimental pieces
-            xYZCube[1][1][1].SetCellContents(" R ");
-            xYZCube[1][8][8].SetCellContents(" R ");
-            xYZCube[1][5][5].SetCellContents(" K ");
-            xYZCube[8][1][8].SetCellContents(" r ");
-            xYZCube[8][8][1].SetCellContents(" r ");
-            xYZCube[8][4][5].SetCellContents(" k ");
-            /*
+
             //team 1
             xYZCube[1][1][1].SetCellContents(" R ");
             xYZCube[1][2][2].SetCellContents(" KN");
@@ -4739,7 +4889,6 @@ namespace TetraChessdron
             xYZCube[7][7][1].SetCellContents(" p ");
             xYZCube[7][7][3].SetCellContents(" p ");
             xYZCube[7][8][2].SetCellContents(" p ");
-            */
         }
         private static void WriteTetrahedronBoardOntoCube()
         {
